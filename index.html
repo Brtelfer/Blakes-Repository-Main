@@ -5,47 +5,77 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dashboard</title>
 <style>
-    body {
-        font-family: Arial, sans-serif;
-    }
-    table {
-        border-collapse: collapse;
-        width: 100%;
-        background-color: #e6f1ff; /* Light blue background color */
-    }
-    th, td {
-        border: 1px solid #9cd0f0; /* Light blue border color */
-        padding: 8px;
-        text-align: center;
-    }
-    th {
-        background-color: #6eb8e6; /* Dark blue header background color */
-        color: #ffffff; /* White text color */
-    }
-    .tab {
-        overflow: hidden;
-        background-color: #f1f1f1;
-        text-align: center; /* Center align the contents */
-    }
-    .tab button {
-        background-color: #4d90fe; /* Blue button background color */
-        color: #ffffff; /* White button text color */
-        border: none;
-        outline: none;
-        cursor: pointer;
-        padding: 14px 16px;
-        transition: 0.3s;
-        font-size: 17px;
-    }
-    .tab button:hover {
-        background-color: #357ae8; /* Darker blue on hover */
-    }
-    .tab button.active {
-        background-color: #1e488f; /* Dark blue when active */
-    }
-    .Time-Spent, .Completion-Progress, .Lesson-Percentage-Correct, .Quiz-Percentage-Correct {
-        display: none;
-    }
+   body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2; /* Light gray background */
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #fff; 
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Adding shadow */
+}
+
+th, td {
+    border: 1px solid #ddd; /* Light gray border color */
+    padding: 10px;
+    text-align: center;
+    border-radius:0px;
+}
+
+th {
+    background-color: #4CAF50; /* Dark green header background color */
+    color: #fff; /* White text color */
+}
+
+.tab {
+	display: flex;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #ddd; /* Light gray background */
+    text-align: center; /* Center align the contents */
+}
+
+.tab button {
+    background-color: #4CAF50; /* Green button background color */
+    color: #fff; /* White button text color */
+    border: none;
+    outline: none;
+    cursor: pointer;
+ 	padding: 15px 11px;
+    margin: 10 10px;
+    transition: 0.3s;
+    font-size: 20px;
+    flex-grow: 1;
+}
+
+.tab button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.tab button.active {
+    background-color: #333; /* Dark gray when active */
+}
+
+.Time-Spent, .Completion-Progress, .Lesson-Percentage-Correct, .Quiz-Percentage-Correct {
+    display: none;
+}
+
+/* Adding bottom border to each row */
+table.custom-table tr {
+    border-bottom: 1px solid #ddd;
+}
+
+/* Adding lighter background to every second row */
+table.custom-table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Lighter background color */
+}
+
+/* Adding dark border to the very last row */
+table.custom-table tr:last-child {
+    border-bottom: 2px solid #4CAF50; /* Dark green border color */
+}
 </style>
 </head>
 <body>
