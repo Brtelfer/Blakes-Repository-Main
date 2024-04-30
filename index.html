@@ -5,216 +5,217 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dashboard</title>
 <style>
-   body {
+body {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2; /* Light gray background */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 table {
-    border-collapse: collapse;
     width: 100%;
-    background-color: #fff; 
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Adding shadow */
+    border-collapse: collapse;
+    border-radius: 0px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 th, td {
-    border: 1px solid #ddd; /* Light gray border color */
-    padding: 10px;
+    padding: 15px;
     text-align: center;
-    border-radius:0px;
+    border-bottom: 1px solid #ddd; /* Add border to the bottom of each cell */
+    border-right: 1px solid #ddd;
+    
+}
+th {
+	border-bottom:1px solid black;
 }
 
-th {
-    background-color: #4CAF50; /* Dark green header background color */
-    color: #fff; /* White text color */
+tr:nth-child(even) {
+    box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.1); /* Shadow between rows for even rows */
+}
+
+tr:nth-child(odd) {
+    box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.1);
+ /* Shadow between rows for odd rows */
 }
 
 .tab {
-	display: flex;
+    display: flex;
     justify-content: center;
-    overflow: hidden;
-    background-color: #ddd; /* Light gray background */
-    text-align: center; /* Center align the contents */
-    padding-left:5px;
+    background-color: #4CAF50; /* Dark green background for tabs */
+    color: #fff; /* White text color for tabs */
+    border-bottom: 2px solid #357834; /* Darker green border at the bottom */
+    padding: 10px 0; /* Add padding at the top and bottom
+    */
+    border-radius:10px 0px 0 0;
 }
 
 .tab button {
-    background-color: #4CAF50; /* Green button background color */
-    color: #fff; /* White button text color */
+    background-color: inherit;
     border: none;
     outline: none;
     cursor: pointer;
- 	padding: 15px 57px;
-    margin: 5 10px;
-    transition: 0.3s;
-    font-size: 20px;
+    padding: 10px 30px;
+    margin: 0 5px;
+    transition: background-color 0.3s;
+    color:white;
+    font-size:large;
+    border-radius: 10px 10px 0 0;
+    font-weight:bold;
 }
 
 .tab button:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: #357834; /* Darker green on hover */
 }
 
 .tab button.active {
     background-color: #333; /* Dark gray when active */
 }
-
-.Time-Spent, .Completion-Progress, .Lesson-Percentage-Correct, .Quiz-Percentage-Correct {
-    display: none;
-}
-
-/* Adding bottom border to each row */
-table.custom-table tr {
-    border-bottom: 1px solid #ddd;
-}
-
-/* Adding lighter background to every second row */
-table.custom-table tr:nth-child(even) {
-    background-color: #f2f2f2; /* Lighter background color */
-}
-
-/* Adding dark border to the very last row */
-table.custom-table tr:last-child {
-    border-bottom: 2px solid #4CAF50; /* Dark green border color */
-}
 </style>
 </head>
 <body>
 
-<div class="tab">
-    <div class="tab-buttons">
+<div class="container">
+    <div class="tab">
         <button class="tablinks" onclick="openSheet(event, 'Time-Spent')">Participant Performance</button>
         <button class="tablinks" onclick="openSheet(event, 'Completion-Progress')">Lesson Progress</button>
         <button class="tablinks" onclick="openSheet(event, 'Lesson-Percentage-Correct')" id="defaultOpen">Lesson Percentage Correct</button>
         <button class="tablinks" onclick="openSheet(event, 'Quiz-Percentage-Correct')">Quiz Percentage Correct</button>
     </div>
-</div>
 
-<div id="Time-Spent" class="Time-Spent">
-    <table class="custom-table">
-        <thead>
-            <tr>
-                <th>Participant</th>
-                <th>Lesson</th>
-                <th>Session</th>
-                <th>Elapsed Time (Min)</th>
-                <th>First Start Date</th>
-                <th>Last Start Date</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><a href="mailto:bdcUMtest@bdc.org">bdcUMtest@bdc.org</a></td>
-                <td>6</td>
-                <td>1</td>
-                <td>17:32</td>
-                <td>2024-03-18 07:05 PM</td>
-                <td>2024-03-18 06:48 PM</td>
-            </tr>
-            <tr>
-                <td><a href="mailto:bdcUMtest@bdc.org">bdcUMtest@bdc.org</a></td>
-                <td>6</td>
-                <td>2</td>
-                <td>09:35</td>
-                <td>2024-03-18 07:18 PM</td>
-                <td>2024-03-18 07:09 PM</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+    <div id="Time-Spent" class="Time-Spent">
+        <table>
+            <thead>
+                <tr>
+                    <th>Participant</th>
+                    <th>Lesson</th>
+                    <th>Session</th>
+                    <th>Elapsed Time (Min)</th>
+                    <th>First Start Date</th>
+                    <th>Last Start Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="mailto:bdcUMtest@bdc.org">bdcUMtest@bdc.org</a></td>
+                    <td>6</td>
+                    <td>1</td>
+                    <td>17:32</td>
+                    <td>2024-03-18 07:05 PM</td>
+                    <td>2024-03-18 06:48 PM</td>
+                </tr>
+                <tr>
+                    <td><a href="mailto:bdcUMtest@bdc.org">bdcUMtest@bdc.org</a></td>
+                    <td>6</td>
+                    <td>2</td>
+                    <td>09:35</td>
+                    <td>2024-03-18 07:18 PM</td>
+                    <td>2024-03-18 07:09 PM</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-<div id="Completion-Progress" class="Completion-Progress">
-    <table class="custom-table">
-        <thead>
-            <tr>
-                <th>Participant</th>
-                <th>Lesson 6</th>
-                <th>Lesson 21</th>
-                <th>Lesson 23</th>
-                <th>Lesson 24</th>
-                <th>Lesson 28</th>
-                <th>Lesson 29</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><a href="mailto:bdcUMtest@bdc.org">bdcUMtest@bdc.org</a></td>
-                <td>Completed</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+    <div id="Completion-Progress" class="Completion-Progress" style="display: none;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Participant</th>
+                    <th>Lesson 6</th>
+                    <th>Lesson 21</th>
+                    <th>Lesson 23</th>
+                    <th>Lesson 24</th>
+                    <th>Lesson 28</th>
+                    <th>Lesson 29</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="mailto:bdcUMtest@bdc.org">bdcUMtest@bdc.org</a></td>
+                    <td>Completed</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-<div id="Lesson-Percentage-Correct" class="Lesson-Percentage-Correct" style="display: block;">
-    <table class="custom-table">
-        <thead>
-            <tr>
-                <th>Participant</th>
-                <th>Lesson</th>
-                <th>Part</th>
-                <th>Time Spent (Min)</th>
-                <th>Percentage Correct</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td rowspan="3"><a href="mailto:bdcUMtest@bdc.org">bdcUMtest@bdc.org</a></td>
-                <td rowspan="3">Lesson 6</td>
-                <td>1</td>
-                <td>7.90</td>
-                <td>20.00%</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>15.77</td>
-                <td>25.00%</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>17.32</td>
-                <td>0%</td>
-            </tr>
-            <tr>
-                <td colspan="3" style="font-size:large;"><b>Total Time Spent:</b></td>
-                <td><b>41.99</b></td>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+    <div id="Lesson-Percentage-Correct" class="Lesson-Percentage-Correct">
+        <table>
+            <thead>
+                <tr>
+                    <th>Participant</th>
+                    <th>Lesson</th>
+                    <th>Part</th>
+                    <th>Time Spent (Min)</th>
+                    <th>Percentage Correct</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="3"><a href="mailto:bdcUMtest@bdc.org">bdcUMtest@bdc.org</a></td>
+                    <td rowspan="3">Lesson 6</td>
+                    <td>1</td>
+                    <td>7.90</td>
+                    <td>20.00%</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>15.77</td>
+                    <td>25.00%</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>17.32</td>
+                    <td>0%</td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="font-size:large;"><b>Total Time Spent:</b></td>
+                    <td><b>41.99</b></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-
-<div id="Quiz-Percentage-Correct" class="Quiz-Percentage-Correct">
-    <table class="custom-table">
-        <thead>
-            <tr>
-                <th>Participant</th>
-                <th>Lesson Identifier</th>
-                <th>Percentage Correct</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><a href="mailto:bdcUMtest@bdc.org">bdcUMtest@bdc.org</a></td>
-                <td>Lesson 6 Quiz 2</td>
-                <td>10.00% correct</td>
-            </tr>
-            <tr>
-                <td><a href="mailto:bdcUMtest@bdc.org">bdcUMtest@bdc.org</a></td>
-                <td>Lesson 6 Quiz 1</td>
-                <td>50.00% correct</td>
-            </tr>
-            <tr>
-                <td><a href="mailto:bdcUMtest@bdc.org">bdcUMtest@bdc.org</a></td>
-                <td>Lesson 6 Warm Up</td>
-                <td>35.71% correct</td>
-            </tr>
-        </tbody>
-    </table>
+    <div id="Quiz-Percentage-Correct" class="Quiz-Percentage-Correct">
+        <table>
+            <thead>
+                <tr>
+                    <th>Participant</th>
+                    <th>Lesson Identifier</th>
+                    <th>Percentage Correct</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="mailto:bdcUMtest@bdc.org">bdcUMtest@bdc.org</a></td>
+                    <td>Lesson 6 Quiz 2</td>
+                    <td>10.00% correct</td>
+                </tr>
+                <tr>
+                    <td><a href="mailto:bdcUMtest@bdc.org">bdcUMtest@bdc.org</a></td>
+                    <td>Lesson 6 Quiz 1</td>
+                    <td>50.00% correct</td>
+                </tr>
+                <tr>
+                    <td><a href="mailto:bdcUMtest@bdc.org">bdcUMtest@bdc.org</a></td>
+                    <td>Lesson 6 Warm Up</td>
+                    <td>35.71% correct</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <script>
