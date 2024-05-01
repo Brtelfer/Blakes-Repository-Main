@@ -105,8 +105,11 @@ tr:nth-child(odd) {
         <button class="tablinks" onclick="openSheet(event, 'Completion-Progress')">Lesson Progress</button>
         <button class="tablinks" onclick="openSheet(event, 'Lesson-Percentage-Correct')" id="defaultOpen">Lesson Percentage Correct</button>
         <button class="tablinks" onclick="openSheet(event, 'Quiz-Percentage-Correct')">Quiz Percentage Correct</button>
-        <div id="popupContainer" style="position: absolute; display: none; background-color: #fff; border: 1px solid #ccc; padding: 10px; color:black">
-    <!-- Content will be dynamically updated -->
+        <div id="L6popupContainer" style="position: absolute; display: none; background-color: #fff; border: 1px solid #ccc; padding: 10px;">
+            Word Meaning Clues
+    </div>
+    <div id="L24popupContainer" style="position: absolute; display: none; background-color: #fff; border: 1px solid #ccc; padding: 10px;">
+        Time and Order
 </div>
     </div>
 
@@ -218,32 +221,32 @@ tr:nth-child(odd) {
             <button class="sort-btn" onclick="sortTable(1, 'desc')">▼</button>
         </th>
         <th>
-            L6
+            Lesson 6
             <button class="sort-btn" onclick="sortTable(1, 'asc')">▲</button>
             <button class="sort-btn" onclick="sortTable(1, 'desc')">▼</button>
         </th>
         <th>
-            L21
+            Lesson 21
             <button class="sort-btn" onclick="sortTable(1, 'asc')">▲</button>
             <button class="sort-btn" onclick="sortTable(1, 'desc')">▼</button>
         </th>
         <th>
-            L23
+            Lesson 23
             <button class="sort-btn" onclick="sortTable(1, 'asc')">▲</button>
             <button class="sort-btn" onclick="sortTable(1, 'desc')">▼</button>
         </th>
         <th>
-            L24
+            Lesson 24
             <button class="sort-btn" onclick="sortTable(1, 'asc')">▲</button>
             <button class="sort-btn" onclick="sortTable(1, 'desc')">▼</button>
         </th>
         <th>
-            L28
+            Lesson 28
             <button class="sort-btn" onclick="sortTable(1, 'asc')">▲</button>
             <button class="sort-btn" onclick="sortTable(1, 'desc')">▼</button>
         </th>
         <th>
-            L29
+            Lesson 29
             <button class="sort-btn" onclick="sortTable(1, 'asc')">▲</button>
             <button class="sort-btn" onclick="sortTable(1, 'desc')">▼</button>
         </th>
@@ -672,36 +675,12 @@ tr:nth-child(odd) {
     // Get the element with id="defaultOpen" and click on it
     document.getElementById("defaultOpen").click();
     // Function to display the popup
-   // Function to show the popup
     function showPopup(event) {
-    var popup = document.getElementById('popupContainer');
-    // Log the event target to the console
-    console.log(event.target.textContent);
-    // Set the content of the popup based on the lesson
-    var lessonContent = '';
-    if (containsText(event.target, 'L6')) {
-        lessonContent = 'Word Meaning Clues';
-    } else if (containsText(event.target, 'L24')) {
-        lessonContent = 'Time and Order';
+        var popup = document.getElementById('popupContainer');
+        popup.style.display = 'block';
+        popup.style.left = event.clientX + 'px';
+        popup.style.top = event.clientY + 'px';
     }
-    else if (containsText(event.target, 'L21')) {
-        lessonContent = 'Cause and Effect';
-    }
-    else if (containsText(event.target, 'L23')) {
-        lessonContent = 'Compare and Contrast';
-    }
-    else if (containsText(event.target, 'L28')) {
-        lessonContent = 'Inferences From Text';
-    }
-    else if (containsText(event.target, 'L29')) {
-        lessonContent = 'Complex Persuasive Texts';
-    }
-    popup.innerHTML = lessonContent;
-    // Position the popup and display it
-    popup.style.display = 'block';
-    popup.style.left = event.clientX + 'px';
-    popup.style.top = event.clientY + 'px';
-}
 
     // Function to hide the popup
     function hidePopup() {
@@ -709,15 +688,17 @@ tr:nth-child(odd) {
         popup.style.display = 'none';
     }
 
-    // Find the <th> elements containing "Lesson 6" and "Lesson 24"
-    var thElements = document.querySelectorAll('th');
-    thElements.forEach(function(thElement) {
+function containsText(element, text) {
+    return element.textContent.indexOf(text) !== -1;
+}
+
+// Find the <th> element containing "Lesson 6"
+var thElements = document.querySelectorAll('th');
+thElements.forEach(function(thElement) {
+    if (containsText(thElement, 'Lesson 6')) {
         // Add event listeners for mouseover and mouseout events
         thElement.addEventListener('mouseover', showPopup);
         thElement.addEventListener('mouseout', hidePopup);
-    });
-
-    function containsText(element, text) {
-        return element.textContent.indexOf(text) !== -1;
     }
+});
 </script>
