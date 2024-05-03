@@ -1,703 +1,695 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard</title>
-<style>
-.sort-btn {
-    font-size: 10px;
-    padding: 3px 6px;
-    margin-left: 2px;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Dashboard</title>
+    <style>
+        .sort-btn {
+  font-size: 10px;
+  padding: 3px 6px;
+  margin-left: 2px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.search-container {
+    display: flex;
+    align-items: center;
+}
+.search-input {
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 5px;
+    font-size: 12px;
+    outline: none;
+    flex-grow: 1;
 }
 
-.sort-btn:focus {
-    outline: none;
+.clear-btn {
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
+.clear-btn:hover {
+    background-color: #d32f2f;
+}
+.sort-btn:focus {
+  outline: 0;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2; /* Light gray background */
-    margin: 0;
-    padding: 0;
-    width: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 .container {
-    max-width: 100%;
-    padding: 20px;
+  max-width: 100%;
+  padding: 20px;
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    border-radius: 0px;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    border-bottom:4px solid #4CAF50;
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+  border-bottom: 4px solid #4caf50;
 }
 
-th, td {
-    padding: 15px;
-    text-align: center;
-    border-bottom: 1px solid #ddd; /* Add border to the bottom of each cell */
-    border-right: 1px solid #ddd;
-    
-}
+td,
 th {
-	border-bottom:1px solid black;
-    border-radius: 40px;
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  background-color: #fff;
+  transition: background-color .5 ease-in;
+}
+
+td:hover {
+  background-color: #d3d3d3;
+}
+
+th {
+  border-bottom: 1px solid #000;
+  border-radius: 40px;
 }
 
 tr:nth-child(even) {
-    box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.1); /* Shadow between rows for even rows */
+  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, .1);
 }
 
 tr:nth-child(odd) {
-    box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.1);
- /* Shadow between rows for odd rows */
+  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, .1);
 }
 
 .tab {
-    display: flex;
-    flex-wrap: wrap; /* Allow buttons to wrap to the next line */
-    background-color: #4CAF50; /* Dark green background for tabs */
-    color: #fff; /* White text color for tabs */
-    border-bottom: 6px solid #357834; /* Darker green border at the bottom */
-    padding: 10px 0; /* Add padding at the top and bottom */
-    border-radius: 20px;
-    overflow-x: auto; /* Enable horizontal scrolling if needed */
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #4caf50;
+  color: #fff;
+  border-bottom: 6px solid #357834;
+  padding: 10px 0;
+  border-radius: 20px;
+  overflow-x: auto;
 }
 
 .tab button {
-    background-color: inherit;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 5px 1%; /* Adjust padding to your liking */
-    transition: background-color 0.3s;
-    color: white;
-    font-size: large;
-    border-radius: 20px; /* Adjust border-radius to make the edges curved */
-    font-weight: bold;
-    flex-grow: 1; /* Allow buttons to grow flexibly */
-    margin: 10px;
-    white-space: nowrap; /* Prevent button text from wrapping */
+  background-color: inherit;
+  border: none;
+  outline: 0;
+  cursor: pointer;
+  padding: 5px 1%;
+  transition: background-color .3s;
+  color: #fff;
+  font-size: large;
+  border-radius: 20px;
+  font-weight: 700;
+  flex-grow: 1;
+  margin: 10px;
+  white-space: nowrap;
 }
-
-/*.tab button:hover {
-    background-color: #357834;
-}
-*/
 
 .tab button.active {
-    background-color: #333; /* Dark gray when active */
+  background-color: #333;
 }
-</style>
+    </style>
 </head>
 <body>
-
 <div class="container">
-    <div class="tab">
-        <button class="tablinks" onclick="openSheet(event, 'Time-Spent')">Participant Performance</button>
-        <button class="tablinks" onclick="openSheet(event, 'Completion-Progress')">Lesson Progress</button>
-        <button class="tablinks" onclick="openSheet(event, 'Lesson-Percentage-Correct')" id="defaultOpen">Lesson Percentage Correct</button>
-        <button class="tablinks" onclick="openSheet(event, 'Quiz-Percentage-Correct')">Quiz Percentage Correct</button>
-        <div id="L6popupContainer" style="position: absolute; display: none; background-color: #fff; border: 1px solid #ccc; padding: 10px;">
-            Word Meaning Clues
+  <div class="tab">
+    <button class="tablinks" onclick='openSheet(event,"Time-Spent")'>Participant Performance</button>
+    <button class="tablinks" onclick='openSheet(event,"Completion-Progress")'>Lesson Progress</button>
+    <button class="tablinks" onclick='openSheet(event,"Lesson-Percentage-Correct")' id="defaultOpen">Lesson Percentage Correct</button>
+    <button class="tablinks" onclick='openSheet(event,"Quiz-Percentage-Correct")'>Quiz Percentage Correct</button>
+    <button class="tablinks" onclick='openSheet(event,"Dashboard-Key")'>Dashboard Key</button>
+  </div>
+  <div id="Dashboard-Key" class="Dashboard-Key" style="display:none">
+    <table class="Dashboard-Key">
+      <thead>
+        <tr>
+          <th>Lesson Number</th>
+          <th>Lesson Title</th>
+        </tr>
+      </thead>
+      <tr>
+        <td>L6</td>
+        <td>Example</td>
+      </tr>
+      <tr>
+        <td>L21</td>
+        <td>Example</td>
+      </tr>
+      <tr>
+        <td>L23</td>
+        <td>Example</td>
+      </tr>
+      <tr>
+        <td>L24</td>
+        <td>Example</td>
+      </tr>
+      <tr>
+        <td>L28</td>
+        <td>Example</td>
+      </tr>
+      <tr>
+        <td>L29</td>
+        <td>Example</td>
+      </tr>
+    </table>
+    <h3>Completion Status Key</h3>
+    <table>
+      <tr>
+        <th>Completion Status</th>
+        <th>Meaning</th>
+      </tr>
+      <tr>
+        <td>Completed</td>
+        <td>Participants have completed parts 1-3</td>
+      </tr>
+      <tr>
+        <td>Started</td>
+        <td>Participants have started at least one part of the lesson</td>
+      </tr>
+    </table>
+    <h3>Session Key</h3>
+    <table>
+      <tr>
+        <th>Session</th>
+        <th>Meaning</th>
+      </tr>
+      <tr>
+        <td>Session</td>
+        <td>Amount performed from start to finish in one sitting</td>
+      </tr>
+    </table>
+    <h3>Quiz Key</h3>
+    <table>
+      <tr>
+        <th>Quiz Number</th>
+        <th>Quiz Name</th>
+      </tr>
+      <tr>
+        <td>Quiz 1</td>
+        <td>Cool-Down</td>
+      </tr>
+      <tr>
+        <td>Quiz 2</td>
+        <td>Challenge</td>
+      </tr>
+    </table>
+  </div>
+  <div id="Time-Spent" class="Time-Spent" style="display:none">
+    <table id="timeSpentTable">
+      <thead>
+          <th>Participant<button class="sort-btn" onclick='sortTable(0,"asc")'>▲</button><button class="sort-btn" onclick='sortTable(0,"desc")'>▼</button>
+          <div class="search-container">
+        <input type="text" id="searchParticipant" class="search-input" onkeyup="searchTable(0, 'timeSpentTable')" placeholder="Search...">
+        <button onclick="clearSearch('Participant')" class="clear-btn">Clear</button>
     </div>
-    <div id="L24popupContainer" style="position: absolute; display: none; background-color: #fff; border: 1px solid #ccc; padding: 10px;">
-        Time and Order
+          </th>
+          <th>Lesson<button class="sort-btn" onclick='sortTable(1,"asc")'>▲</button><button class="sort-btn" onclick='sortTable(1,"desc")'>▼</button>
+          </th>
+          <th>Session<button class="sort-btn" onclick='sortTable(2,"asc")'>▲</button><button class="sort-btn" onclick='sortTable(2,"desc")'>▼</button>
+          </th>
+          <th>Elapsed Time (Min)<button class="sort-btn" onclick='sortTable(3,"asc")'>▲</button><button class="sort-btn" onclick='sortTable(3,"desc")'>▼</button>
+          </th>
+          <th>First Start Date<button class="sort-btn" onclick='sortTable(4,"asc")'>▲</button><button class="sort-btn" onclick='sortTable(4,"desc")'>▼</button>
+          </th>
+          <th>Last Start Date<button class="sort-btn" onclick='sortTable(5,"asc")'>▲</button><button class="sort-btn" onclick='sortTable(5,"desc")'>▼</button>
+          </th>
+      <tbody>
+        <tr>
+          <td><a href="mailto:bdcUMtest@bdc.org">bdcUMtest@bdc.org</a></td>
+          <td>6</td>
+          <td>1</td>
+          <td>17:32</td>
+          <td>2024-03-18 07:05 PM</td>
+          <td>2024-03-18 06:48 PM</td>
+        </tr>
+        <tr>
+          <td><a href="mailto:bdcUMtest@bdc.org">bdcUMtest@bdc.org</a></td>
+          <td>6</td>
+          <td>2</td>
+          <td>09:35</td>
+          <td>2024-03-18 07:18 PM</td>
+          <td>2024-03-18 07:09 PM</td>
+        </tr>
+        <tr>
+          <td><a href="mailto:example6@example.com">example6@example.com</a></td>
+          <td>6</td>
+          <td>1</td>
+          <td>14:20</td>
+          <td>2024-03-18 07:42 PM</td>
+          <td>2024-03-18 07:56 PM</td>
+        </tr>
+        <tr>
+          <td><a href="mailto:example7@example.com">example7@example.com</a></td>
+          <td>6</td>
+          <td>1</td>
+          <td>11:05</td>
+          <td>2024-03-19 08:32 PM</td>
+          <td>2024-03-19 08:43 PM</td>
+        </tr>
+        <tr>
+          <td><a href="mailto:example8@example.com">example8@example.com</a></td>
+          <td>6</td>
+          <td>1</td>
+          <td>19:10</td>
+          <td>2024-03-20 09:50 PM</td>
+          <td>2024-03-20 10:09 PM</td>
+        </tr>
+        <tr>
+          <td><a href="mailto:example9@example.com">example9@example.com</a></td>
+          <td>6</td>
+          <td>1</td>
+          <td>08:25</td>
+          <td>2024-03-21 10:58 PM</td>
+          <td>2024-03-21 11:06 PM</td>
+        </tr>
+        <tr>
+          <td><a href="mailto:example10@example.com">example10@example.com</a></td>
+          <td>6</td>
+          <td>1</td>
+          <td>13:50</td>
+          <td>2024-03-22 11:45 PM</td>
+          <td>2024-03-22 11:59 PM</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="Completion-Progress" class="Completion-Progress" style="display:none">
+    <table id="TableCompletionProgress">
+      <thead>
+        <tr>
+          <th>Participant
+            <button class="sort-btn" onclick='sortTable(0,"asc")'>▲</button>
+            <button class="sort-btn" onclick='sortTable(0,"desc")'>▼</button>
+            <div class="search-container">
+        <input type="text" id="searchParticipant" class="search-input" onkeyup="searchTable(0, 'TableCompletionProgress')" placeholder="Search...">
+        <button onclick="clearSearch('Participant')" class="clear-btn">Clear</button>
+    </div>
+          </th>
+          <th>L6
+            <button class="sort-btn" onclick='sortTable(1,"asc")'>▲</button>
+            <button class="sort-btn" onclick='sortTable(1,"desc")'>▼</button>
+          </th>
+          <th>L21
+            <button class="sort-btn" onclick='sortTable(2,"asc")'>▲</button>
+            <button class="sort-btn" onclick='sortTable(2,"desc")'>▼</button>
+          </th>
+          <th>L23
+            <button class="sort-btn" onclick='sortTable(3,"asc")'>▲</button>
+            <button class="sort-btn" onclick='sortTable(3,"desc")'>▼</button>
+          </th>
+          <th>L24
+            <button class="sort-btn" onclick='sortTable(4,"asc")'>▲</button>
+            <button class="sort-btn" onclick='sortTable(4,"desc")'>▼</button>
+          </th>
+          <th>L28
+            <button class="sort-btn" onclick='sortTable(5,"asc")'>▲</button>
+            <button class="sort-btn" onclick='sortTable(5,"desc")'>▼</button>
+          </th>
+          <th>L29
+            <button class="sort-btn" onclick='sortTable(6,"asc")'>▲</button>
+            <button class="sort-btn" onclick='sortTable(6,"desc")'>▼</button>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="mailto:bdcUMtest@bdc.org">bdcUMtest@bdc.org</a></td>
+          <td>Completed</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="mailto:example6@example.com">example6@example.com</a></td>
+          <td>Completed</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="mailto:example7@example.com">example7@example.com</a></td>
+          <td>Completed</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="mailto:example8@example.com">example8@example.com</a></td>
+          <td>Completed</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="mailto:example9@example.com">example9@example.com</a></td>
+          <td>Completed</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="mailto:example10@example.com">example10@example.com</a></td>
+          <td>Completed</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="Lesson-Percentage-Correct" class="Lesson-Percentage-Correct">
+    <table id= "LessonPercentageCorrectTable">
+      <thead>
+        <tr>
+          <th>Participant
+          <input type="text" id="searchParticipant" class="search-input" onkeyup="searchTable(0, 'Participant', 'LessonPercentageCorrectTable')" placeholder="Search...">
+<button onclick="clearSearch('Particpant')" class="clear-btn">Clear</button>
+
+          </th>
+          <th>Lesson</th>
+          <th>Part</th>
+          <th>Time Spent (Min)</th>
+          <th>Percentage Correct</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="4"><a href="mailto:bdcUMtest@bdc.org">bdcUMtest@bdc.org</a></td>
+          <td rowspan="4">L6</td>
+          <td>1</td>
+          <td>7.9</td>
+          <td>20%</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>15.7</td>
+          <td>25%</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>17.3</td>
+          <td>0%</td>
+        </tr>
+        <tr>
+          
+          <td colspan="2" style="font-size:large"><b>Total Time Spent:</b></td>
+          <td colspan="1"><b>41.9</b></td>
+        </tr>
+        <tr>
+          <td rowspan="4"><a href="mailto:example10@example.com">example10@example.com</a></td>
+          <td rowspan="4">L6</td>
+          <td>1</td>
+          <td>7.9</td>
+          <td>20%</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>15.7</td>
+          <td>25%</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>17.3</td>
+          <td>0%</td>
+        </tr>
+        <tr>
+        
+          <td colspan="2" style="font-size:large"><b>Total Time Spent:</b></td>
+          <td colspan="1"><b>41.9</b></td>
+          
+        </tr>
+        <tr>
+          <td rowspan="4"><a href="mailto:example6@example.com">example6@example.com</a></td>
+          <td rowspan="4">L6</td>
+          <td>1</td>
+          <td>7.9</td>
+          <td>20%</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>15.7</td>
+          <td>25.0%</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>17.3</td>
+          <td>0%</td>
+        </tr>
+        <tr>
+        
+          <td colspan="2" style="font-size:large"><b>Total Time Spent:</b></td>
+          <td colspan="1"><b>41.9</b></td>
+          
+        </tr>
+        <tr>
+          <td rowspan="4"><a href="mailto:example7@example.com">example7@example.com</a></td>
+          <td rowspan="4">L6</td>
+          <td>1</td>
+          <td>7.9</td>
+          <td>20%</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>15.7</td>
+          <td>25%</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>17.3</td>
+          <td>0%</td>
+        </tr>
+        <tr>
+       
+          <td colspan="2" style="font-size:large"><b>Total Time Spent:</b></td>
+          <td colspan="1"><b>41.9</b></td>
+          
+        </tr>
+        <tr>
+          <td rowspan="4"><a href="mailto:example8@example.com">example8@example.com</a></td>
+          <td rowspan="4">L6</td>
+          <td>1</td>
+          <td>7.9</td>
+          <td>20%</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>15.7</td>
+          <td>25%</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>17.3</td>
+          <td>0%</td>
+        </tr>
+        <tr>
+       
+          <td colspan="2" style="font-size:large"><b>Total Time Spent:</b></td>
+          <td colspan="1"><b>41.9</b></td>
+        </tr>
+        <tr>
+          <td rowspan="4"><a href="mailto:example9@example.com">example9@example.com</a></td>
+          <td rowspan="4">L6</td>
+          <td>1</td>
+          <td>7.9</td>
+          <td>20%</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>15.7</td>
+          <td>25%</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>17.3</td>
+          <td>0%</td>
+        </tr>
+        <tr>
+        
+          <td colspan="2" style="font-size:large"><b>Total Time Spent:</b></td>
+          <td colspan="1"><b>41.9</b></td>
+         
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="Quiz-Percentage-Correct" class="Quiz-Percentage-Correct">
+    <table>
+      <thead>
+        <tr>
+          <th>Participant
+          <div class="search-container">
+        <input type="text" id="searchParticipant" class="search-input" onkeyup="searchTable('Participant')" placeholder="Search...">
+        <button onclick="clearSearch('Participant')" class="clear-btn">Clear</button>
+    </div>
+          </th>
+          <th>Lesson Identifier</th>
+          <th>Percentage Correct</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="mailto:bdcUMtest@bdc.org">bdcUMtest@bdc.org</a></td>
+          <td>L6 Quiz 2</td>
+          <td>10%</td>
+        </tr>
+        <tr>
+          <td><a href="mailto:bdcUMtest@bdc.org">bdcUMtest@bdc.org</a></td>
+          <td>L6 Quiz 1</td>
+          <td>0%</td>
+        </tr>
+        <tr>
+          <td><a href="mailto:example6@example.com">example6@example.com</a></td>
+          <td>L6 Quiz 2</td>
+          <td>10%</td>
+        </tr>
+        <tr>
+          <td><a href="mailto:example7@example.com">example7@example.com</a></td>
+          <td>L6 Quiz 1</td>
+          <td>0%</td>
+        </tr>
+        <tr>
+          <td><a href="mailto:example8@example.com">example8@example.com</a></td>
+          <td>L6 Quiz 1</td>
+          <td>10%</td>
+        </tr>
+        <tr>
+          <td><a href="mailto:example9@example.com">example9@example.com</a></td>
+          <td>L6 Quiz 1</td>
+          <td>10%</td>
+        </tr>
+        <tr>
+          <td><a href="mailto:example10@example.com">example10@example.com</a></td>
+          <td>L6 Quiz 1</td>
+          <td>10%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-    </div>
-
-    <div id="Time-Spent" class="Time-Spent">
-        <table id="timeSpentTable">
-            <thead>
-    <tr>
-        <th>
-            Participant
-            <button class="sort-btn" onclick="sortTable(0, 'asc')">▲</button>
-            <button class="sort-btn" onclick="sortTable(0, 'desc')">▼</button>
-        </th>
-        <th>
-            Lesson
-            <button class="sort-btn" onclick="sortTable(1, 'asc')">▲</button>
-            <button class="sort-btn" onclick="sortTable(1, 'desc')">▼</button>
-        </th>
-        <th>
-            Session
-            <button class="sort-btn" onclick="sortTable(2, 'asc')">▲</button>
-            <button class="sort-btn" onclick="sortTable(2, 'desc')">▼</button>
-        </th>
-        <th>
-            Elapsed Time (Min)
-            <button class="sort-btn" onclick="sortTable(3, 'asc')">▲</button>
-            <button class="sort-btn" onclick="sortTable(3, 'desc')">▼</button>
-        </th>
-        <th>
-            First Start Date
-            <button class="sort-btn" onclick="sortTable(4, 'asc')">▲</button>
-            <button class="sort-btn" onclick="sortTable(4, 'desc')">▼</button>
-        </th>
-        <th>
-            Last Start Date
-            <button class="sort-btn" onclick="sortTable(5, 'asc')">▲</button>
-            <button class="sort-btn" onclick="sortTable(5, 'desc')">▼</button>
-        </th>
-    </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><a href="mailto:bdcUMtest@bdc.org">bdcUMtest@bdc.org</a></td>
-                    <td>6</td>
-                    <td>1</td>
-                    <td>17:32</td>
-                    <td>2024-03-18 07:05 PM</td>
-                    <td>2024-03-18 06:48 PM</td>
-                </tr>
-                <tr>
-                    <td><a href="mailto:bdcUMtest@bdc.org">bdcUMtest@bdc.org</a></td>
-                    <td>6</td>
-                    <td>2</td>
-                    <td>09:35</td>
-                    <td>2024-03-18 07:18 PM</td>
-                    <td>2024-03-18 07:09 PM</td>
-                </tr>
-                <tr>
-    <td><a href="mailto:example6@example.com">example6@example.com</a></td>
-    <td>6</td>
-    <td>1</td>
-    <td>14:20</td>
-    <td>2024-03-18 07:42 PM</td>
-    <td>2024-03-18 07:56 PM</td>
-</tr>
-<tr>
-    <td><a href="mailto:example7@example.com">example7@example.com</a></td>
-    <td>6</td>
-    <td>1</td>
-    <td>11:05</td>
-    <td>2024-03-19 08:32 PM</td>
-    <td>2024-03-19 08:43 PM</td>
-</tr>
-<tr>
-    <td><a href="mailto:example8@example.com">example8@example.com</a></td>
-    <td>6</td>
-    <td>1</td>
-    <td>19:10</td>
-    <td>2024-03-20 09:50 PM</td>
-    <td>2024-03-20 10:09 PM</td>
-</tr>
-<tr>
-    <td><a href="mailto:example9@example.com">example9@example.com</a></td>
-    <td>6</td>
-    <td>1</td>
-    <td>08:25</td>
-    <td>2024-03-21 10:58 PM</td>
-    <td>2024-03-21 11:06 PM</td>
-</tr>
-<tr>
-    <td><a href="mailto:example10@example.com">example10@example.com</a></td>
-    <td>6</td>
-    <td>1</td>
-    <td>13:50</td>
-    <td>2024-03-22 11:45 PM</td>
-    <td>2024-03-22 11:59 PM</td>
-</tr>
-
-            </tbody>
-        </table>
-    </div>
-
-    <div id="Completion-Progress" class="Completion-Progress" style="display: none;">
-        <table id="Completion-Progress">
-            <thead>
-    <tr>
-        <th>
-            Participant
-           <button class="sort-btn" onclick="sortTable(1, 'asc')">▲</button>
-            <button class="sort-btn" onclick="sortTable(1, 'desc')">▼</button>
-        </th>
-        <th>
-            L6
-            <button class="sort-btn" onclick="sortTable(1, 'asc')">▲</button>
-            <button class="sort-btn" onclick="sortTable(1, 'desc')">▼</button>
-        </th>
-        <th>
-            L21
-            <button class="sort-btn" onclick="sortTable(1, 'asc')">▲</button>
-            <button class="sort-btn" onclick="sortTable(1, 'desc')">▼</button>
-        </th>
-        <th>
-            L23
-            <button class="sort-btn" onclick="sortTable(1, 'asc')">▲</button>
-            <button class="sort-btn" onclick="sortTable(1, 'desc')">▼</button>
-        </th>
-        <th>
-            L24
-            <button class="sort-btn" onclick="sortTable(1, 'asc')">▲</button>
-            <button class="sort-btn" onclick="sortTable(1, 'desc')">▼</button>
-        </th>
-        <th>
-            L28
-            <button class="sort-btn" onclick="sortTable(1, 'asc')">▲</button>
-            <button class="sort-btn" onclick="sortTable(1, 'desc')">▼</button>
-        </th>
-        <th>
-            L29
-            <button class="sort-btn" onclick="sortTable(1, 'asc')">▲</button>
-            <button class="sort-btn" onclick="sortTable(1, 'desc')">▼</button>
-        </th>
-    </tr>
-</thead>
-            <tbody>
-                <tr>
-                    <td><a href="mailto:bdcUMtest@bdc.org">bdcUMtest@bdc.org</a></td>
-                    <td>Completed</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-    <td><a href="mailto:example6@example.com">example6@example.com</a></td>
-    <td>Completed</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-</tr>
-<tr>
-    <td><a href="mailto:example7@example.com">example7@example.com</a></td>
-    <td>Completed</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-</tr>
-<tr>
-    <td><a href="mailto:example8@example.com">example8@example.com</a></td>
-    <td>Completed</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-</tr>
-<tr>
-    <td><a href="mailto:example9@example.com">example9@example.com</a></td>
-    <td>Completed</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-</tr>
-<tr>
-    <td><a href="mailto:example10@example.com">example10@example.com</a></td>
-    <td>Completed</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-</tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div id="Lesson-Percentage-Correct" class="Lesson-Percentage-Correct">
-        <table>
-            <thead>
-                <tr>
-                    <th>Participant</th>
-                    <th>Lesson</th>
-                    <th>Part</th>
-                    <th>Time Spent (Min)</th>
-                    <th>Percentage Correct</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td rowspan="3"><a href="mailto:bdcUMtest@bdc.org">bdcUMtest@bdc.org</a></td>
-                    <td rowspan="3">L6</td>
-                    <td>1</td>
-                    <td>7.9</td>
-                    <td>20%</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>15.7</td>
-                    <td>25%</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>17.3</td>
-                    <td>0%</td>
-                </tr>
-                <tr>
-                    <td colspan="3" style="font-size:large;"><b>Total Time Spent:</b></td>
-                    <td><b>41.9</b></td>
-                    <td></td>
-                </tr>
-                 <tr>
-                    <td rowspan="3"><a href="mailto:example10@example.com">example10@example.com</a></td>
-                    <td rowspan="3">L6</td>
-                    <td>1</td>
-                    <td>7.9</td>
-                    <td>20%</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>15.7</td>
-                    <td>25%</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>17.3</td>
-                    <td>0%</td>
-                </tr>
-                <tr>
-                    <td colspan="3" style="font-size:large;"><b>Total Time Spent:</b></td>
-                    <td><b>41.9</b></td>
-                    <td></td>
-                </tr>
-                 <tr>
-                    <td rowspan="3"><a href="mailto:example6@example.com">example6@example.com</a></td>
-                    <td rowspan="3">L6</td>
-                    <td>1</td>
-                    <td>7.9</td>
-                    <td>20%</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>15.7</td>
-                    <td>25.0%</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>17.3</td>
-                    <td>0%</td>
-                </tr>
-                <tr>
-                    <td colspan="3" style="font-size:large;"><b>Total Time Spent:</b></td>
-                    <td><b>41.9</b></td>
-                    <td></td>
-                </tr>
-                 <tr>
-                    <td rowspan="3"><a href="mailto:example7@example.com">example7@example.com</a></td>
-                    <td rowspan="3">L6</td>
-                    <td>1</td>
-                    <td>7.9</td>
-                    <td>20%</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>15.7</td>
-                    <td>25%</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>17.3</td>
-                    <td>0%</td>
-                </tr>
-                <tr>
-                    <td colspan="3" style="font-size:large;"><b>Total Time Spent:</b></td>
-                    <td><b>41.9</b></td>
-                    <td></td>
-                </tr>
-                 <tr>
-                    <td rowspan="3"><a href="mailto:example8@example.com">example8@example.com</a></td>
-                    <td rowspan="3">L6</td>
-                    <td>1</td>
-                    <td>7.9</td>
-                    <td>20%</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>15.7</td>
-                    <td>25%</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>17.3</td>
-                    <td>0%</td>
-                </tr>
-                <tr>
-                    <td colspan="3" style="font-size:large;"><b>Total Time Spent:</b></td>
-                    <td><b>41.9</b></td>
-                    <td></td>
-                </tr>
-                 <tr>
-                    <td rowspan="3"><a href="mailto:example9@example.com">example9@example.com</a></td>
-                    <td rowspan="3">L6</td>
-                    <td>1</td>
-                    <td>7.9</td>
-                    <td>20%</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>15.7</td>
-                    <td>25%</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>17.3</td>
-                    <td>0%</td>
-                </tr>
-                <tr>
-                    <td colspan="3" style="font-size:large;"><b>Total Time Spent:</b></td>
-                    <td><b>41.9</b></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div id="Quiz-Percentage-Correct" class="Quiz-Percentage-Correct">
-     <table>
-    <thead>
-        <tr>
-            <th>Participant</th>
-            <th>Lesson Identifier</th>
-            <th>Percentage Correct</th>
-        </tr>
-    </thead>
-    <tbody>
-    <tr>
-            <td><a href="mailto:bdcUMtest@bdc.org">bdcUMtest@bdc.org</a></td>
-            <td>L6 Quiz 2</td>
-            <td>10.00% </td>
-        </tr>
-        <tr>
-            <td><a href="mailto:bdcUMtest@bdc.org">bdcUMtest@bdc.org</a></td>
-            <td>L6 Quiz 1</td>
-            <td>50.00% </td>
-        </tr>
-        <tr>
-            <td><a href="mailto:bdcUMtest@bdc.org">bdcUMtest@bdc.org</a></td>
-            <td>L6 Warm Up</td>
-            <td>35.71% </td>
-        </tr>
-        <!-- Separator -->
-        <tr style="height: 1px;">
-            <td colspan="3" style="background-color: #ccc;"></td>
-        </tr>
-        <tr>
-            <td><a href="mailto:example6@example.com">example6@example.com</a></td>
-            <td>L6 Quiz 2</td>
-            <td>10.00% </td>
-        </tr>
-        <tr>
-            <td><a href="mailto:example6@example.com">example6@example.com</a></td>
-            <td>L6 Quiz 1</td>
-            <td>50.00% </td>
-        </tr>
-        <tr>
-            <td><a href="mailto:example6@example.com">example6@example.com</a></td>
-            <td>L6 Warm Up</td>
-            <td>35.71% </td>
-        </tr>
-        <!-- Separator -->
-        <tr style="height: 1px;">
-            <td colspan="3" style="background-color: #ccc;"></td>
-        </tr>
-        <!-- Additional Participants -->
-        <tr>
-            <td><a href="mailto:participant7@example.com">participant7@example.com</a></td>
-            <td>L6 Quiz 2</td>
-            <td>15.00% </td>
-        </tr>
-        <tr>
-            <td><a href="mailto:participant7@example.com">participant7@example.com</a></td>
-            <td>L6 Quiz 1</td>
-            <td>60.00% </td>
-        </tr>
-        <tr>
-            <td><a href="mailto:participant7@example.com">participant7@example.com</a></td>
-            <td>L6 Warm Up</td>
-            <td>40.00% </td>
-        </tr>
-        <!-- Separator -->
-        <tr style="height: 1px;">
-            <td colspan="3" style="background-color: #ccc;"></td>
-        </tr>
-        <!-- Additional Participants -->
-        <tr>
-            <td><a href="mailto:participant8@example.com">participant8@example.com</a></td>
-            <td>L6 Quiz 2</td>
-            <td>20.00% </td>
-        </tr>
-        <tr>
-            <td><a href="mailto:participant8@example.com">participant8@example.com</a></td>
-            <td>L6 Quiz 1</td>
-            <td>70.00% </td>
-        </tr>
-        <tr>
-            <td><a href="mailto:participant8@example.com">participant8@example.com</a></td>
-            <td>L6 Warm Up</td>
-            <td>45.00% </td>
-        </tr>
-        <!-- Separator -->
-        <tr style="height: 1px;">
-            <td colspan="3" style="background-color: #ccc;"></td>
-        </tr>
-        <!-- Additional Participants -->
-        <tr>
-            <td><a href="mailto:participant9@example.com">participant9@example.com</a></td>
-            <td>L6 Quiz 2</td>
-            <td>25.00% </td>
-        </tr>
-        <tr>
-            <td><a href="mailto:participant9@example.com">participant9@example.com</a></td>
-            <td>L6 Quiz 1</td>
-            <td>80.00% </td>
-        </tr>
-        <tr>
-            <td><a href="mailto:participant9@example.com">participant9@example.com</a></td>
-            <td>L6 Warm Up</td>
-            <td>50.00% </td>
-        </tr>
-        <!-- Separator -->
-        <tr style="height: 1px;">
-            <td colspan="3" style="background-color: #ccc;"></td>
-        </tr>
-        <!-- Additional Participants -->
-        <tr>
-            <td><a href="mailto:participant10@example.com">participant10@example.com</a></td>
-            <td>L6 Quiz 2</td>
-            <td>30.00% </td>
-        </tr>
-        <tr>
-            <td><a href="mailto:participant10@example.com">participant10@example.com</a></td>
-            <td>L6 Quiz 1</td>
-            <td>90.00% </td>
-        </tr>
-        <tr>
-            <td><a href="mailto:participant10@example.com">participant10@example.com</a></td>
-            <td>L6 Warm Up</td>
-            <td>55.00% </td>
-        </tr>
-    </tbody>
-</table>
-
-    </div>
 <script>
-    function openSheet(evt, sheetName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("Time-Spent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-        tabcontent = document.getElementsByClassName("Completion-Progress");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-        tabcontent = document.getElementsByClassName("Lesson-Percentage-Correct");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-        tabcontent = document.getElementsByClassName("Quiz-Percentage-Correct");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(sheetName).style.display = "block";
-        evt.currentTarget.className += " active";
+  function openSheet(evt, sheetName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("Time-Spent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
   }
+  tabcontent = document.getElementsByClassName("Completion-Progress");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tabcontent = document.getElementsByClassName("Lesson-Percentage-Correct");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tabcontent = document.getElementsByClassName("Quiz-Percentage-Correct");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tabcontent = document.getElementsByClassName("Dashboard-Key");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(sheetName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
 
-    // Get the element with id="defaultOpen" and click on it
-    document.getElementById("defaultOpen").click();
-// Function to sort table data
-    function sortTable(n) {
-        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-        table = document.getElementById("timeSpentTable");
+function sortTable(n) {
+    var rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    var tables = document.querySelectorAll("#timeSpentTable, #tableCompletion-Progress");
+    tables.forEach(function (table) {
         switching = true;
-        // Set the sorting direction to ascending
-        dir = "asc"; 
-        /* Make a loop that will continue until
-        no switching has been done: */
+        dir = "asc";
         while (switching) {
-            // Start by saying: no switching is done:
             switching = false;
             rows = table.rows;
-            /* Loop through all table rows (except the
-            first, which contains table headers): */
             for (i = 1; i < (rows.length - 1); i++) {
-                // Assume no switching is needed
                 shouldSwitch = false;
-                /* Get the two elements you want to compare,
-                one from current row and one from the next: */
                 x = rows[i].getElementsByTagName("TD")[n];
                 y = rows[i + 1].getElementsByTagName("TD")[n];
-                /* Check if the two rows should switch place,
-                based on the direction, asc or desc: */
                 if (dir == "asc") {
                     if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                        // If so, mark as a switch and break the loop:
                         shouldSwitch = true;
                         break;
                     }
                 } else if (dir == "desc") {
                     if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                        // If so, mark as a switch and break the loop:
                         shouldSwitch = true;
                         break;
                     }
                 }
             }
             if (shouldSwitch) {
-                /* If a switch has been marked, make the switch
-                and mark that a switch has been done: */
                 rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
                 switching = true;
-                // Each time a switch is done, increase this count by 1:
-                switchcount ++;
+                switchcount++;
             } else {
-                /* If no switching has been done AND the direction is "asc",
-                set the direction to "desc" and run the while loop again. */
                 if (switchcount == 0 && dir == "asc") {
                     dir = "desc";
                     switching = true;
                 }
             }
         }
+    });
+}
+function searchTable(columnIndex, tableId) {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("searchParticipant");
+    filter = input.value.toUpperCase();
+    table = document.getElementById(tableId);
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[columnIndex];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
     }
-    // Get the element with id="defaultOpen" and click on it
-    document.getElementById("defaultOpen").click();
-    // Function to display the popup
-    function showPopup(event) {
-        var popup = document.getElementById('popupContainer');
-        popup.style.display = 'block';
-        popup.style.left = event.clientX + 'px';
-        popup.style.top = event.clientY + 'px';
-    }
-
-    // Function to hide the popup
-    function hidePopup() {
-        var popup = document.getElementById('popupContainer');
-        popup.style.display = 'none';
-    }
-
-function containsText(element, text) {
-    return element.textContent.indexOf(text) !== -1;
 }
 
-// Find the <th> element containing "L6"
-var thElements = document.querySelectorAll('th');
-thElements.forEach(function(thElement) {
-    if (containsText(thElement, 'L6')) {
-        // Add event listeners for mouseover and mouseout events
-        thElement.addEventListener('mouseover', showPopup);
-        thElement.addEventListener('mouseout', hidePopup);
-    }
-});
+
+function clearSearch(columnName) {
+    var input = document.getElementById("search" + columnName);
+    input.value = "";
+    searchTable(columnName);
+}
+
+
+
+document.getElementById("defaultOpen").click();
 </script>
+</body>
+</html>
