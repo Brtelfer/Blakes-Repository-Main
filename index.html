@@ -28,6 +28,7 @@
 }
 
 .clear-btn {
+    display:none;
     background-color: green;
     color: white;
     border: none;
@@ -134,36 +135,35 @@ tr:nth-child(odd) {
     <button class="tablinks" onclick='openSheet(event,"Dashboard-Key")'>Dashboard Key</button>
   </div>
   <div id="Dashboard-Key" class="Dashboard-Key" style="display:none">
-    <table class="Dashboard-Key">
-      <thead>
+    <table>
+      <h3>Lesson Key</h3>
         <tr>
           <th>Lesson Number</th>
           <th>Lesson Title</th>
-        </tr>
-      </thead>
       <tr>
-        <td>L6</td>
-        <td>Example</td>
+        <td>Lesson 6</td>
+        <td>Word Meaning Clues</td>
+      </tr>
+      
+      <tr>
+        <td>Lesson 21</td>
+        <td>Cause and Effect</td>
       </tr>
       <tr>
-        <td>L21</td>
-        <td>Example</td>
+        <td>Lesson 23</td>
+        <td>Compare and Contrast</td>
       </tr>
       <tr>
-        <td>L23</td>
-        <td>Example</td>
+        <td>Lesson 24</td>
+        <td>Time and Order</td>
       </tr>
       <tr>
-        <td>L24</td>
-        <td>Example</td>
+        <td>Lesson 28</td>
+        <td>Inferences From Text</td>
       </tr>
       <tr>
-        <td>L28</td>
-        <td>Example</td>
-      </tr>
-      <tr>
-        <td>L29</td>
-        <td>Example</td>
+        <td>Lesson 29</td>
+        <td>Complex Persuasive Texts</td>
       </tr>
     </table>
     <h3>Completion Status Key</h3>
@@ -211,21 +211,22 @@ tr:nth-child(odd) {
   <div id="Time-Spent" class="Time-Spent" style="display:none">
     <table id="table1">
       <thead>
-          <th>Participant<button class="sort-btn" onclick='sortTable(0,"asc")'>▲</button><button class="sort-btn" onclick='sortTable(0,"desc")'>▼</button>
-          
+      
+      
+          <th>Participant<button class="sort-btn" onclick='sortTable(0, "table1")'>▲</button><button class="sort-btn" onclick='sortTable(0,"table1")'>▼</button>
           <input type="text" id="searchParticipant1" class="search-input" onkeyup="searchTable(0, 'table1', 'searchParticipant1')" placeholder="Search...">
-        <button onclick="clearSearch('Participant')" class="clear-btn">Clear</button>
+        <button onclick="clearSearch('Table1')" class="clear-btn">Clear</button>
     </div>
           </th>
-          <th>Lesson<button class="sort-btn" onclick='sortTable(1,"asc")'>▲</button><button class="sort-btn" onclick='sortTable(1,"desc")'>▼</button>
+          <th>Lesson<button class="sort-btn" onclick='sortTable(1,"table1")'>▲</button><button class="sort-btn" onclick='sortTable(1,"table1")'>▼</button>
           </th>
-          <th>Session<button class="sort-btn" onclick='sortTable(2,"asc")'>▲</button><button class="sort-btn" onclick='sortTable(2,"desc")'>▼</button>
+          <th>Session<button class="sort-btn" onclick='sortTable(2,"table1")'>▲</button><button class="sort-btn" onclick='sortTable(2,"table1")'>▼</button>
           </th>
-          <th>Elapsed Time (Min)<button class="sort-btn" onclick='sortTable(3,"asc")'>▲</button><button class="sort-btn" onclick='sortTable(3,"desc")'>▼</button>
+          <th>Elapsed Time (Min)<button class="sort-btn" onclick='sortTable(3,"table1")'>▲</button><button class="sort-btn" onclick='sortTable(3,"table1")'>▼</button>
           </th>
-          <th>First Start Date<button class="sort-btn" onclick='sortTable(4,"asc")'>▲</button><button class="sort-btn" onclick='sortTable(4,"desc")'>▼</button>
+          <th>First Start Date<button class="sort-btn" onclick='sortTable(4,"table1")'>▲</button><button class="sort-btn" onclick='sortTable(4,"table1")'>▼</button>
           </th>
-          <th>Last Start Date<button class="sort-btn" onclick='sortTable(5,"asc")'>▲</button><button class="sort-btn" onclick='sortTable(5,"desc")'>▼</button>
+          <th>Last Start Date<button class="sort-btn" onclick='sortTable(5,"table1")'>▲</button><button class="sort-btn" onclick='sortTable(5,"table1")'>▼</button>
           </th>
       <tbody>
         <tr>
@@ -292,36 +293,36 @@ tr:nth-child(odd) {
       <thead>
         <tr>
           <th>Participant
-            <button class="sort-btn" onclick='sortTable(0,"asc")'>▲</button>
-            <button class="sort-btn" onclick='sortTable(0,"desc")'>▼</button>
+            <button class="sort-btn" onclick='sortTable(0,"table2")'>▲</button>
+            <button class="sort-btn" onclick='sortTable(0,"table2")'>▼</button>
             
         <input type="text" id="searchParticipant2" class="search-input" onkeyup="searchTable(0, 'table2', 'searchParticipant2')" placeholder="Search...">
         <button onclick="clearSearch('Participant')" class="clear-btn">Clear</button>
     </div>
           </th>
           <th>Lesson 6
-            <button class="sort-btn" onclick='sortTable(1,"asc")'>▲</button>
-            <button class="sort-btn" onclick='sortTable(1,"desc")'>▼</button>
+            <button class="sort-btn" onclick='sortTable(1,"table2")'>▲</button>
+            <button class="sort-btn" onclick='sortTable(1,"table2")'>▼</button>
           </th>
           <th>Lesson 21
-            <button class="sort-btn" onclick='sortTable(2,"asc")'>▲</button>
-            <button class="sort-btn" onclick='sortTable(2,"desc")'>▼</button>
+            <button class="sort-btn" onclick='sortTable(2,"table2")'>▲</button>
+            <button class="sort-btn" onclick='sortTable(2,"table2")'>▼</button>
           </th>
           <th>Lesson 23
-            <button class="sort-btn" onclick='sortTable(3,"asc")'>▲</button>
-            <button class="sort-btn" onclick='sortTable(3,"desc")'>▼</button>
+            <button class="sort-btn" onclick='sortTable(3,"table2")'>▲</button>
+            <button class="sort-btn" onclick='sortTable(3,"table2")'>▼</button>
           </th>
           <th>Lesson 24
-            <button class="sort-btn" onclick='sortTable(4,"asc")'>▲</button>
-            <button class="sort-btn" onclick='sortTable(4,"desc")'>▼</button>
+            <button class="sort-btn" onclick='sortTable(4,"table2")'>▲</button>
+            <button class="sort-btn" onclick='sortTable(4,"table2")'>▼</button>
           </th>
           <th>Lesson 28
-            <button class="sort-btn" onclick='sortTable(5,"asc")'>▲</button>
-            <button class="sort-btn" onclick='sortTable(5,"desc")'>▼</button>
+            <button class="sort-btn" onclick='sortTable(5,"table2")'>▲</button>
+            <button class="sort-btn" onclick='sortTable(5,"table2")'>▼</button>
           </th>
           <th>Lesson 29
-            <button class="sort-btn" onclick='sortTable(6,"asc")'>▲</button>
-            <button class="sort-btn" onclick='sortTable(6,"desc")'>▼</button>
+            <button class="sort-btn" onclick='sortTable(6,"table2")'>▲</button>
+            <button class="sort-btn" onclick='sortTable(6,"table2")'>▼</button>
           </th>
         </tr>
       </thead>
@@ -546,9 +547,15 @@ tr:nth-child(odd) {
 
         <button onclick="clearSearch('Participant')" class="clear-btn">Clear</button>
     </div>
-          </th>
-          <th>Lesson Identifier</th>
-          <th>Percentage Correct</th>
+    <button class="sort-btn" onclick='sortTable(0,"table4")'>▲</button>
+            <button class="sort-btn" onclick='sortTable(0,"table4")'>▼</button>
+          <th>Lesson Identifier
+          <button class="sort-btn" onclick='sortTable(1,"table4")'>▲</button>
+            <button class="sort-btn" onclick='sortTable(1,"table4")'>▼</button>
+           </th>
+          <th>Percentage Correct
+          <button class="sort-btn" onclick='sortTable(1,"table4")'>▲</button>
+            <button class="sort-btn" onclick='sortTable(1,"table4")'>▼</button>
         </tr>
       </thead>
       <tbody>
@@ -622,44 +629,43 @@ tr:nth-child(odd) {
   evt.currentTarget.className += " active";
 }
 
-function sortTable(n) {
-  var tables = document.querySelectorAll("#timeSpentTable, #TableCompletionProgress");
-  tables.forEach(function (table) {
-    var rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-    switching = true;
-    dir = "asc";
-    while (switching) {
-      switching = false;
-      rows = table.rows;
-      for (i = 1; i < (rows.length - 1); i++) {
-        shouldSwitch = false;
-        x = rows[i].getElementsByTagName("TD")[n];
-        y = rows[i + 1].getElementsByTagName("TD")[n];
-        if (dir == "asc") {
-          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-            shouldSwitch = true;
-            break;
-          }
-        } else if (dir == "desc") {
-          if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-            shouldSwitch = true;
-            break;
-          }
+function sortTable(n, tableId) {
+  var table = document.getElementById(tableId);
+  var rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  switching = true;
+  dir = "asc";
+  while (switching) {
+    switching = false;
+    rows = table.rows;
+    for (i = 1; i < (rows.length - 1); i++) {
+      shouldSwitch = false;
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          shouldSwitch = true;
+          break;
         }
-      }
-      if (shouldSwitch) {
-        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-        switching = true;
-        switchcount++;
-      } else {
-        if (switchcount == 0 && dir == "asc") {
-          dir = "desc";
-          switching = true;
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          shouldSwitch = true;
+          break;
         }
       }
     }
-  });
+    if (shouldSwitch) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      switchcount++;
+    } else {
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
 }
+
  function searchTable(columnIndex, tableId, inputId) {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById(inputId);
@@ -688,7 +694,14 @@ function sortTable(n) {
         }
     }
 }
-document.getElementById("defaultOpen").click();
+
+function clearSearch(tableId) {
+    var input = document.querySelector("#" + tableId + " input[type='text']");
+    input.value = "";
+    searchTable(0, tableId, "search" + tableId.replace("table", ""));
+    // Trigger search function to display all rows
+    searchTable(0, tableId, "search" + tableId.replace("table", ""));
+}
 </script>
 </body>
 </html>
