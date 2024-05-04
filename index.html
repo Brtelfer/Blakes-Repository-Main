@@ -212,8 +212,8 @@ tr:nth-child(odd) {
     <table id="table1">
       <thead>
           <th>Participant<button class="sort-btn" onclick='sortTable(0,"asc")'>▲</button><button class="sort-btn" onclick='sortTable(0,"desc")'>▼</button>
-          <div class="search-container">
-        <input type="text" id="searchParticipant" class="search-input" onkeyup="searchTable(0, 'table1')" placeholder="Search...">
+          
+          <input type="text" id="searchParticipant1" class="search-input" onkeyup="searchTable(0, 'table1', 'searchParticipant1')" placeholder="Search...">
         <button onclick="clearSearch('Participant')" class="clear-btn">Clear</button>
     </div>
           </th>
@@ -294,8 +294,8 @@ tr:nth-child(odd) {
           <th>Participant
             <button class="sort-btn" onclick='sortTable(0,"asc")'>▲</button>
             <button class="sort-btn" onclick='sortTable(0,"desc")'>▼</button>
-            <div class="search-container">
-        <input type="text" id="searchParticipant" class="search-input" onkeyup="searchTable(0, 'table2')" placeholder="Search...">
+            
+        <input type="text" id="searchParticipant2" class="search-input" onkeyup="searchTable(0, 'table2', 'searchParticipant2')" placeholder="Search...">
         <button onclick="clearSearch('Participant')" class="clear-btn">Clear</button>
     </div>
           </th>
@@ -384,13 +384,14 @@ tr:nth-child(odd) {
     </table>
   </div>
   <div id="Lesson-Percentage-Correct" class="Lesson-Percentage-Correct">
-    <table id= "LessonPercentageCorrectTable">
+    <table id= "Table3">
       <thead>
         <tr>
           <th>Participant
-          <input type="text" id="searchParticipant" class="search-input" onkeyup="searchTable(0, 'Participant', 'LessonPercentageCorrectTable')" placeholder="Search...">
-<button onclick="clearSearch('Particpant')" class="clear-btn">Clear</button>
+          
+          <input type="text" id="searchParticipant3" class="search-input" onkeyup="searchTable(0, 'table3', 'searchParticipant3')" placeholder="Search...">
 
+<button onclick="clearSearch('Particpant')" class="clear-btn">Clear</button>
           </th>
           <th>Lesson</th>
           <th>Part</th>
@@ -539,12 +540,12 @@ tr:nth-child(odd) {
     </table>
   </div>
   <div id="Quiz-Percentage-Correct" class="Quiz-Percentage-Correct">
-    <table>
+    <table id= table4>
       <thead>
         <tr>
           <th>Participant
-          <div class="search-container">
-        <input type="text" id="searchParticipant" class="search-input" onkeyup="searchTable('Participant')" placeholder="Search...">
+<input type="text" id="searchParticipant4" class="search-input" onkeyup="searchTable(0, 'table4', 'searchParticipant4')" placeholder="Search...">
+
         <button onclick="clearSearch('Participant')" class="clear-btn">Clear</button>
     </div>
           </th>
@@ -661,20 +662,30 @@ function sortTable(n) {
     }
   });
 }
-function searchTable(columnIndex, tableId) {
+ function searchTable(columnIndex, tableId, inputId) {
     var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("searchParticipant");
+    input = document.getElementById(inputId);
     filter = input.value.toUpperCase();
     table = document.getElementById(tableId);
     tr = table.getElementsByTagName("tr");
+
+    // Loop through all table rows
     for (i = 0; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td")[columnIndex];
         if (td) {
             txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
+            // Check if the row is a participant row or not
+            if (tr[i].getElementsByTagName("a").length > 0) {
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
             } else {
-                tr[i].style.display = "none";
+                // If it's not a participant row, check if it's hidden due to rowspan
+                if (tr[i].style.display === "none") {
+                    tr[i].style.display = "";
+                }
             }
         }
     }
