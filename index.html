@@ -80,8 +80,8 @@ td:hover {
 }
 
 th {
-  border-bottom: 1px solid #000;
-  border-radius: 40px;
+  border-bottom: 2px solid #000;
+  border-radius: 0px;
 }
 
 tr:nth-child(even) {
@@ -209,11 +209,11 @@ tr:nth-child(odd) {
     </table>
   </div>
   <div id="Time-Spent" class="Time-Spent" style="display:none">
-    <table id="timeSpentTable">
+    <table id="table1">
       <thead>
           <th>Participant<button class="sort-btn" onclick='sortTable(0,"asc")'>▲</button><button class="sort-btn" onclick='sortTable(0,"desc")'>▼</button>
           <div class="search-container">
-        <input type="text" id="searchParticipant" class="search-input" onkeyup="searchTable(0, 'timeSpentTable')" placeholder="Search...">
+        <input type="text" id="searchParticipant" class="search-input" onkeyup="searchTable(0, 'table1')" placeholder="Search...">
         <button onclick="clearSearch('Participant')" class="clear-btn">Clear</button>
     </div>
           </th>
@@ -288,38 +288,38 @@ tr:nth-child(odd) {
     </table>
   </div>
   <div id="Completion-Progress" class="Completion-Progress" style="display:none">
-    <table id="TableCompletionProgress">
+    <table id="table2">
       <thead>
         <tr>
           <th>Participant
             <button class="sort-btn" onclick='sortTable(0,"asc")'>▲</button>
             <button class="sort-btn" onclick='sortTable(0,"desc")'>▼</button>
             <div class="search-container">
-        <input type="text" id="searchParticipant" class="search-input" onkeyup="searchTable(0, 'TableCompletionProgress')" placeholder="Search...">
+        <input type="text" id="searchParticipant" class="search-input" onkeyup="searchTable(0, 'table2')" placeholder="Search...">
         <button onclick="clearSearch('Participant')" class="clear-btn">Clear</button>
     </div>
           </th>
-          <th>L6
+          <th>Lesson 6
             <button class="sort-btn" onclick='sortTable(1,"asc")'>▲</button>
             <button class="sort-btn" onclick='sortTable(1,"desc")'>▼</button>
           </th>
-          <th>L21
+          <th>Lesson 21
             <button class="sort-btn" onclick='sortTable(2,"asc")'>▲</button>
             <button class="sort-btn" onclick='sortTable(2,"desc")'>▼</button>
           </th>
-          <th>L23
+          <th>Lesson 23
             <button class="sort-btn" onclick='sortTable(3,"asc")'>▲</button>
             <button class="sort-btn" onclick='sortTable(3,"desc")'>▼</button>
           </th>
-          <th>L24
+          <th>Lesson 24
             <button class="sort-btn" onclick='sortTable(4,"asc")'>▲</button>
             <button class="sort-btn" onclick='sortTable(4,"desc")'>▼</button>
           </th>
-          <th>L28
+          <th>Lesson 28
             <button class="sort-btn" onclick='sortTable(5,"asc")'>▲</button>
             <button class="sort-btn" onclick='sortTable(5,"desc")'>▼</button>
           </th>
-          <th>L29
+          <th>Lesson 29
             <button class="sort-btn" onclick='sortTable(6,"asc")'>▲</button>
             <button class="sort-btn" onclick='sortTable(6,"desc")'>▼</button>
           </th>
@@ -417,7 +417,7 @@ tr:nth-child(odd) {
           <td>0%</td>
         </tr>
         <tr>
-          
+
           <td colspan="2" style="font-size:large"><b>Total Time Spent:</b></td>
           <td colspan="1"><b>41.9</b></td>
         </tr>
@@ -439,10 +439,10 @@ tr:nth-child(odd) {
           <td>0%</td>
         </tr>
         <tr>
-        
+
           <td colspan="2" style="font-size:large"><b>Total Time Spent:</b></td>
           <td colspan="1"><b>41.9</b></td>
-          
+
         </tr>
         <tr>
           <td rowspan="4"><a href="mailto:example6@example.com">example6@example.com</a></td>
@@ -462,10 +462,10 @@ tr:nth-child(odd) {
           <td>0%</td>
         </tr>
         <tr>
-        
+
           <td colspan="2" style="font-size:large"><b>Total Time Spent:</b></td>
           <td colspan="1"><b>41.9</b></td>
-          
+
         </tr>
         <tr>
           <td rowspan="4"><a href="mailto:example7@example.com">example7@example.com</a></td>
@@ -485,10 +485,10 @@ tr:nth-child(odd) {
           <td>0%</td>
         </tr>
         <tr>
-       
+
           <td colspan="2" style="font-size:large"><b>Total Time Spent:</b></td>
           <td colspan="1"><b>41.9</b></td>
-          
+
         </tr>
         <tr>
           <td rowspan="4"><a href="mailto:example8@example.com">example8@example.com</a></td>
@@ -508,7 +508,7 @@ tr:nth-child(odd) {
           <td>0%</td>
         </tr>
         <tr>
-       
+
           <td colspan="2" style="font-size:large"><b>Total Time Spent:</b></td>
           <td colspan="1"><b>41.9</b></td>
         </tr>
@@ -530,10 +530,10 @@ tr:nth-child(odd) {
           <td>0%</td>
         </tr>
         <tr>
-        
+
           <td colspan="2" style="font-size:large"><b>Total Time Spent:</b></td>
           <td colspan="1"><b>41.9</b></td>
-         
+
         </tr>
       </tbody>
     </table>
@@ -624,42 +624,42 @@ tr:nth-child(odd) {
 }
 
 function sortTable(n) {
+  var tables = document.querySelectorAll("#timeSpentTable, #TableCompletionProgress");
+  tables.forEach(function (table) {
     var rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-    var tables = document.querySelectorAll("#timeSpentTable, #tableCompletion-Progress");
-    tables.forEach(function (table) {
-        switching = true;
-        dir = "asc";
-        while (switching) {
-            switching = false;
-            rows = table.rows;
-            for (i = 1; i < (rows.length - 1); i++) {
-                shouldSwitch = false;
-                x = rows[i].getElementsByTagName("TD")[n];
-                y = rows[i + 1].getElementsByTagName("TD")[n];
-                if (dir == "asc") {
-                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                        shouldSwitch = true;
-                        break;
-                    }
-                } else if (dir == "desc") {
-                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                        shouldSwitch = true;
-                        break;
-                    }
-                }
-            }
-            if (shouldSwitch) {
-                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                switching = true;
-                switchcount++;
-            } else {
-                if (switchcount == 0 && dir == "asc") {
-                    dir = "desc";
-                    switching = true;
-                }
-            }
+    switching = true;
+    dir = "asc";
+    while (switching) {
+      switching = false;
+      rows = table.rows;
+      for (i = 1; i < (rows.length - 1); i++) {
+        shouldSwitch = false;
+        x = rows[i].getElementsByTagName("TD")[n];
+        y = rows[i + 1].getElementsByTagName("TD")[n];
+        if (dir == "asc") {
+          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            shouldSwitch = true;
+            break;
+          }
+        } else if (dir == "desc") {
+          if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+            shouldSwitch = true;
+            break;
+          }
         }
-    });
+      }
+      if (shouldSwitch) {
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+        switchcount++;
+      } else {
+        if (switchcount == 0 && dir == "asc") {
+          dir = "desc";
+          switching = true;
+        }
+      }
+    }
+  });
 }
 function searchTable(columnIndex, tableId) {
     var input, filter, table, tr, td, i, txtValue;
@@ -679,16 +679,6 @@ function searchTable(columnIndex, tableId) {
         }
     }
 }
-
-
-function clearSearch(columnName) {
-    var input = document.getElementById("search" + columnName);
-    input.value = "";
-    searchTable(columnName);
-}
-
-
-
 document.getElementById("defaultOpen").click();
 </script>
 </body>
