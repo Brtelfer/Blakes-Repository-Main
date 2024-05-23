@@ -200,12 +200,16 @@ tr:nth-child(odd) {
       </tr>
       <tr>
         <td>Quiz 1</td>
-        <td>Cool-Down</td>
+        <td>Warm-Up</td>
       </tr>
       <tr>
         <td>Quiz 2</td>
-        <td>Challenge</td>
+        <td>Cooldown</td>
       </tr>
+      <tr>
+      <td>Quiz 3</td>
+      <td>Challenge</td>
+    </tr>
     </table>
   </div>
   <div id="Time-Spent" class="Time-Spent" style="display:none">
@@ -269,7 +273,9 @@ tr:nth-child(odd) {
   <td>2024-04-05 03:25 PM</td>
   <td>2024-04-05 03:40 PM</td>
 </tr>
+
       </tbody>
+          </div>
     </table>
   </div>
   <div id="Completion-Progress" class="Completion-Progress" style="display:none">
@@ -282,8 +288,6 @@ tr:nth-child(odd) {
             
         <input type="text" id="searchParticipant2" class="search-input" onkeyup="searchTable(0, 'table2', 'searchParticipant2')" placeholder="Search...">
         <button onclick="clearSearch('Participant')" class="clear-btn">Clear</button>
-    </div>
-          </th>
           <th>Lesson 6
             <button class="sort-btn" onclick='sortTable(1,"table2")'>▲</button>
             <button class="sort-btn" onclick='sortTable(1,"table2")'>▼</button>
@@ -308,8 +312,6 @@ tr:nth-child(odd) {
             <button class="sort-btn" onclick='sortTable(6,"table2")'>▲</button>
             <button class="sort-btn" onclick='sortTable(6,"table2")'>▼</button>
           </th>
-        </tr>
-      </thead>
       <tbody>
           <tr>
           <td><a href="mailto:john.doe@example.com">john.doe@example.com</a></td>
@@ -485,7 +487,7 @@ tr:nth-child(odd) {
       </tbody>
     </table>
   </div>
-  <div id="Quiz-Percentage-Correct" class="Quiz-Percentage-Correct">
+  <div id="Quiz-Percentage-Correct" class="Quiz-Percentage-Correct" style="display:none">
     <table id= table4>
       <thead>
         <tr>
@@ -493,7 +495,6 @@ tr:nth-child(odd) {
 <input type="text" id="searchParticipant4" class="search-input" onkeyup="searchTable(0, 'table4', 'searchParticipant4')" placeholder="Search...">
 
         <button onclick="clearSearch('Participant')" class="clear-btn">Clear</button>
-    </div>
     <button class="sort-btn" onclick='sortTable(0,"table4")'>▲</button>
             <button class="sort-btn" onclick='sortTable(0,"table4")'>▼</button>
           <th>Lesson Identifier
@@ -508,17 +509,17 @@ tr:nth-child(odd) {
       <tbody>
                 <tr>
           <td><a href="mailto:bdcUMtest@bdc.org">john.doe@example.com</a></td>
-          <td>Lesson 6 Quiz 2</td>
+          <td>Lesson 6 Quiz 1</td>
           <td>50%</td>
         </tr>
          <tr>
           <td><a href="mailto:bdcUMtest@bdc.org">john.doe@example.com</a></td>
-          <td>Lesson 6 Quiz 1</td>
+          <td>Lesson 6 Quiz 2</td>
           <td>80%</td>
         </tr>
          <tr>
           <td><a href="mailto:bdcUMtest@bdc.org">john.doe@example.com</a></td>
-          <td>Lesson 6 Warm Up</td>
+          <td>Lesson 6 Quiz 3</td>
           <td>60%</td>
         </tr>
         <tr>
@@ -533,22 +534,22 @@ tr:nth-child(odd) {
         </tr>
          <tr>
           <td><a href="mailto:bdcUMtest@bdc.org">jane.smith@example.com</a></td>
-          <td>Lesson 6 Warm Up</td>
+          <td>Lesson 6 Quiz 3</td>
           <td>100%</td>
         </tr>
         <tr>
           <td><a href="mailto:example6@example.com">alex.wong@example.com</a></td>
-          <td>Lesson 6 Quiz 2</td>
+          <td>Lesson 6 Quiz 1</td>
           <td>10%</td>
         </tr>
          <tr>
           <td><a href="mailto:example6@example.com">alex.wong@example.com</a></td>
-          <td>Lesson 6 Quiz 1</td>
+          <td>Lesson 6 Quiz 2</td>
           <td>50%</td>
         </tr>
          <tr>
           <td><a href="mailto:example6@example.com">alex.wong@example.com</a></td>
-          <td>Lesson 6 Warm Up</td>
+          <td>Lesson 6 Quiz 3</td>
           <td>80%</td>
         </tr>
         <tr>
@@ -563,7 +564,7 @@ tr:nth-child(odd) {
         </tr>
         <tr>
           <td><a href="mailto:example7@example.com">emily.jones@example.com</a></td>
-          <td>Lesson 6 Warm Up</td>
+          <td>Lesson 6 Quiz 3</td>
           <td>70%</td>
         </tr>
         <tr>
@@ -578,12 +579,10 @@ tr:nth-child(odd) {
         </tr>
          <tr>
           <td><a href="mailto:example8@example.com">mark.miller@example.com</a></td>
-          <td>Lesson 6 Warm Up</td>
+          <td>Lesson 6 Quiz 3</td>
           <td>40%</td>
         </tr>
       </tbody>
-  </div>
-</div>
 <script>
   function openSheet(evt, sheetName) {
   var i, tabcontent, tablinks;
