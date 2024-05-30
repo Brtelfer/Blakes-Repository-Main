@@ -215,8 +215,6 @@ tr:nth-child(odd) {
   <div id="Time-Spent" class="Time-Spent" style="display:none">
     <table id="table1">
       <thead>
-      
-      
           <th>Participant<button class="sort-btn" onclick='sortTable(0, "table1")'>▲</button><button class="sort-btn" onclick='sortTable(0,"table1")'>▼</button>
           <input type="text" id="searchParticipant1" class="search-input" onkeyup="searchTable(0, 'table1', 'searchParticipant1')" placeholder="Search...">
         <button onclick="clearSearch('Table1')" class="clear-btn">Clear</button>
@@ -232,133 +230,91 @@ tr:nth-child(odd) {
           </th>
           <th>Last Start Date<button class="sort-btn" onclick='sortTable(5,"table1")'>▲</button><button class="sort-btn" onclick='sortTable(5,"table1")'>▼</button>
           </th>
-      <tbody>
-        <tr>
-  <td><a href="mailto:john.doe@example.com">john.doe@example.com</a></td>
-  <td>6</td>
-  <td>1</td>
-  <td>09:45</td>
-  <td>2024-04-01 10:20 AM</td>
-  <td>2024-04-01 10:35 AM</td>
-</tr>
-<tr>
-  <td><a href="mailto:jane.smith@example.com">jane.smith@example.com</a></td>
-  <td>6</td>
-  <td>1</td>
-  <td>15:20</td>
-  <td>2024-04-02 02:10 PM</td>
-  <td>2024-04-02 02:35 PM</td>
-</tr>
-<tr>
-  <td><a href="mailto:alex.wong@example.com">alex.wong@example.com</a></td>
-  <td>6</td>
-  <td>1</td>
-  <td>11:05</td>
-  <td>2024-04-03 11:30 AM</td>
-  <td>2024-04-03 11:50 AM</td>
-</tr>
-<tr>
-  <td><a href="mailto:emily.jones@example.com">emily.jones@example.com</a></td>
-  <td>6</td>
-  <td>1</td>
-  <td>17:30</td>
-  <td>2024-04-04 04:45 PM</td>
-  <td>2024-04-04 05:00 PM</td>
-</tr>
-<tr>
-  <td><a href="mailto:mark.miller@example.com">mark.miller@example.com</a></td>
-  <td>6</td>
-  <td>1</td>
-  <td>14:10</td>
-  <td>2024-04-05 03:25 PM</td>
-  <td>2024-04-05 03:40 PM</td>
-</tr>
-
-      </tbody>
+   <tbody>
+  <tr>
+    <td><a href="mailto:bdc16@bdc.org">bdc16@bdc.org</a></td>
+    <td>6</td>
+    <td>1</td>
+    <td>26</td>
+	<td>May 17, 2024, 3:22:28 PM</td>
+    <td>May 17, 2024, 3:48:29 PM</td>
+  </tr>
+  <tr>
+    <td><a href="mailto:bdc12@bdc.org">bdc12@bdc.org</a></td>
+    <td>6</td>
+    <td>1</td>
+    <td>14.2</td>
+    <td>May 20, 2024, 1:03:41 PM</td>
+    <td>May 20, 2024, 1:18:00 PM</td>
+  </tr>
+    <tr>
+    <td><a href="mailto:bdc12@bdc.org">bdc12@bdc.org</a></td>
+    <td>6</td>
+    <td>2</td>
+    <td>10.5</td>
+    <td>May 20, 2024, 12:59:00 PM</td>
+    <td>May 20, 2024, 12:48:08 PM</td>
+  </tr>
+</tbody>
           </div>
     </table>
   </div>
   <div id="Completion-Progress" class="Completion-Progress" style="display:none">
     <table id="table2">
-      <thead>
-        <tr>
-          <th>Participant
-            <button class="sort-btn" onclick='sortTable(0,"table2")'>▲</button>
-            <button class="sort-btn" onclick='sortTable(0,"table2")'>▼</button>
-            
+  <thead>
+    <tr>
+      <th>Participant
+        <button class="sort-btn" onclick='sortTable(0,"table2")'>▲</button>
+        <button class="sort-btn" onclick='sortTable(0,"table2")'>▼</button>
         <input type="text" id="searchParticipant2" class="search-input" onkeyup="searchTable(0, 'table2', 'searchParticipant2')" placeholder="Search...">
         <button onclick="clearSearch('Participant')" class="clear-btn">Clear</button>
-          <th>Lesson 6
-            <button class="sort-btn" onclick='sortTable(1,"table2")'>▲</button>
-            <button class="sort-btn" onclick='sortTable(1,"table2")'>▼</button>
-          </th>
-          <th>Lesson 21
-            <button class="sort-btn" onclick='sortTable(2,"table2")'>▲</button>
-            <button class="sort-btn" onclick='sortTable(2,"table2")'>▼</button>
-          </th>
-          <th>Lesson 23
-            <button class="sort-btn" onclick='sortTable(3,"table2")'>▲</button>
-            <button class="sort-btn" onclick='sortTable(3,"table2")'>▼</button>
-          </th>
-          <th>Lesson 24
-            <button class="sort-btn" onclick='sortTable(4,"table2")'>▲</button>
-            <button class="sort-btn" onclick='sortTable(4,"table2")'>▼</button>
-          </th>
-          <th>Lesson 28
-            <button class="sort-btn" onclick='sortTable(5,"table2")'>▲</button>
-            <button class="sort-btn" onclick='sortTable(5,"table2")'>▼</button>
-          </th>
-          <th>Lesson 29
-            <button class="sort-btn" onclick='sortTable(6,"table2")'>▲</button>
-            <button class="sort-btn" onclick='sortTable(6,"table2")'>▼</button>
-          </th>
-      <tbody>
-          <tr>
-          <td><a href="mailto:john.doe@example.com">john.doe@example.com</a></td>
-          <td>Completed</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td><a href="mailto:jane.smith@example.com">jane.smith@example.com</a></td>
-          <td>Completed</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td><a href="mailto:alex.wong@example.com">alex.wong@example.com</a></td>
-          <td>In Progress</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td><a href="mailto:emily.jones@example.com">emily.jones@example.com</a></td>
-          <td>Completed</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td><a href="mailto:mark.miller@example.com">mark.miller@example.com</a></td>
-          <td>In Progress</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </tbody>
+      </th>
+      <th>Lesson 6
+        <button class="sort-btn" onclick='sortTable(1,"table2")'>▲</button>
+        <button class="sort-btn" onclick='sortTable(1,"table2")'>▼</button>
+      </th>
+      <th>Lesson 21
+        <button class="sort-btn" onclick='sortTable(2,"table2")'>▲</button>
+        <button class="sort-btn" onclick='sortTable(2,"table2")'>▼</button>
+      </th>
+      <th>Lesson 23
+        <button class="sort-btn" onclick='sortTable(3,"table2")'>▲</button>
+        <button class="sort-btn" onclick='sortTable(3,"table2")'>▼</button>
+      </th>
+      <th>Lesson 24
+        <button class="sort-btn" onclick='sortTable(4,"table2")'>▲</button>
+        <button class="sort-btn" onclick='sortTable(4,"table2")'>▼</button>
+      </th>
+      <th>Lesson 28
+        <button class="sort-btn" onclick='sortTable(5,"table2")'>▲</button>
+        <button class="sort-btn" onclick='sortTable(5,"table2")'>▼</button>
+      </th>
+      <th>Lesson 29
+        <button class="sort-btn" onclick='sortTable(6,"table2")'>▲</button>
+        <button class="sort-btn" onclick='sortTable(6,"table2")'>▼</button>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="mailto:bdc16@bdc.org">bdc16@bdc.org</a></td>
+      <td>Started</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="mailto:bdc12@bdc.org">bdc12@bdc.org</a></td>
+      <td>Started</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
     </table>
   </div>
   <div id="Lesson-Percentage-Correct" class="Lesson-Percentage-Correct">
@@ -379,210 +335,82 @@ tr:nth-child(odd) {
       </thead>
       <tbody>
           <tr>
-          <td rowspan="4"><a href="mailto:john.doe@example.com">john.doe@example.com</a></td>
+          <td rowspan="4"><a href="mailto:bdc16@bdc.org">bdc16@bdc.org</a></td>
           <td rowspan="4">6</td>
           <td>1</td>
-          <td>3.5</td>
-          <td>60%</td>
+          <td>26</td>
+          <td>68%</td>
         </tr>
         <tr>
           <td>2</td>
-          <td>10</td>
-          <td>80%</td>
+          <td></td>
+          <td></td>
         </tr>
         <tr>
           <td>3</td>
-          <td>8.3</td>
-          <td>95%</td>
+          <td></td>
+          <td></td>
         </tr>
         <tr>
 
           <td colspan="2" style="font-size:large"><b>Total Time Spent:</b></td>
-          <td colspan="1"><b>21.8</b></td>
-        </tr>
-        <tr>
-          <td rowspan="4"><a href="mailto:example10@example.com">jane.smith@example.com</a></td>
-          <td rowspan="4">6</td>
-          <td>1</td>
-          <td>9</td>
-          <td>27%</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>4.7</td>
-          <td>55%</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>14</td>
-          <td>80%</td>
-        </tr>
-        <tr>
-          <td colspan="2" style="font-size:large"><b>Total Time Spent:</b></td>
-          <td colspan="1"><b>27.7</b></td>
-        </tr>
-        <tr>
-          <td rowspan="4"><a href="mailto:example6@example.com">alex.wong@example.com</a></td>
-          <td rowspan="4">6</td>
-          <td>1</td>
-          <td>6.4</td>
-          <td>55%</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>9.7</td>
-          <td>75%</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>4.3</td>
-          <td>70%</td>
-        </tr>
-        <tr>
-          <td colspan="2" style="font-size:large"><b>Total Time Spent:</b></td>
-          <td colspan="1"><b>20.4</b></td>
-        </tr>
-        <tr>
-          <td rowspan="4"><a href="mailto:example7@example.com">emily.jones@example.com</a></td>
-          <td rowspan="4">6</td>
-          <td>1</td>
-          <td>4</td>
-          <td>80%</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>5.7</td>
-          <td>25%</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>16.3</td>
-          <td>10%</td>
-        </tr>
-        <tr>
-          <td colspan="2" style="font-size:large"><b>Total Time Spent:</b></td>
           <td colspan="1"><b>26</b></td>
         </tr>
         <tr>
-          <td rowspan="4"><a href="mailto:example8@example.com">mark.miller@example.com</a></td>
+          <td rowspan="4"><a href="mailto:bdc12@bdc.org">bdc12@bdc.org</a></td>
           <td rowspan="4">6</td>
           <td>1</td>
-          <td>7.9</td>
-          <td>15%</td>
+          <td></td>
+          <td></td>
         </tr>
         <tr>
           <td>2</td>
-          <td>7</td>
-          <td>25%</td>
+          <td>14.2</td>
+          <td>78%</td>
         </tr>
         <tr>
           <td>3</td>
-          <td>17.3</td>
-          <td>65%</td>
+          <td>10.5</td>
+          <td>100%</td>
         </tr>
         <tr>
           <td colspan="2" style="font-size:large"><b>Total Time Spent:</b></td>
-          <td colspan="1"><b>32.2</b></td>
+          <td colspan="1"><b>24.7</b></td>
+        </tr>
+        <tr>
         </tr>
       </tbody>
     </table>
   </div>
   <div id="Quiz-Percentage-Correct" class="Quiz-Percentage-Correct" style="display:none">
-    <table id= table4>
-      <thead>
-        <tr>
-          <th>Participant
-<input type="text" id="searchParticipant4" class="search-input" onkeyup="searchTable(0, 'table4', 'searchParticipant4')" placeholder="Search...">
-
-        <button onclick="clearSearch('Participant')" class="clear-btn">Clear</button>
-    <button class="sort-btn" onclick='sortTable(0,"table4")'>▲</button>
-            <button class="sort-btn" onclick='sortTable(0,"table4")'>▼</button>
-          <th>Lesson Identifier
+  <table id="table4">
+    <thead>
+      <tr>
+        <th>Participant
+          <input type="text" id="searchParticipant4" class="search-input" onkeyup="searchTable(0, 'table4', 'searchParticipant4')" placeholder="Search...">
+          <button onclick="clearSearch('Participant')" class="clear-btn">Clear</button>
+          <button class="sort-btn" onclick='sortTable(0,"table4")'>▲</button>
+          <button class="sort-btn" onclick='sortTable(0,"table4")'>▼</button>
+        </th>
+        <th>Lesson Identifier
           <button class="sort-btn" onclick='sortTable(1,"table4")'>▲</button>
-            <button class="sort-btn" onclick='sortTable(1,"table4")'>▼</button>
-           </th>
-          <th>Percentage Correct
-          <button class="sort-btn" onclick='sortTable(1,"table4")'>▲</button>
-            <button class="sort-btn" onclick='sortTable(1,"table4")'>▼</button>
-        </tr>
-      </thead>
-      <tbody>
-                <tr>
-          <td><a href="mailto:bdcUMtest@bdc.org">john.doe@example.com</a></td>
-          <td>Lesson 6 Quiz 1</td>
-          <td>50%</td>
-        </tr>
-         <tr>
-          <td><a href="mailto:bdcUMtest@bdc.org">john.doe@example.com</a></td>
-          <td>Lesson 6 Quiz 2</td>
-          <td>80%</td>
-        </tr>
-         <tr>
-          <td><a href="mailto:bdcUMtest@bdc.org">john.doe@example.com</a></td>
-          <td>Lesson 6 Quiz 3</td>
-          <td>60%</td>
-        </tr>
-        <tr>
-          <td><a href="mailto:bdcUMtest@bdc.org">jane.smith@example.com</a></td>
-          <td>Lesson 6 Quiz 1</td>
-          <td>10%</td>
-        </tr>
-         <tr>
-          <td><a href="mailto:bdcUMtest@bdc.org">jane.smith@example.com</a></td>
-          <td>Lesson 6 Quiz 2</td>
-          <td>80%</td>
-        </tr>
-         <tr>
-          <td><a href="mailto:bdcUMtest@bdc.org">jane.smith@example.com</a></td>
-          <td>Lesson 6 Quiz 3</td>
-          <td>100%</td>
-        </tr>
-        <tr>
-          <td><a href="mailto:example6@example.com">alex.wong@example.com</a></td>
-          <td>Lesson 6 Quiz 1</td>
-          <td>10%</td>
-        </tr>
-         <tr>
-          <td><a href="mailto:example6@example.com">alex.wong@example.com</a></td>
-          <td>Lesson 6 Quiz 2</td>
-          <td>50%</td>
-        </tr>
-         <tr>
-          <td><a href="mailto:example6@example.com">alex.wong@example.com</a></td>
-          <td>Lesson 6 Quiz 3</td>
-          <td>80%</td>
-        </tr>
-        <tr>
-          <td><a href="mailto:example7@example.com">emily.jones@example.com</a></td>
-          <td>Lesson 6 Quiz 1</td>
-          <td>10%</td>
-        </tr>
-        <tr>
-          <td><a href="mailto:example7@example.com">emily.jones@example.com</a></td>
-          <td>Lesson 6 Quiz 2</td>
-          <td>40%</td>
-        </tr>
-        <tr>
-          <td><a href="mailto:example7@example.com">emily.jones@example.com</a></td>
-          <td>Lesson 6 Quiz 3</td>
-          <td>70%</td>
-        </tr>
-        <tr>
-          <td><a href="mailto:example8@example.com">mark.miller@example.com</a></td>
-          <td>Lesson 6 Quiz 1</td>
-          <td>50%</td>
-        </tr>
-         <tr>
-          <td><a href="mailto:example8@example.com">mark.miller@example.com</a></td>
-          <td>Lesson 6 Quiz 2</td>
-          <td>70%</td>
-        </tr>
-         <tr>
-          <td><a href="mailto:example8@example.com">mark.miller@example.com</a></td>
-          <td>Lesson 6 Quiz 3</td>
-          <td>40%</td>
-        </tr>
-      </tbody>
+          <button class="sort-btn" onclick='sortTable(1,"table4")'>▼</button>
+        </th>
+        <th>Percentage Correct
+          <button class="sort-btn" onclick='sortTable(2,"table4")'>▲</button>
+          <button class="sort-btn" onclick='sortTable(2,"table4")'>▼</button>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="mailto:bdc16@bdc.org">bdc16@bdc.org</a></td>
+        <td>Quiz 1</td>
+        <td>80%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 <script>
   function openSheet(evt, sheetName) {
   var i, tabcontent, tablinks;
