@@ -1,6 +1,10 @@
 function setTexts(slidenumber) {
     console.log("setTexts function called with slideNumber: " + slidenumber); // Log the function call
 
+    if (slidenumber === undefined || slidenumber === null) {
+        console.error("Slide number is undefined or null.");
+        return;
+    }
     var correctTexts = [
         "This is a credit card statement with the amount of money that student owes.",
         "This document is intended to give a record of purchases and payments. It gives the card holder a summary of how much the card has been used during the billing period, as well as the amount that is due for that billing cycle.",
@@ -235,6 +239,10 @@ function setTexts(slidenumber) {
 
     // Log the text being set for each variable
     var correctText = correctTexts[slidenumber - 1];
+    if (correctText === undefined || correctText === null) {
+        console.error("Correct text is undefined or null for slide number:", slidenumber);
+        return;
+    }
     console.log("Setting Correct to: " + correctText);
     player.SetVar("Correct", correctText);
 
