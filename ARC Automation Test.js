@@ -106,7 +106,7 @@ function setTexts(slidenumber) {
         "What is the purpose of this document?",
         "How long are Student and Nicholas renting this house?",
         "Click on the highlighted name of the landlord of the house.",
-        "Why do Student and Nicholas pay a total of \\$1300 to their owner on the first month and not \\$650?",
+        "Why do Student and Nicholas pay a total of $1300 to their owner on the first month and not $650?",
         "How will the landlord treat a bad check?",
         "What happens if Student or Nicholas fails to pay rent by the 5th day of the month?",
         "Can there be more than two people living in the house at any time?",
@@ -118,11 +118,11 @@ function setTexts(slidenumber) {
         "Receipt",
         "To give a record of purchases and payments",
         "Account Information",
-        "\\$124.92",
+        "$124.92",
         "10/3/2014",
         "Account Activity",
         "22.25%",
-        "\\$124.92",
+        "$124.92",
         "To provide a summary of skills, abilities and accomplishments to get a job",
         "Restaurant Manager",
         "Objective",
@@ -145,11 +145,11 @@ function setTexts(slidenumber) {
         "Credit Card Statement",
         "To collect for insurance and loans",
         "Payment Information",
-        "\\$320.00",
+        "$320.00",
         "10/20/2014",
         "Balance Summary",
         "0.94%",
-        "\\$18.00",
+        "$18.00",
         "To provide a summary of skills, hobbies, and abilities to get a job",
         "Fine Dining Server",
         "Core Qualifications",
@@ -160,9 +160,9 @@ function setTexts(slidenumber) {
         "To give a receipt and record of purchases",
         "1 year",
         "Student",
-        "They have to pay a security deposit of \\$650 and first month rent of \\$650",
-        "Unpaid rent with an additional \\$25 fee",
-        "A fee of 5% equivalent to \\$32.50 will be added to rent",
+        "They have to pay a security deposit of $650 and first month rent of $650",
+        "Unpaid rent with an additional $25 fee",
+        "A fee of 5% equivalent to $32.50 will be added to rent",
         "Yes, if it is for less than 15 days",
         "Paid Trash pickup",
         "Yes, with consent and additional deposit and rental fees"
@@ -172,11 +172,11 @@ function setTexts(slidenumber) {
         "Car Insurance Bill",
         "To show who is a part of a contract",
         "Account Activity",
-        "\\$195.08",
+        "$195.08",
         "10/23/2014",
         "Finance Charge Summary",
         "11.28%",
-        "\\$195.08",
+        "$195.08",
         "To provide a summary of hobbies and accomplishments to get a date",
         "Restaurant Host",
         "Experience",
@@ -187,9 +187,9 @@ function setTexts(slidenumber) {
         "To show who is a part of the contract and what the contract entails",
         "2 years",
         "Nicholas Michaels",
-        "The owner does not trust them so He demanded \\$650 extra",
+        "The owner does not trust them so He demanded $650 extra",
         "Unpaid rent only",
-        "The owner will give Student and Nicholas a fee of \\$32.00",
+        "The owner will give Student and Nicholas a fee of $32.00",
         "Yes, anyone can stay with Student and Nicholas",
         "Paid Maintenance and Repair",
         "Yes, and there is no fee for animals"
@@ -210,12 +210,12 @@ function setTexts(slidenumber) {
     var variableNames = [
         "Correct",
         "Correct2",
+        "NegativeFeedbacktoUser",
         "StudentUnderstand",
         "StudentUnderstand2",
         "IncorrectPrompt",
-        "IncorrectPrompt2"
+        "IncorrectPrompt2",
         "PositiveFeedbacktoUser",
-        "NegativeFeedbacktoUser",
         "Choice1",
         "Choice2",
         "Choice3",
@@ -225,9 +225,9 @@ function setTexts(slidenumber) {
 
     var player = GetPlayer();
 
-    // Get all variables using a loop
+    // Initialize variables using a loop
     variableNames.forEach(function(variableName) {
-        player.GetVar(variableName);
+        player.SetVar(variableName, "");
     });
 
     function calculateDuration(text) {
@@ -301,7 +301,6 @@ function setTexts(slidenumber) {
     console.log("Setting QuestionPrompt to: " + questionPrompt);
     player.SetVar("QuestionPrompt", questionPrompt);
 
-    var choice1 = Choice1Texts[slidenumber - 1];
     var choice1 = Choice1Texts[slidenumber - 1];
     var choice2 = Choice2Texts[slidenumber - 1];
     var choice3 = Choice3Texts[slidenumber - 1];
