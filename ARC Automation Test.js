@@ -242,9 +242,6 @@ function setTexts(slidenumber) {
             duration = 9;
         }
 
-        // Inverse the duration for a countdown timer
-        duration = 9 - duration;
-
         return duration;
     }
 
