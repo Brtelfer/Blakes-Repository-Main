@@ -319,7 +319,7 @@ function setTexts(slidenumber) {
     console.log("Setting CorrectOrNot to: " + correctOrNot);
     player.SetVar("CorrectOrNot", correctOrNot);
 
-  // Calculate durations for each text variable
+// Calculate durations for each text variable
 var correctDuration = calculateDuration(correctShortText);
 var incorrectPromptDuration = calculateDuration(incorrectPromptShortText);
 var studentUnderstandDuration = calculateDuration(studentUnderstandShortText);
@@ -332,10 +332,26 @@ var choice3Duration = calculateDuration(choice3);
 var positiveFeedbackDuration = calculateDuration(randomPositiveFeedback);
 var negativeFeedbackDuration = calculateDuration(randomNegativeFeedback);
 
-// Calculate durations for the second halves of the texts
-var correctDurationHalf = calculateDuration(correctShortText2);
-var incorrectPromptDurationHalf = calculateDuration(incorrectPromptShortText2);
-var studentUnderstandDurationHalf = calculateDuration(studentUnderstandShortText2);
+// Calculate durations for the whole texts
+var correctFullDuration = calculateDuration(correctText);
+var incorrectPromptFullDuration = calculateDuration(incorrectPromptText);
+var studentUnderstandFullDuration = calculateDuration(studentUnderstandText);
+
+// Calculate half durations within the constraints of a 9-second timer
+var correctDurationHalf = Math.ceil(correctFullDuration / 2);
+var incorrectPromptDurationHalf = Math.ceil(incorrectPromptFullDuration / 2);
+var studentUnderstandDurationHalf = Math.ceil(studentUnderstandFullDuration / 2);
+
+// Ensure the half durations do not exceed 9 seconds
+if (correctDurationHalf > 9) {
+    correctDurationHalf = 9;
+}
+if (incorrectPromptDurationHalf > 9) {
+    incorrectPromptDurationHalf = 9;
+}
+if (studentUnderstandDurationHalf > 9) {
+    studentUnderstandDurationHalf = 9;
+}
 
 // Log the calculated durations
 console.log("Correct Duration: " + correctDuration + " seconds");
