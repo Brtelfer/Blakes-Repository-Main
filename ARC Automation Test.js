@@ -342,11 +342,6 @@ function setTexts(slidenumber) {
     var incorrectPromptDurationHalf = Math.floor(incorrectPromptFullDuration / 2);
     var studentUnderstandDurationHalf = Math.floor(studentUnderstandFullDuration / 2);
 
-    // Inverse the half durations for the countdown timer
-    correctDurationHalf = 9 - correctDurationHalf;
-    incorrectPromptDurationHalf = 9 - incorrectPromptDurationHalf;
-    studentUnderstandDurationHalf = 9 - studentUnderstandDurationHalf;
-
     // Log the calculated durations
     console.log("Correct Duration: " + correctDuration + " seconds");
     console.log("IncorrectPrompt Duration: " + incorrectPromptDuration + " seconds");
