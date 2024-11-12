@@ -250,7 +250,7 @@ function setTexts(slidenumber) {
 
     function splitTextIntoSentences(text) {
         var sentences = text.match(/[^\.!\?]+[\.!\?]+/g);
-        if (sentences.length > 4) {
+        if (sentences.length > 3) {
             var midIndex = Math.ceil(sentences.length / 2);
             var shortText = sentences.slice(0, midIndex).join(' ').trim();
             var shortText2 = sentences.slice(midIndex).join(' ').trim();
