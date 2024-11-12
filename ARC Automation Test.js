@@ -337,9 +337,9 @@ function setTexts(slidenumber) {
     var studentUnderstandFullDuration = calculateDuration(studentUnderstandText);
 
     // Calculate half durations and round down to whole numbers
-    var correctDurationHalf = Math.floor(correctFullDuration + 3);
-    var incorrectPromptDurationHalf = Math.floor(incorrectPromptFullDuration + 3);
-    var studentUnderstandDurationHalf = Math.floor(studentUnderstandFullDuration + 3);
+    var correctDurationHalf = Math.floor(correctFullDuration + 4);
+    var incorrectPromptDurationHalf = Math.floor(incorrectPromptFullDuration + 4);
+    var studentUnderstandDurationHalf = Math.floor(studentUnderstandFullDuration + 4);
 
     // Log the calculated durations
     console.log("Correct Duration: " + correctDuration + " seconds");
