@@ -206,28 +206,21 @@ function setTexts(slidenumber) {
         2, 1, 1, 3, 2, 3, 3, 2, 1, 2, 1, 1, 2, 3, 1, 3, 2, 1, 2, 2, 2, 3, 2, 2
     ];
 
-    var variableNames = [
-        "Correct",
-        "Correct2",
-        "StudentUnderstand",
-        "StudentUnderstand2",
-        "IncorrectPrompt",
-        "IncorrectPrompt2"
-        "PositiveFeedbacktoUser",
-        "NegativeFeedbacktoUser",
-        "Choice1",
-        "Choice2",
-        "Choice3",
-        "QuestionPrompt",
-        "CorrectOrNot"
-    ];
-
     var player = GetPlayer();
 
-    // Get all variables using a loop
-    variableNames.forEach(function(variableName) {
-        player.GetVar(variableName);
-    });
+    player.GetVar("Correct");
+    player.GetVar("Correct2");
+    player.GetVar("StudentUnderstand");
+    player.GetVar("StudentUnderstand2");
+    player.GetVar("IncorrectPrompt");
+    player.GetVar("IncorrectPrompt2");
+    player.GetVar("PositiveFeedbacktoUser");
+    player.GetVar("NegativeFeedbacktoUser");
+    player.GetVar("Choice1");
+    player.GetVar("Choice2");
+    player.GetVar("Choice3");
+    player.GetVar("QuestionPrompt");
+    player.GetVar("CorrectOrNot");
 
     function calculateDuration(text) {
         var words = text.split(" ").length;
