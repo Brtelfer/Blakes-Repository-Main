@@ -337,21 +337,15 @@ var correctFullDuration = calculateDuration(correctText);
 var incorrectPromptFullDuration = calculateDuration(incorrectPromptText);
 var studentUnderstandFullDuration = calculateDuration(studentUnderstandText);
 
-// Calculate half durations within the constraints of a 9-second timer
-var correctDurationHalf = Math.ceil(correctFullDuration / 2);
-var incorrectPromptDurationHalf = Math.ceil(incorrectPromptFullDuration / 2);
-var studentUnderstandDurationHalf = Math.ceil(studentUnderstandFullDuration / 2);
+// Calculate half durations and round down to whole numbers
+var correctDurationHalf = Math.floor(correctFullDuration / 2);
+var incorrectPromptDurationHalf = Math.floor(incorrectPromptFullDuration / 2);
+var studentUnderstandDurationHalf = Math.floor(studentUnderstandFullDuration / 2);
 
-// Ensure the half durations do not exceed 9 seconds
-if (correctDurationHalf > 9) {
-    correctDurationHalf = 9;
-}
-if (incorrectPromptDurationHalf > 9) {
-    incorrectPromptDurationHalf = 9;
-}
-if (studentUnderstandDurationHalf > 9) {
-    studentUnderstandDurationHalf = 9;
-}
+// Inverse the half durations for the countdown timer
+correctDurationHalf = 9 - correctDurationHalf;
+incorrectPromptDurationHalf = 9 - incorrectPromptDurationHalf;
+studentUnderstandDurationHalf = 9 - studentUnderstandDurationHalf;
 
 // Log the calculated durations
 console.log("Correct Duration: " + correctDuration + " seconds");
