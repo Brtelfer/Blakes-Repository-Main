@@ -5,7 +5,6 @@ function setTexts(slidenumber) {
         console.error("Slide number is undefined or null.");
         return;
     }
-
     var correctTexts = [
         "This is a credit card statement with the amount of money that student owes.",
         "This document is intended to give a record of purchases and payments. It gives the card holder a summary of how much the card has been used during the billing period, as well as the amount that is due for that billing cycle.",
@@ -207,28 +206,18 @@ function setTexts(slidenumber) {
         2, 1, 1, 3, 2, 3, 3, 2, 1, 2, 1, 1, 2, 3, 1, 3, 2, 1, 2, 2, 2, 3, 2, 2
     ];
 
-    var variableNames = [
-        "Correct",
-        "Correct2",
-        "NegativeFeedbacktoUser",
-        "StudentUnderstand",
-        "StudentUnderstand2",
-        "IncorrectPrompt",
-        "IncorrectPrompt2",
-        "PositiveFeedbacktoUser",
-        "Choice1",
-        "Choice2",
-        "Choice3",
-        "QuestionPrompt",
-        "CorrectOrNot"
-    ];
-
     var player = GetPlayer();
 
-    // Initialize variables using a loop
-    variableNames.forEach(function(variableName) {
-        player.SetVar(variableName, "");
-    });
+    player.GetVar("Correct");
+    player.GetVar("NegativeFeedbacktoUser");
+    player.GetVar("StudentUnderstand");
+    player.GetVar("IncorrectPrompt");
+    player.GetVar("PositiveFeedbacktoUser");
+    player.GetVar("Choice1");
+    player.GetVar("Choice2");
+    player.GetVar("Choice3");
+    player.GetVar("QuestionPrompt");
+    player.GetVar("CorrectOrNot");
 
     function calculateDuration(text) {
         var words = text.split(" ").length;
@@ -241,22 +230,11 @@ function setTexts(slidenumber) {
         if (duration > 9) {
             duration = 9;
         }
-        
-        duration = 9 - duration;
-        
-        return duration;
-    }
 
-    function splitTextIntoSentences(text) {
-        var sentences = text.match(/[^\.!\?]+[\.!\?]+/g);
-        if (sentences.length > 2) {
-            var midIndex = Math.ceil(sentences.length / 2);
-            var shortText = sentences.slice(0, midIndex).join(' ').trim();
-            var shortText2 = sentences.slice(midIndex).join(' ').trim();
-            return { shortText, shortText2 };
-        } else {
-            return { shortText: text.trim(), shortText2: '' };
-        }
+        // Inverse the duration for a countdown timer
+        duration = 9 - duration;
+
+        return duration;
     }
 
     // Log the text being set for each variable
@@ -265,25 +243,16 @@ function setTexts(slidenumber) {
         console.error("Correct text is undefined or null for slide number:", slidenumber);
         return;
     }
-    var { shortText: correctShortText, shortText2: correctShortText2 } = splitTextIntoSentences(correctText);
-    console.log("Setting Correct to: " + correctShortText);
-    player.SetVar("Correct", correctShortText);
-    console.log("Setting Correct2 to: " + correctShortText2);
-    player.SetVar("Correct2", correctShortText2);
+    console.log("Setting Correct to: " + correctText);
+    player.SetVar("Correct", correctText);
 
     var incorrectPromptText = incorrectPromptTexts[slidenumber - 1];
-    var { shortText: incorrectPromptShortText, shortText2: incorrectPromptShortText2 } = splitTextIntoSentences(incorrectPromptText);
-    console.log("Setting IncorrectPrompt to: " + incorrectPromptShortText);
-    player.SetVar("IncorrectPrompt", incorrectPromptShortText);
-    console.log("Setting IncorrectPrompt2 to: " + incorrectPromptShortText2);
-    player.SetVar("IncorrectPrompt2", incorrectPromptShortText2);
+    console.log("Setting IncorrectPrompt to: " + incorrectPromptText);
+    player.SetVar("IncorrectPrompt", incorrectPromptText);
 
     var studentUnderstandText = studentUnderstandTexts[slidenumber - 1];
-    var { shortText: studentUnderstandShortText, shortText2: studentUnderstandShortText2 } = splitTextIntoSentences(studentUnderstandText);
-    console.log("Setting StudentUnderstand to: " + studentUnderstandShortText);
-    player.SetVar("StudentUnderstand", studentUnderstandShortText);
-    console.log("Setting StudentUnderstand2 to: " + studentUnderstandShortText2);
-    player.SetVar("StudentUnderstand2", studentUnderstandShortText2);
+    console.log("Setting StudentUnderstand to: " + studentUnderstandText);
+    player.SetVar("StudentUnderstand", studentUnderstandText);
 
     // Randomly select positive and negative feedback
     var randomPositiveFeedback = positiveFeedbackTexts[Math.floor(Math.random() * positiveFeedbackTexts.length)];
@@ -319,9 +288,9 @@ function setTexts(slidenumber) {
     player.SetVar("CorrectOrNot", correctOrNot);
 
     // Calculate durations for each text variable
-    var correctDuration = calculateDuration(correctShortText);
-    var incorrectPromptDuration = calculateDuration(incorrectPromptShortText);
-    var studentUnderstandDuration = calculateDuration(studentUnderstandShortText);
+    var correctDuration = calculateDuration(correctText);
+    var incorrectPromptDuration = calculateDuration(incorrectPromptText);
+    var studentUnderstandDuration = calculateDuration(studentUnderstandText);
     var questionPromptDuration = calculateDuration(questionPrompt);
     var choice1Duration = calculateDuration(choice1);
     var choice2Duration = calculateDuration(choice2);
@@ -330,16 +299,6 @@ function setTexts(slidenumber) {
     // Calculate durations for positive and negative feedback
     var positiveFeedbackDuration = calculateDuration(randomPositiveFeedback);
     var negativeFeedbackDuration = calculateDuration(randomNegativeFeedback);
-
-    // Calculate durations for the whole texts
-    var correctFullDuration = calculateDuration(correctText);
-    var incorrectPromptFullDuration = calculateDuration(incorrectPromptText);
-    var studentUnderstandFullDuration = calculateDuration(studentUnderstandText);
-
-    // Calculate half durations and round down to whole numbers
-    var correctDurationHalf = Math.floor(correctFullDuration + 4);
-    var incorrectPromptDurationHalf = Math.floor(incorrectPromptFullDuration + 4);
-    var studentUnderstandDurationHalf = Math.floor(studentUnderstandFullDuration + 4);
 
     // Log the calculated durations
     console.log("Correct Duration: " + correctDuration + " seconds");
@@ -351,9 +310,6 @@ function setTexts(slidenumber) {
     console.log("Choice3 Duration: " + choice3Duration + " seconds");
     console.log("PositiveFeedbacktoUser Duration: " + positiveFeedbackDuration + " seconds");
     console.log("NegativeFeedbacktoUser Duration: " + negativeFeedbackDuration + " seconds");
-    console.log("CorrectDurationHalf: " + correctDurationHalf + " seconds");
-    console.log("IncorrectPromptDurationHalf: " + incorrectPromptDurationHalf + " seconds");
-    console.log("StudentUnderstandDurationHalf: " + studentUnderstandDurationHalf + " seconds");
 
     // Store the calculated durations in Storyline variables
     player.SetVar("CorrectDuration", correctDuration);
@@ -365,7 +321,4 @@ function setTexts(slidenumber) {
     player.SetVar("Choice3Duration", choice3Duration);
     player.SetVar("PositiveFeedbacktoUserDuration", positiveFeedbackDuration);
     player.SetVar("NegativeFeedbacktoUserDuration", negativeFeedbackDuration);
-    player.SetVar("CorrectDurationHalf", correctDurationHalf);
-    player.SetVar("IncorrectPromptDurationHalf", incorrectPromptDurationHalf);
-    player.SetVar("StudentUnderstandDurationHalf", studentUnderstandDurationHalf);
 }
