@@ -5,6 +5,7 @@ function setTexts(slidenumber) {
         console.error("Slide number is undefined or null.");
         return;
     }
+
     var correctTexts = [
         "This is a credit card statement with the amount of money that student owes.",
         "This document is intended to give a record of purchases and payments. It gives the card holder a summary of how much the card has been used during the billing period, as well as the amount that is due for that billing cycle.",
@@ -105,7 +106,7 @@ function setTexts(slidenumber) {
         "What is the purpose of this document?",
         "How long are Student and Nicholas renting this house?",
         "Click on the highlighted name of the landlord of the house.",
-        "Why do Student and Nicholas pay a total of $1300 to their owner on the first month and not $650?",
+        "Why do Student and Nicholas pay a total of \\$1300 to their owner on the first month and not \\$650?",
         "How will the landlord treat a bad check?",
         "What happens if Student or Nicholas fails to pay rent by the 5th day of the month?",
         "Can there be more than two people living in the house at any time?",
@@ -117,11 +118,11 @@ function setTexts(slidenumber) {
         "Receipt",
         "To give a record of purchases and payments",
         "Account Information",
-        "$124.92",
+        "\\$124.92",
         "10/3/2014",
         "Account Activity",
         "22.25%",
-        "$124.92",
+        "\\$124.92",
         "To provide a summary of skills, abilities and accomplishments to get a job",
         "Restaurant Manager",
         "Objective",
@@ -144,11 +145,11 @@ function setTexts(slidenumber) {
         "Credit Card Statement",
         "To collect for insurance and loans",
         "Payment Information",
-        "$320.00",
+        "\\$320.00",
         "10/20/2014",
         "Balance Summary",
         "0.94%",
-        "$18.00",
+        "\\$18.00",
         "To provide a summary of skills, hobbies, and abilities to get a job",
         "Fine Dining Server",
         "Core Qualifications",
@@ -159,9 +160,9 @@ function setTexts(slidenumber) {
         "To give a receipt and record of purchases",
         "1 year",
         "Student",
-        "They have to pay a security deposit of $650 and first month rent of $650",
-        "Unpaid rent with an additional $25 fee",
-        "A fee of 5% equivalent to $32.50 will be added to rent",
+        "They have to pay a security deposit of \\$650 and first month rent of \\$650",
+        "Unpaid rent with an additional \\$25 fee",
+        "A fee of 5% equivalent to \\$32.50 will be added to rent",
         "Yes, if it is for less than 15 days",
         "Paid Trash pickup",
         "Yes, with consent and additional deposit and rental fees"
@@ -171,11 +172,11 @@ function setTexts(slidenumber) {
         "Car Insurance Bill",
         "To show who is a part of a contract",
         "Account Activity",
-        "$195.08",
+        "\\$195.08",
         "10/23/2014",
         "Finance Charge Summary",
         "11.28%",
-        "$195.08",
+        "\\$195.08",
         "To provide a summary of hobbies and accomplishments to get a date",
         "Restaurant Host",
         "Experience",
@@ -186,9 +187,9 @@ function setTexts(slidenumber) {
         "To show who is a part of the contract and what the contract entails",
         "2 years",
         "Nicholas Michaels",
-        "The owner does not trust them so He demanded $650 extra",
+        "The owner does not trust them so He demanded \\$650 extra",
         "Unpaid rent only",
-        "The owner will give Student and Nicholas a fee of $32.00",
+        "The owner will give Student and Nicholas a fee of \\$32.00",
         "Yes, anyone can stay with Student and Nicholas",
         "Paid Maintenance and Repair",
         "Yes, and there is no fee for animals"
@@ -206,18 +207,28 @@ function setTexts(slidenumber) {
         2, 1, 1, 3, 2, 3, 3, 2, 1, 2, 1, 1, 2, 3, 1, 3, 2, 1, 2, 2, 2, 3, 2, 2
     ];
 
+    var variableNames = [
+        "Correct",
+        "Correct2",
+        "StudentUnderstand",
+        "StudentUnderstand2",
+        "IncorrectPrompt",
+        "IncorrectPrompt2"
+        "PositiveFeedbacktoUser",
+        "NegativeFeedbacktoUser",
+        "Choice1",
+        "Choice2",
+        "Choice3",
+        "QuestionPrompt",
+        "CorrectOrNot"
+    ];
+
     var player = GetPlayer();
 
-    player.GetVar("Correct");
-    player.GetVar("NegativeFeedbacktoUser");
-    player.GetVar("StudentUnderstand");
-    player.GetVar("IncorrectPrompt");
-    player.GetVar("PositiveFeedbacktoUser");
-    player.GetVar("Choice1");
-    player.GetVar("Choice2");
-    player.GetVar("Choice3");
-    player.GetVar("QuestionPrompt");
-    player.GetVar("CorrectOrNot");
+    // Get all variables using a loop
+    variableNames.forEach(function(variableName) {
+        player.GetVar(variableName);
+    });
 
     function calculateDuration(text) {
         var words = text.split(" ").length;
@@ -237,22 +248,43 @@ function setTexts(slidenumber) {
         return duration;
     }
 
+    function splitTextIntoSentences(text) {
+        var sentences = text.match(/[^\.!\?]+[\.!\?]+/g);
+        if (sentences.length > 4) {
+            var midIndex = Math.ceil(sentences.length / 2);
+            var shortText = sentences.slice(0, midIndex).join(' ').trim();
+            var shortText2 = sentences.slice(midIndex).join(' ').trim();
+            return { shortText, shortText2 };
+        } else {
+            return { shortText: text.trim(), shortText2: '' };
+        }
+    }
+
     // Log the text being set for each variable
     var correctText = correctTexts[slidenumber - 1];
     if (correctText === undefined || correctText === null) {
         console.error("Correct text is undefined or null for slide number:", slidenumber);
         return;
     }
-    console.log("Setting Correct to: " + correctText);
-    player.SetVar("Correct", correctText);
+    var { shortText: correctShortText, shortText2: correctShortText2 } = splitTextIntoSentences(correctText);
+    console.log("Setting Correct to: " + correctShortText);
+    player.SetVar("Correct", correctShortText);
+    console.log("Setting Correct2 to: " + correctShortText2);
+    player.SetVar("Correct2", correctShortText2);
 
     var incorrectPromptText = incorrectPromptTexts[slidenumber - 1];
-    console.log("Setting IncorrectPrompt to: " + incorrectPromptText);
-    player.SetVar("IncorrectPrompt", incorrectPromptText);
+    var { shortText: incorrectPromptShortText, shortText2: incorrectPromptShortText2 } = splitTextIntoSentences(incorrectPromptText);
+    console.log("Setting IncorrectPrompt to: " + incorrectPromptShortText);
+    player.SetVar("IncorrectPrompt", incorrectPromptShortText);
+    console.log("Setting IncorrectPrompt2 to: " + incorrectPromptShortText2);
+    player.SetVar("IncorrectPrompt2", incorrectPromptShortText2);
 
     var studentUnderstandText = studentUnderstandTexts[slidenumber - 1];
-    console.log("Setting StudentUnderstand to: " + studentUnderstandText);
-    player.SetVar("StudentUnderstand", studentUnderstandText);
+    var { shortText: studentUnderstandShortText, shortText2: studentUnderstandShortText2 } = splitTextIntoSentences(studentUnderstandText);
+    console.log("Setting StudentUnderstand to: " + studentUnderstandShortText);
+    player.SetVar("StudentUnderstand", studentUnderstandShortText);
+    console.log("Setting StudentUnderstand2 to: " + studentUnderstandShortText2);
+    player.SetVar("StudentUnderstand2", studentUnderstandShortText2);
 
     // Randomly select positive and negative feedback
     var randomPositiveFeedback = positiveFeedbackTexts[Math.floor(Math.random() * positiveFeedbackTexts.length)];
@@ -269,6 +301,7 @@ function setTexts(slidenumber) {
     console.log("Setting QuestionPrompt to: " + questionPrompt);
     player.SetVar("QuestionPrompt", questionPrompt);
 
+    var choice1 = Choice1Texts[slidenumber - 1];
     var choice1 = Choice1Texts[slidenumber - 1];
     var choice2 = Choice2Texts[slidenumber - 1];
     var choice3 = Choice3Texts[slidenumber - 1];
@@ -288,9 +321,9 @@ function setTexts(slidenumber) {
     player.SetVar("CorrectOrNot", correctOrNot);
 
     // Calculate durations for each text variable
-    var correctDuration = calculateDuration(correctText);
-    var incorrectPromptDuration = calculateDuration(incorrectPromptText);
-    var studentUnderstandDuration = calculateDuration(studentUnderstandText);
+    var correctDuration = calculateDuration(correctShortText);
+    var incorrectPromptDuration = calculateDuration(incorrectPromptShortText);
+    var studentUnderstandDuration = calculateDuration(studentUnderstandShortText);
     var questionPromptDuration = calculateDuration(questionPrompt);
     var choice1Duration = calculateDuration(choice1);
     var choice2Duration = calculateDuration(choice2);
