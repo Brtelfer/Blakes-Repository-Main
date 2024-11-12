@@ -319,59 +319,59 @@ function setTexts(slidenumber) {
     console.log("Setting CorrectOrNot to: " + correctOrNot);
     player.SetVar("CorrectOrNot", correctOrNot);
 
-// Calculate durations for each text variable
-var correctDuration = calculateDuration(correctShortText);
-var incorrectPromptDuration = calculateDuration(incorrectPromptShortText);
-var studentUnderstandDuration = calculateDuration(studentUnderstandShortText);
-var questionPromptDuration = calculateDuration(questionPrompt);
-var choice1Duration = calculateDuration(choice1);
-var choice2Duration = calculateDuration(choice2);
-var choice3Duration = calculateDuration(choice3);
+    // Calculate durations for each text variable
+    var correctDuration = calculateDuration(correctShortText);
+    var incorrectPromptDuration = calculateDuration(incorrectPromptShortText);
+    var studentUnderstandDuration = calculateDuration(studentUnderstandShortText);
+    var questionPromptDuration = calculateDuration(questionPrompt);
+    var choice1Duration = calculateDuration(choice1);
+    var choice2Duration = calculateDuration(choice2);
+    var choice3Duration = calculateDuration(choice3);
 
-// Calculate durations for positive and negative feedback
-var positiveFeedbackDuration = calculateDuration(randomPositiveFeedback);
-var negativeFeedbackDuration = calculateDuration(randomNegativeFeedback);
+    // Calculate durations for positive and negative feedback
+    var positiveFeedbackDuration = calculateDuration(randomPositiveFeedback);
+    var negativeFeedbackDuration = calculateDuration(randomNegativeFeedback);
 
-// Calculate durations for the whole texts
-var correctFullDuration = calculateDuration(correctText);
-var incorrectPromptFullDuration = calculateDuration(incorrectPromptText);
-var studentUnderstandFullDuration = calculateDuration(studentUnderstandText);
+    // Calculate durations for the whole texts
+    var correctFullDuration = calculateDuration(correctText);
+    var incorrectPromptFullDuration = calculateDuration(incorrectPromptText);
+    var studentUnderstandFullDuration = calculateDuration(studentUnderstandText);
 
-// Calculate half durations and round down to whole numbers
-var correctDurationHalf = Math.floor(correctFullDuration / 2);
-var incorrectPromptDurationHalf = Math.floor(incorrectPromptFullDuration / 2);
-var studentUnderstandDurationHalf = Math.floor(studentUnderstandFullDuration / 2);
+    // Calculate half durations and round down to whole numbers
+    var correctDurationHalf = Math.floor(correctFullDuration / 2);
+    var incorrectPromptDurationHalf = Math.floor(incorrectPromptFullDuration / 2);
+    var studentUnderstandDurationHalf = Math.floor(studentUnderstandFullDuration / 2);
 
-// Inverse the half durations for the countdown timer
-correctDurationHalf = 9 - correctDurationHalf;
-incorrectPromptDurationHalf = 9 - incorrectPromptDurationHalf;
-studentUnderstandDurationHalf = 9 - studentUnderstandDurationHalf;
+    // Inverse the half durations for the countdown timer
+    correctDurationHalf = 9 - correctDurationHalf;
+    incorrectPromptDurationHalf = 9 - incorrectPromptDurationHalf;
+    studentUnderstandDurationHalf = 9 - studentUnderstandDurationHalf;
 
-// Log the calculated durations
-console.log("Correct Duration: " + correctDuration + " seconds");
-console.log("IncorrectPrompt Duration: " + incorrectPromptDuration + " seconds");
-console.log("StudentUnderstand Duration: " + studentUnderstandDuration + " seconds");
-console.log("QuestionPrompt Duration: " + questionPromptDuration + " seconds");
-console.log("Choice1 Duration: " + choice1Duration + " seconds");
-console.log("Choice2 Duration: " + choice2Duration + " seconds");
-console.log("Choice3 Duration: " + choice3Duration + " seconds");
-console.log("PositiveFeedbacktoUser Duration: " + positiveFeedbackDuration + " seconds");
-console.log("NegativeFeedbacktoUser Duration: " + negativeFeedbackDuration + " seconds");
-console.log("CorrectDurationHalf: " + correctDurationHalf + " seconds");
-console.log("IncorrectPromptDurationHalf: " + incorrectPromptDurationHalf + " seconds");
-console.log("StudentUnderstandDurationHalf: " + studentUnderstandDurationHalf + " seconds");
+    // Log the calculated durations
+    console.log("Correct Duration: " + correctDuration + " seconds");
+    console.log("IncorrectPrompt Duration: " + incorrectPromptDuration + " seconds");
+    console.log("StudentUnderstand Duration: " + studentUnderstandDuration + " seconds");
+    console.log("QuestionPrompt Duration: " + questionPromptDuration + " seconds");
+    console.log("Choice1 Duration: " + choice1Duration + " seconds");
+    console.log("Choice2 Duration: " + choice2Duration + " seconds");
+    console.log("Choice3 Duration: " + choice3Duration + " seconds");
+    console.log("PositiveFeedbacktoUser Duration: " + positiveFeedbackDuration + " seconds");
+    console.log("NegativeFeedbacktoUser Duration: " + negativeFeedbackDuration + " seconds");
+    console.log("CorrectDurationHalf: " + correctDurationHalf + " seconds");
+    console.log("IncorrectPromptDurationHalf: " + incorrectPromptDurationHalf + " seconds");
+    console.log("StudentUnderstandDurationHalf: " + studentUnderstandDurationHalf + " seconds");
 
-// Store the calculated durations in Storyline variables
-player.SetVar("CorrectDuration", correctDuration);
-player.SetVar("IncorrectPromptDuration", incorrectPromptDuration);
-player.SetVar("StudentUnderstandDuration", studentUnderstandDuration);
-player.SetVar("QuestionPromptDuration", questionPromptDuration);
-player.SetVar("Choice1Duration", choice1Duration);
-player.SetVar("Choice2Duration", choice2Duration);
-player.SetVar("Choice3Duration", choice3Duration);
-player.SetVar("PositiveFeedbacktoUserDuration", positiveFeedbackDuration);
-player.SetVar("NegativeFeedbacktoUserDuration", negativeFeedbackDuration);
-player.SetVar("CorrectDurationHalf", correctDurationHalf);
-player.SetVar("IncorrectPromptDurationHalf", incorrectPromptDurationHalf);
-player.SetVar("StudentUnderstandDurationHalf", studentUnderstandDurationHalf);
+    // Store the calculated durations in Storyline variables
+    player.SetVar("CorrectDuration", correctDuration);
+    player.SetVar("IncorrectPromptDuration", incorrectPromptDuration);
+    player.SetVar("StudentUnderstandDuration", studentUnderstandDuration);
+    player.SetVar("QuestionPromptDuration", questionPromptDuration);
+    player.SetVar("Choice1Duration", choice1Duration);
+    player.SetVar("Choice2Duration", choice2Duration);
+    player.SetVar("Choice3Duration", choice3Duration);
+    player.SetVar("PositiveFeedbacktoUserDuration", positiveFeedbackDuration);
+    player.SetVar("NegativeFeedbacktoUserDuration", negativeFeedbackDuration);
+    player.SetVar("CorrectDurationHalf", correctDurationHalf);
+    player.SetVar("IncorrectPromptDurationHalf", incorrectPromptDurationHalf);
+    player.SetVar("StudentUnderstandDurationHalf", studentUnderstandDurationHalf);
 }
