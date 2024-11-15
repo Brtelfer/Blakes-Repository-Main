@@ -207,7 +207,7 @@ function setTexts(slidenumber) {
         2, 1, 1, 3, 2, 3, 3, 2, 1, 2, 1, 1, 2, 3, 1, 3, 2, 1, 2, 2, 2, 3, 2, 2
     ];
 
-    var newQuestionPromptTexts = [
+    var quiz1QuestionPromptTexts = [
         "What was the worker in charge of?",
         "Who is responsible for serving this customer?",
         "What did the two people do?",
@@ -220,7 +220,7 @@ function setTexts(slidenumber) {
         "What does 'deemed' mean?"
     ];
 
-    var newOption1Texts = [
+    var quiz1Option1Texts = [
         "cleanliness",
         "student",
         "and/or",
@@ -233,7 +233,7 @@ function setTexts(slidenumber) {
         "judged"
     ];
 
-    var newOption2Texts = [
+    var quiz1Option2Texts = [
         "cleaner",
         "because",
         "if/when",
@@ -246,7 +246,7 @@ function setTexts(slidenumber) {
         "delivered"
     ];
 
-    var newOption3Texts = [
+    var quiz1Option3Texts = [
         "unclean",
         "overall",
         "after/then",
@@ -259,11 +259,11 @@ function setTexts(slidenumber) {
         "escaped"
     ];
 
-    var newKey = [
+    var quiz1Key = [
         1, 1, 3, 2, 1, 3, 1, 1, 2, 3
     ];
 
-    var newStemTexts = [
+    var quiz2Texts = [
         "The person wanted to get a job in restaurant __________.",
         "The worker had experience in graphic design and __________.",
         "Your __________ is the place where you live.",
@@ -276,11 +276,11 @@ function setTexts(slidenumber) {
         "breach"
     ];
 
-    var newStemKey = [
+    var quiz2Key = [
         2, 3, 3, 3, 2, 1, 2, 3, 2, 1
     ];
 
-    var newStemOption1Texts = [
+    var quiz2Option1Texts = [
         "management",
         "visualization",
         "residence",
@@ -293,7 +293,7 @@ function setTexts(slidenumber) {
         "violation"
     ];
 
-    var newStemOption2Texts = [
+    var quiz2Option2Texts = [
         "manager",
         "visual",
         "resident",
@@ -306,7 +306,7 @@ function setTexts(slidenumber) {
         "collector"
     ];
 
-    var newStemOption3Texts = [
+    var quiz2Option3Texts = [
         "unmanage",
         "visualize",
         "residential",
@@ -411,11 +411,11 @@ function setTexts(slidenumber) {
     player.SetVar("CorrectOrNot", correctOrNot);
 
     // Set new data for Quiz1Option1, Quiz1Option2, Quiz1Option3, Quiz1Prompt, and Quiz1Key
-    var quiz1Option1 = newOption1Texts[slidenumber - 1];
-    var quiz1Option2 = newOption2Texts[slidenumber - 1];
-    var quiz1Option3 = newOption3Texts[slidenumber - 1];
-    var quiz1Prompt = newQuestionPromptTexts[slidenumber - 1];
-    var quiz1Key = newKey[slidenumber - 1];
+    var quiz1Option1 = quiz1Option1Texts[slidenumber - 1];
+    var quiz1Option2 = quiz1Option2Texts[slidenumber - 1];
+    var quiz1Option3 = quiz1Option3Texts[slidenumber - 1];
+    var quiz1Prompt = quiz1QuestionPromptTexts[slidenumber - 1];
+    var quiz1Key = quiz1Key[slidenumber - 1];
 
     console.log("Setting Quiz1Option1 to: " + quiz1Option1);
     player.SetVar("Quiz1Option1", quiz1Option1);
@@ -433,11 +433,11 @@ function setTexts(slidenumber) {
     player.SetVar("Quiz1Key", quiz1Key);
 
     // Set new data for Quiz2Option1, Quiz2Option2, Quiz2Option3, Quiz2QuestionPrompt, and Quiz2Key
-    var quiz2Option1 = newStemOption1Texts[slidenumber - 1];
-    var quiz2Option2 = newStemOption2Texts[slidenumber - 1];
-    var quiz2Option3 = newStemOption3Texts[slidenumber - 1];
-    var quiz2QuestionPrompt = newStemTexts[slidenumber - 1];
-    var quiz2Key = newStemKey[slidenumber - 1];
+    var quiz2Option1 = quiz2Option1Texts[slidenumber - 1];
+    var quiz2Option2 = quiz2Option2Texts[slidenumber - 1];
+    var quiz2Option3 = quiz2Option3Texts[slidenumber - 1];
+    var quiz2QuestionPrompt = quiz2Texts[slidenumber - 1];
+    var quiz2Key = quiz2Key[slidenumber - 1];
 
     console.log("Setting Quiz2Option1 to: " + quiz2Option1);
     player.SetVar("Quiz2Option1", quiz2Option1);
