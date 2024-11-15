@@ -331,16 +331,16 @@ function setTexts(slidenumber) {
     player.GetVar("Choice3");
     player.GetVar("QuestionPrompt");
     player.GetVar("CorrectOrNot");
-    player.GetVar("Option1");
-    player.GetVar("Option2");
-    player.GetVar("Option3");
-    player.GetVar("QuizPrompt");
-    player.GetVar("Key");
-    player.GetVar("Stem");
-    player.GetVar("StemKey");
-    player.GetVar("StemOption1");
-    player.GetVar("StemOption2");
-    player.GetVar("StemOption3");
+    player.GetVar("Quiz1Option1");
+    player.GetVar("Quiz1Option2");
+    player.GetVar("Quiz1Option3");
+    player.GetVar("Quiz1Prompt");
+    player.GetVar("Quiz1Key");
+    player.GetVar("Quiz2Option1");
+    player.GetVar("Quiz2Option2");
+    player.GetVar("Quiz2Option3");
+    player.GetVar("Quiz2QuestionPrompt");
+    player.GetVar("Quiz2Key");
 
     function calculateDuration(text) {
         var words = text.split(" ").length;
@@ -410,49 +410,49 @@ function setTexts(slidenumber) {
     console.log("Setting CorrectOrNot to: " + correctOrNot);
     player.SetVar("CorrectOrNot", correctOrNot);
 
-    // Set new data for Option1, Option2, Option3, QuizPrompt, and Key
-    var option1 = newOption1Texts[slidenumber - 1];
-    var option2 = newOption2Texts[slidenumber - 1];
-    var option3 = newOption3Texts[slidenumber - 1];
-    var quizPrompt = newQuestionPromptTexts[slidenumber - 1];
-    var key = newKey[slidenumber - 1];
+    // Set new data for Quiz1Option1, Quiz1Option2, Quiz1Option3, Quiz1Prompt, and Quiz1Key
+    var quiz1Option1 = newOption1Texts[slidenumber - 1];
+    var quiz1Option2 = newOption2Texts[slidenumber - 1];
+    var quiz1Option3 = newOption3Texts[slidenumber - 1];
+    var quiz1Prompt = newQuestionPromptTexts[slidenumber - 1];
+    var quiz1Key = newKey[slidenumber - 1];
 
-    console.log("Setting Option1 to: " + option1);
-    player.SetVar("Option1", option1);
+    console.log("Setting Quiz1Option1 to: " + quiz1Option1);
+    player.SetVar("Quiz1Option1", quiz1Option1);
 
-    console.log("Setting Option2 to: " + option2);
-    player.SetVar("Option2", option2);
+    console.log("Setting Quiz1Option2 to: " + quiz1Option2);
+    player.SetVar("Quiz1Option2", quiz1Option2);
 
-    console.log("Setting Option3 to: " + option3);
-    player.SetVar("Option3", option3);
+    console.log("Setting Quiz1Option3 to: " + quiz1Option3);
+    player.SetVar("Quiz1Option3", quiz1Option3);
 
-    console.log("Setting QuizPrompt to: " + quizPrompt);
-    player.SetVar("QuizPrompt", quizPrompt);
+    console.log("Setting Quiz1Prompt to: " + quiz1Prompt);
+    player.SetVar("Quiz1Prompt", quiz1Prompt);
 
-    console.log("Setting Key to: " + key);
-    player.SetVar("Key", key);
+    console.log("Setting Quiz1Key to: " + quiz1Key);
+    player.SetVar("Quiz1Key", quiz1Key);
 
-    // Set new data for Stem, StemKey, StemOption1, StemOption2, StemOption3
-    var stem = newStemTexts[slidenumber - 1];
-    var stemKey = newStemKey[slidenumber - 1];
-    var stemOption1 = newStemOption1Texts[slidenumber - 1];
-    var stemOption2 = newStemOption2Texts[slidenumber - 1];
-    var stemOption3 = newStemOption3Texts[slidenumber - 1];
+    // Set new data for Quiz2Option1, Quiz2Option2, Quiz2Option3, Quiz2QuestionPrompt, and Quiz2Key
+    var quiz2Option1 = newStemOption1Texts[slidenumber - 1];
+    var quiz2Option2 = newStemOption2Texts[slidenumber - 1];
+    var quiz2Option3 = newStemOption3Texts[slidenumber - 1];
+    var quiz2QuestionPrompt = newStemTexts[slidenumber - 1];
+    var quiz2Key = newStemKey[slidenumber - 1];
 
-    console.log("Setting Stem to: " + stem);
-    player.SetVar("Stem", stem);
+    console.log("Setting Quiz2Option1 to: " + quiz2Option1);
+    player.SetVar("Quiz2Option1", quiz2Option1);
 
-    console.log("Setting StemKey to: " + stemKey);
-    player.SetVar("StemKey", stemKey);
+    console.log("Setting Quiz2Option2 to: " + quiz2Option2);
+    player.SetVar("Quiz2Option2", quiz2Option2);
 
-    console.log("Setting StemOption1 to: " + stemOption1);
-    player.SetVar("StemOption1", stemOption1);
+    console.log("Setting Quiz2Option3 to: " + quiz2Option3);
+    player.SetVar("Quiz2Option3", quiz2Option3);
 
-    console.log("Setting StemOption2 to: " + stemOption2);
-    player.SetVar("StemOption2", stemOption2);
+    console.log("Setting Quiz2QuestionPrompt to: " + quiz2QuestionPrompt);
+    player.SetVar("Quiz2QuestionPrompt", quiz2QuestionPrompt);
 
-    console.log("Setting StemOption3 to: " + stemOption3);
-    player.SetVar("StemOption3", stemOption3);
+    console.log("Setting Quiz2Key to: " + quiz2Key);
+    player.SetVar("Quiz2Key", quiz2Key);
 
     // Calculate durations for each text variable
     var correctDuration = calculateDuration(correctText);
@@ -462,14 +462,6 @@ function setTexts(slidenumber) {
     var choice1Duration = calculateDuration(choice1);
     var choice2Duration = calculateDuration(choice2);
     var choice3Duration = calculateDuration(choice3);
-    var option1Duration = calculateDuration(option1);
-    var option2Duration = calculateDuration(option2);
-    var option3Duration = calculateDuration(option3);
-    var quizPromptDuration = calculateDuration(quizPrompt);
-    var stemDuration = calculateDuration(stem);
-    var stemOption1Duration = calculateDuration(stemOption1);
-    var stemOption2Duration = calculateDuration(stemOption2);
-    var stemOption3Duration = calculateDuration(stemOption3);
 
     // Calculate durations for positive and negative feedback
     var positiveFeedbackDuration = calculateDuration(randomPositiveFeedback);
@@ -483,14 +475,6 @@ function setTexts(slidenumber) {
     console.log("Choice1 Duration: " + choice1Duration + " seconds");
     console.log("Choice2 Duration: " + choice2Duration + " seconds");
     console.log("Choice3 Duration: " + choice3Duration + " seconds");
-    console.log("Option1 Duration: " + option1Duration + " seconds");
-    console.log("Option2 Duration: " + option2Duration + " seconds");
-    console.log("Option3 Duration: " + option3Duration + " seconds");
-    console.log("QuizPrompt Duration: " + quizPromptDuration + " seconds");
-    console.log("Stem Duration: " + stemDuration + " seconds");
-    console.log("StemOption1 Duration: " + stemOption1Duration + " seconds");
-    console.log("StemOption2 Duration: " + stemOption2Duration + " seconds");
-    console.log("StemOption3 Duration: " + stemOption3Duration + " seconds");
     console.log("PositiveFeedbacktoUser Duration: " + positiveFeedbackDuration + " seconds");
     console.log("NegativeFeedbacktoUser Duration: " + negativeFeedbackDuration + " seconds");
 
@@ -502,14 +486,6 @@ function setTexts(slidenumber) {
     player.SetVar("Choice1Duration", choice1Duration);
     player.SetVar("Choice2Duration", choice2Duration);
     player.SetVar("Choice3Duration", choice3Duration);
-    player.SetVar("Option1Duration", option1Duration);
-    player.SetVar("Option2Duration", option2Duration);
-    player.SetVar("Option3Duration", option3Duration);
-    player.SetVar("QuizPromptDuration", quizPromptDuration);
-    player.SetVar("StemDuration", stemDuration);
-    player.SetVar("StemOption1Duration", stemOption1Duration);
-    player.SetVar("StemOption2Duration", stemOption2Duration);
-    player.SetVar("StemOption3Duration", stemOption3Duration);
     player.SetVar("PositiveFeedbacktoUserDuration", positiveFeedbackDuration);
     player.SetVar("NegativeFeedbacktoUserDuration", negativeFeedbackDuration);
 }
