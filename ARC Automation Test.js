@@ -334,7 +334,7 @@ function setTexts(slidenumber) {
     player.GetVar("Quiz1Option1");
     player.GetVar("Quiz1Option2");
     player.GetVar("Quiz1Option3");
-    player.GetVar("Quiz1Prompt");
+    player.GetVar("Quiz1QuestionPrompt");
     player.GetVar("Quiz1Key");
     player.GetVar("Quiz2Option1");
     player.GetVar("Quiz2Option2");
@@ -415,7 +415,7 @@ function setTexts(slidenumber) {
         var quiz1Option1 = quiz1Option1Texts[slidenumber - 1];
         var quiz1Option2 = quiz1Option2Texts[slidenumber - 1];
         var quiz1Option3 = quiz1Option3Texts[slidenumber - 1];
-        var quiz1Prompt = quiz1QuestionPromptTexts[slidenumber - 1];
+        var quiz1QuestionPrompt = quiz1QuestionPromptTexts[slidenumber - 1];
         var quiz1Key = quiz1Key[slidenumber - 1];
 
         console.log("Setting Quiz1Option1 to: " + quiz1Option1);
@@ -427,8 +427,8 @@ function setTexts(slidenumber) {
         console.log("Setting Quiz1Option3 to: " + quiz1Option3);
         player.SetVar("Quiz1Option3", quiz1Option3);
 
-        console.log("Setting Quiz1Prompt to: " + quiz1Prompt);
-        player.SetVar("Quiz1Prompt", quiz1Prompt);
+        console.log("Setting Quiz1QuestionPrompt to: " + quiz1QuestionPrompt);
+        player.SetVar("Quiz1QuestionPrompt", quiz1QuestionPrompt);
 
         console.log("Setting Quiz1Key to: " + quiz1Key);
         player.SetVar("Quiz1Key", quiz1Key);
