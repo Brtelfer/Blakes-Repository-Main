@@ -410,49 +410,56 @@ function setTexts(slidenumber) {
     console.log("Setting CorrectOrNot to: " + correctOrNot);
     player.SetVar("CorrectOrNot", correctOrNot);
 
-    // Set new data for Quiz1Option1, Quiz1Option2, Quiz1Option3, Quiz1Prompt, and Quiz1Key
-    var quiz1Option1 = quiz1Option1Texts[slidenumber - 1];
-    var quiz1Option2 = quiz1Option2Texts[slidenumber - 1];
-    var quiz1Option3 = quiz1Option3Texts[slidenumber - 1];
-    var quiz1Prompt = quiz1QuestionPromptTexts[slidenumber - 1];
-    var quiz1Key = quiz1Key[slidenumber - 1];
+    // Check if quiz variables are defined before accessing them
+    if (slidenumber <= 10) {
+        var quiz1Option1 = quiz1Option1Texts[slidenumber - 1];
+        var quiz1Option2 = quiz1Option2Texts[slidenumber - 1];
+        var quiz1Option3 = quiz1Option3Texts[slidenumber - 1];
+        var quiz1Prompt = quiz1QuestionPromptTexts[slidenumber - 1];
+        var quiz1Key = quiz1Key[slidenumber - 1];
 
-    console.log("Setting Quiz1Option1 to: " + quiz1Option1);
-    player.SetVar("Quiz1Option1", quiz1Option1);
+        console.log("Setting Quiz1Option1 to: " + quiz1Option1);
+        player.SetVar("Quiz1Option1", quiz1Option1);
 
-    console.log("Setting Quiz1Option2 to: " + quiz1Option2);
-    player.SetVar("Quiz1Option2", quiz1Option2);
+        console.log("Setting Quiz1Option2 to: " + quiz1Option2);
+        player.SetVar("Quiz1Option2", quiz1Option2);
 
-    console.log("Setting Quiz1Option3 to: " + quiz1Option3);
-    player.SetVar("Quiz1Option3", quiz1Option3);
+        console.log("Setting Quiz1Option3 to: " + quiz1Option3);
+        player.SetVar("Quiz1Option3", quiz1Option3);
 
-    console.log("Setting Quiz1Prompt to: " + quiz1Prompt);
-    player.SetVar("Quiz1Prompt", quiz1Prompt);
+        console.log("Setting Quiz1Prompt to: " + quiz1Prompt);
+        player.SetVar("Quiz1Prompt", quiz1Prompt);
 
-    console.log("Setting Quiz1Key to: " + quiz1Key);
-    player.SetVar("Quiz1Key", quiz1Key);
+        console.log("Setting Quiz1Key to: " + quiz1Key);
+        player.SetVar("Quiz1Key", quiz1Key);
+    } else {
+        console.log("Quiz1 variables are undefined for slide number:", slidenumber);
+    }
 
-    // Set new data for Quiz2Option1, Quiz2Option2, Quiz2Option3, Quiz2QuestionPrompt, and Quiz2Key
-    var quiz2Option1 = quiz2Option1Texts[slidenumber - 1];
-    var quiz2Option2 = quiz2Option2Texts[slidenumber - 1];
-    var quiz2Option3 = quiz2Option3Texts[slidenumber - 1];
-    var quiz2QuestionPrompt = quiz2Texts[slidenumber - 1];
-    var quiz2Key = quiz2Key[slidenumber - 1];
+    if (slidenumber <= 10) {
+        var quiz2Option1 = quiz2Option1Texts[slidenumber - 1];
+        var quiz2Option2 = quiz2Option2Texts[slidenumber - 1];
+        var quiz2Option3 = quiz2Option3Texts[slidenumber - 1];
+        var quiz2QuestionPrompt = quiz2Texts[slidenumber - 1];
+        var quiz2Key = quiz2Key[slidenumber - 1];
 
-    console.log("Setting Quiz2Option1 to: " + quiz2Option1);
-    player.SetVar("Quiz2Option1", quiz2Option1);
+        console.log("Setting Quiz2Option1 to: " + quiz2Option1);
+        player.SetVar("Quiz2Option1", quiz2Option1);
 
-    console.log("Setting Quiz2Option2 to: " + quiz2Option2);
-    player.SetVar("Quiz2Option2", quiz2Option2);
+        console.log("Setting Quiz2Option2 to: " + quiz2Option2);
+        player.SetVar("Quiz2Option2", quiz2Option2);
 
-    console.log("Setting Quiz2Option3 to: " + quiz2Option3);
-    player.SetVar("Quiz2Option3", quiz2Option3);
+        console.log("Setting Quiz2Option3 to: " + quiz2Option3);
+        player.SetVar("Quiz2Option3", quiz2Option3);
 
-    console.log("Setting Quiz2QuestionPrompt to: " + quiz2QuestionPrompt);
-    player.SetVar("Quiz2QuestionPrompt", quiz2QuestionPrompt);
+        console.log("Setting Quiz2QuestionPrompt to: " + quiz2QuestionPrompt);
+        player.SetVar("Quiz2QuestionPrompt", quiz2QuestionPrompt);
 
-    console.log("Setting Quiz2Key to: " + quiz2Key);
-    player.SetVar("Quiz2Key", quiz2Key);
+        console.log("Setting Quiz2Key to: " + quiz2Key);
+        player.SetVar("Quiz2Key", quiz2Key);
+    } else {
+        console.log("Quiz2 variables are undefined for slide number:", slidenumber);
+    }
 
     // Calculate durations for each text variable
     var correctDuration = calculateDuration(correctText);
