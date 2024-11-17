@@ -208,12 +208,12 @@ function setTexts(slidenumber) {
     ];
 
     var quiz1QuestionPromptTexts = [
-        "What was the worker in charge of?",
-        "Who is responsible for serving this customer?",
-        "What did the two people do?",
-        "Is it acceptable to pay that bill in cash?",
-        "Are you allowed to use a parking space?",
-        "What are residents not allowed to have?",
+        "The worker was in charge of the room's __________.",
+        "Who is __________ for serving this customer?",
+        "The two people signed the __________.",
+        "It is not __________ to pay that bill in cash.",
+        "You are __________ allowed to use a parking space.",
+        "Residents are not allowed to have a cat __________ a dog?",
         "What does 'obtain' mean?",
         "What does 'commence' mean?",
         "What does 'termination' mean?",
@@ -222,8 +222,8 @@ function setTexts(slidenumber) {
 
     var quiz1Option1Texts = [
         "cleanliness",
-        "student",
-        "and/or",
+        "responsible",
+        "agreement",
         "acceptable",
         "hereby",
         "and/or",
@@ -235,8 +235,8 @@ function setTexts(slidenumber) {
 
     var quiz1Option2Texts = [
         "cleaner",
-        "because",
-        "if/when",
+        "responsibility",
+        "disagree",
         "acceptance",
         "because",
         "if/when",
@@ -248,8 +248,8 @@ function setTexts(slidenumber) {
 
     var quiz1Option3Texts = [
         "unclean",
-        "overall",
-        "after/then",
+        "irresponsible",
+        "agreeable",
         "acceptability",
         "overall",
         "after/then",
