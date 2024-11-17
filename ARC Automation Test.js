@@ -207,117 +207,117 @@ function setTexts(slidenumber) {
         2, 1, 1, 3, 2, 3, 3, 2, 1, 2, 1, 1, 2, 3, 1, 3, 2, 1, 2, 2, 2, 3, 2, 2
     ];
 
-    var quiz1QuestionPromptTexts = [
-        "The worker was in charge of the room's __________.",
-        "Who is __________ for serving this customer?",
-        "The two people signed the __________.",
-        "It is not __________ to pay that bill in cash.",
-        "You are __________ allowed to use a parking space.",
-        "Residents are not allowed to have a cat __________ a dog?",
-        "What does 'obtain' mean?",
-        "What does 'commence' mean?",
-        "What does 'termination' mean?",
-        "What does 'deemed' mean?"
-    ];
+   var quiz1QuestionPromptTexts = [
+    "The worker was in charge of the room's __________.",
+    "Who is __________ for serving this customer?",
+    "The two people signed the __________.",
+    "It is not __________ to pay that bill in cash.",
+    "You are __________ allowed to use a parking space.",
+    "Residents are not allowed to have a cat __________ a dog?",
+    "What does 'obtain' mean?",
+    "What does 'commence' mean?",
+    "What does 'termination' mean?",
+    "What does 'deemed' mean?"
+];
 
-    var quiz1Option1Texts = [
-        "cleanliness",
-        "responsible",
-        "agreement",
-        "acceptable",
-        "hereby",
-        "and/or",
-        "get",
-        "start",
-        "end",
-        "judged"
-    ];
+var quiz1Option1Texts = [
+    "cleaner",
+    "responsible",
+    "agreeable",
+    "acceptable",
+    "because",
+    "if/when",
+    "fly",
+    "cause",
+    "word",
+    "judged"
+];
 
-    var quiz1Option2Texts = [
-        "cleaner",
-        "responsibility",
-        "disagree",
-        "acceptance",
-        "because",
-        "if/when",
-        "fly",
-        "answer",
-        "word",
-        "delivered"
-    ];
+var quiz1Option2Texts = [
+    "cleanliness",
+    "irresponsible",
+    "agreement",
+    "acceptance",
+    "hereby",
+    "and/or",
+    "get",
+    "answer",
+    "end",
+    "delivered"
+];
 
-    var quiz1Option3Texts = [
-        "unclean",
-        "irresponsible",
-        "agreeable",
-        "acceptability",
-        "overall",
-        "after/then",
-        "eat",
-        "cause",
-        "sea",
-        "escaped"
-    ];
+var quiz1Option3Texts = [
+    "unclean",
+    "responsibility",
+    "disagree",
+    "acceptability",
+    "overall",
+    "after/then",
+    "eat",
+    "start",
+    "sea",
+    "escaped"
+];
 
-    var quiz1Key = [
-        1, 1, 3, 2, 1, 3, 1, 1, 2, 3
-    ];
+var quiz1Key = [
+    2, 1, 3, 1, 2, 2, 3, 3, 2, 1
+];
 
-    var quiz2Texts = [
-        "The person wanted to get a job in restaurant __________.",
-        "The worker had experience in graphic design and __________.",
-        "Your __________ is the place where you live.",
-        "The __________ of the new stove was fast.",
-        "_________ the lease will be month-to-month.",
-        "__________ you would like to move out, please let me know.",
-        "seamless",
-        "hospitable",
-        "utilities",
-        "breach"
-    ];
+var quiz2Texts = [
+    "The person wanted to get a job in restaurant __________.",
+    "The worker had experience in graphic design and __________.",
+    "Your __________ is the place where you live.",
+    "The __________ of the new stove was fast.",
+    "_________ the lease will be month-to-month.",
+    "__________ you would like to move out, please let me know.",
+    "seamless",
+    "hospitable",
+    "utilities",
+    "breach"
+];
 
-    var quiz2Key = [
-        2, 3, 3, 3, 2, 1, 2, 3, 2, 1
-    ];
+var quiz2Option1Texts = [
+    "management",
+    "visualize",
+    "residential",
+    "installation",
+    "Since",
+    "Thus",
+    "mention",
+    "relaxing",
+    "water",
+    "collector"
+];
 
-    var quiz2Option1Texts = [
-        "management",
-        "visualization",
-        "residence",
-        "installation",
-        "Thereafter",
-        "If",
-        "continue",
-        "welcoming",
-        "water",
-        "violation"
-    ];
+var quiz2Option2Texts = [
+    "unmanage",
+    "visual",
+    "residence",
+    "uninstall",
+    "Thereafter",
+    "If",
+    "increase",
+    "satisfying",
+    "country",
+    "breach"
+];
 
-    var quiz2Option2Texts = [
-        "manager",
-        "visual",
-        "resident",
-        "uninstall",
-        "Through",
-        "Thus",
-        "increase",
-        "satisfying",
-        "children",
-        "collector"
-    ];
+var quiz2Option3Texts = [
+    "visualization",
+    "resident",
+    "installation",
+    "installable",
+    "Through",
+    "In all",
+    "welcoming",
+    "children",
+    "violation",
+    "headache"
+];
 
-    var quiz2Option3Texts = [
-        "unmanage",
-        "visualize",
-        "residential",
-        "installable",
-        "Since",
-        "In all",
-        "mention",
-        "relaxing",
-        "country",
-        "headache"
-    ];
+var quiz2Key = [
+    1, 3, 2, 1, 2, 2, 3, 1, 1, 2
+];
 
     var player = GetPlayer();
 
