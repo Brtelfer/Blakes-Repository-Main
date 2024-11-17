@@ -278,45 +278,45 @@ var quiz2Texts = [
 
 var quiz2Option1Texts = [
     "management",
-    "visualize",
-    "residential",
+    "visualization",
+    "residence",
     "installation",
-    "Since",
-    "Thus",
-    "mention",
-    "relaxing",
+    "Thereafter",
+    "If",
+    "continue",
+    "welcoming",
     "water",
-    "collector"
+    "violation"
 ];
 
 var quiz2Option2Texts = [
-    "unmanage",
+    "manager",
     "visual",
-    "residence",
+    "resident",
     "uninstall",
-    "Thereafter",
-    "If",
+    "Through",
+    "Thus",
     "increase",
     "satisfying",
-    "country",
-    "breach"
+    "children",
+    "collector"
 ];
 
 var quiz2Option3Texts = [
-    "visualization",
-    "resident",
-    "installation",
+    "unmanage",
+    "visualize",
+    "residential",
     "installable",
-    "Through",
+    "Since",
     "In all",
-    "welcoming",
-    "children",
-    "violation",
+    "mention",
+    "relaxing",
+    "country",
     "headache"
 ];
 
 var quiz2Key = [
-    1, 3, 2, 1, 2, 2, 3, 1, 1, 2
+    2, 3, 3, 3, 1, 1, 2, 3, 2, 1
 ];
 
     var player = GetPlayer();
