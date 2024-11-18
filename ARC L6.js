@@ -72,7 +72,15 @@ function setTexts(slidenumber) {
     ];
 
     var Quiz1Option1Texts = [
-        "countless", "spin", "collapse", "also", "planets", "round", "join", "necessary", "large"
+        "countless", 
+        "spin", 
+        "collapse", 
+        "also", 
+        "planets", 
+        "round", 
+        "join", 
+        "necessary", 
+        "large"
     ];
 
     var Quiz1Option2Texts = [
