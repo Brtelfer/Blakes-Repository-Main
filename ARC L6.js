@@ -603,7 +603,7 @@ function setTexts(slidenumber) {
         var quiz1Option1 = Quiz1Option1Texts[slidenumber - 1];
         var quiz1Option2 = Quiz1Option2Texts[slidenumber - 1];
         var quiz1Option3 = Quiz1Option3Texts[slidenumber - 1];
-        var quiz1QuestionPrompt = quiz1QuestionPromptTexts[slidenumber - 1];
+        var quiz1QuestionPrompt = Quiz1QuestionPromptTexts[slidenumber - 1];
         var quiz1Key = Quiz1Key[slidenumber - 1];
 
         console.log("Setting Quiz1Option1 to: " + quiz1Option1);
