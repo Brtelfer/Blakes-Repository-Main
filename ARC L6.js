@@ -1,7 +1,7 @@
 // Function to initialize the data
 function initializeData() {
     return {
-       var QuestionPromptTexts = [
+var questionPromptTexts = [
     "Choose the best definition for orbits from below.",
     "Choose the best definition for convenient from below.",
     "Choose the best definition for normally from below.",
