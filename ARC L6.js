@@ -468,7 +468,6 @@ function setTexts(slidenumber) {
     player.GetVar("StudentAnswerUnderstand");
     player.GetVar("StudentDisagree");
     player.GetVar("StudentUnderstand");
-
     player.GetVar("PositiveFeedback");
     player.GetVar("NegativeFeedback");
     player.GetVar("Choice1");
@@ -601,11 +600,11 @@ function setTexts(slidenumber) {
 
     // Check if quiz variables are defined before accessing them
     if (slidenumber <= 10) {
-        var quiz1Option1 = quiz1Option1Texts[slidenumber - 1];
-        var quiz1Option2 = quiz1Option2Texts[slidenumber - 1];
-        var quiz1Option3 = quiz1Option3Texts[slidenumber - 1];
+        var quiz1Option1 = Quiz1Option1Texts[slidenumber - 1];
+        var quiz1Option2 = Quiz1Option2Texts[slidenumber - 1];
+        var quiz1Option3 = Quiz1Option3Texts[slidenumber - 1];
         var quiz1QuestionPrompt = quiz1QuestionPromptTexts[slidenumber - 1];
-        var quiz1Key = quiz1Key[slidenumber - 1];
+        var quiz1Key = Quiz1Key[slidenumber - 1];
 
         console.log("Setting Quiz1Option1 to: " + quiz1Option1);
         player.SetVar("Quiz1Option1", quiz1Option1);
@@ -626,11 +625,11 @@ function setTexts(slidenumber) {
     }
 
     if (slidenumber <= 10) {
-        var quiz2Option1 = quiz2Option1Texts[slidenumber - 1];
-        var quiz2Option2 = quiz2Option2Texts[slidenumber - 1];
-        var quiz2Option3 = quiz2Option3Texts[slidenumber - 1];
-        var quiz2QuestionPrompt = quiz2Texts[slidenumber - 1];
-        var quiz2Key = quiz2Key[slidenumber - 1];
+        var quiz2Option1 = Quiz2Option1Texts[slidenumber - 1];
+        var quiz2Option2 = Quiz2Option2Texts[slidenumber - 1];
+        var quiz2Option3 = Quiz2Option3Texts[slidenumber - 1];
+        var quiz2QuestionPrompt = Quiz2Texts[slidenumber - 1];
+        var quiz2Key = Quiz2Key[slidenumber - 1];
 
         console.log("Setting Quiz2Option1 to: " + quiz2Option1);
         player.SetVar("Quiz2Option1", quiz2Option1);
