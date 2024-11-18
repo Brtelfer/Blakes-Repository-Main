@@ -91,7 +91,7 @@ function setTexts(slidenumber) {
         "recount", "spinning", "collapsing", "so", "craters", "glass", "manage", "fuzzy", "back"
     ];
 
-    var Quiz2QuestionPromptTexts = [
+    var Quiz2Texts = [
         "Houses are selling for _________ prices.",
         "Supermassive black holes are _________ large compared to small black holes.",
         "__________, galaxies are often found in groups or clusters.",
