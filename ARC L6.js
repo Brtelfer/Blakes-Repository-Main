@@ -91,7 +91,7 @@ function setTexts(slidenumber) {
         "recount", "spinning", "collapsing", "so", "craters", "glass", "manage", "fuzzy", "back"
     ];
 
-    var Quiz2Texts = [
+    var Quiz2QuestionPromptTexts = [
         "Houses are selling for _________ prices.",
         "Supermassive black holes are _________ large compared to small black holes.",
         "__________, galaxies are often found in groups or clusters.",
@@ -612,7 +612,7 @@ function setTexts(slidenumber) {
         console.log("Setting Quiz1Option2 to: " + quiz1Option2);
         player.SetVar("Quiz1Option2", quiz1Option2);
 
-        console.log("Setting Quiz1Option3 to: " + quiz1Option3);
+        console.log("Setting Quiz1Option3 to: " + Quiz1Option3);
         player.SetVar("Quiz1Option3", quiz1Option3);
 
         console.log("Setting Quiz1QuestionPrompt to: " + quiz1QuestionPrompt);
@@ -628,7 +628,7 @@ function setTexts(slidenumber) {
         var quiz2Option1 = Quiz2Option1Texts[slidenumber - 1];
         var quiz2Option2 = Quiz2Option2Texts[slidenumber - 1];
         var quiz2Option3 = Quiz2Option3Texts[slidenumber - 1];
-        var quiz2QuestionPrompt = Quiz2Texts[slidenumber - 1];
+        var quiz2QuestionPrompt = Quiz2QuestionPromptTexts[slidenumber - 1];
         var quiz2Key = Quiz2Key[slidenumber - 1];
 
         console.log("Setting Quiz2Option1 to: " + quiz2Option1);
