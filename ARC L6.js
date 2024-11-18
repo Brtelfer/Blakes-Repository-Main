@@ -6,7 +6,7 @@ function setTexts(slidenumber) {
         return;
     }
 
-    var QuestionPromptTexts = [
+    var questionPromptTexts = [
     "Choose the best definition for orbits from below.",
     "Choose the best definition for convenient from below.",
     "Choose the best definition for normally from below.",
@@ -39,7 +39,7 @@ function setTexts(slidenumber) {
     "Choose the best definition for emitted from below.",
 ];
 
-var Key = [
+var key = [
     "3",
     "3",
     "1",
@@ -72,7 +72,7 @@ var Key = [
     "3",
 ];
 
-var Choice1Texts = [
+var choice1Texts = [
     "Strange or not familiar",
     "Used to agree to a request",
     "Usually",
@@ -105,7 +105,7 @@ var Choice1Texts = [
     "To not open fully and remain tightly sealed",
 ];
 
-var Choice2Texts = [
+var choice2Texts = [
     "A type of gum",
     "An announcement of important events",
     "Information or understanding that you have in your mind.",
@@ -138,7 +138,7 @@ var Choice2Texts = [
     "To take something in fully",
 ];
 
-var Choice3Texts = [
+var choice3Texts = [
     "To go around an object",
     "Easy to use or suiting your plans well",
     "Relating to your job",
@@ -171,7 +171,7 @@ var Choice3Texts = [
     "To release or make",
 ];
 
-var Quiz1QuestionPromptTexts = [
+var quiz1QuestionPromptTexts = [
     "There are _________ galaxies.",
     "Galaxies ________ around the galactic center.",
     "Stars ________ to form black holes.",
@@ -183,7 +183,7 @@ var Quiz1QuestionPromptTexts = [
     "massive",
 ];
 
-var Quiz1Key = [
+var quiz1Key = [
     "2",
     "1",
     "3",
@@ -195,7 +195,7 @@ var Quiz1Key = [
     "2",
 ];
 
-var Quiz1Option1Texts = [
+var quiz1Option1Texts = [
     "countless",
     "spin",
     "collapse",
@@ -207,7 +207,7 @@ var Quiz1Option1Texts = [
     "large",
 ];
 
-var Quiz1Option2Texts = [
+var quiz1Option2Texts = [
     "discount",
     "spins",
     "collapses",
@@ -219,7 +219,7 @@ var Quiz1Option2Texts = [
     "middle",
 ];
 
-var Quiz1Option3Texts = [
+var quiz1Option3Texts = [
     "recount",
     "spinning",
     "collapsing",
@@ -231,7 +231,7 @@ var Quiz1Option3Texts = [
     "back",
 ];
 
-var Quiz2QuestionPromptTexts = [
+var quiz2QuestionPromptTexts = [
     "Houses are selling for _________ prices.",
     "Suppermassize black holes are _________ large compared to small black holes.",
     "__________, galaxies are often found in groups or clusters.",
@@ -245,7 +245,7 @@ var Quiz2QuestionPromptTexts = [
     "escape",
 ];
 
-var Quiz2Key = [
+var quiz2Key = [
     "2",
     "3",
     "1",
@@ -259,7 +259,7 @@ var Quiz2Key = [
     "3",
 ];
 
-var Quiz2Option1Texts = [
+var quiz2Option1Texts = [
     "astronomical",
     "relatively",
     "Notably",
@@ -273,7 +273,7 @@ var Quiz2Option1Texts = [
     "free",
 ];
 
-var Quiz2Option2Texts = [
+var quiz2Option2Texts = [
     "astronomy",
     "relative",
     "Either",
@@ -287,7 +287,7 @@ var Quiz2Option2Texts = [
     "lock",
 ];
 
-var Quiz2Option3Texts = [
+var quiz2Option3Texts = [
     "astronomer",
     "relatives",
     "In the case of",
@@ -301,7 +301,7 @@ var Quiz2Option3Texts = [
     "jog",
 ];
 
-var AskStudentTexts = [
+var askStudentTexts = [
     "student do you agree?",
     "student do you agree?",
     "student do you think this is the right answer?",
@@ -334,7 +334,7 @@ var AskStudentTexts = [
     "Do you think the right definition was selected for emit?",
 ];
 
-var AssertionTexts = [
+var assertionTexts = [
     "The word orbit refers to something that goes around an object. In this case our Earth orbits the sun meaning it goes around in a circular journey around the sun.",
     "the word convenient means easy to use or suits your plans. Since it is easy to compare other orbits to Earth distance is referred to as one astronomical unit.",
     "The word normally means usually or regularly. We usually or regularly mean 24 hours when we say the word day.",
@@ -367,7 +367,7 @@ var AssertionTexts = [
     "to emit means to release or make. So radiation that is released as dust and gas are drawn into the dense black holes.",
 ];
 
-var BlankPromptTexts = [
+var blankPromptTexts = [
     "user, did you need more time defining the word orbit. I'm not sure either. Let's just give one of the answers a try?",
     "user, did you need more time to pick the definition of the word convenient. Go ahead and give it a shot! I really need your help with this one.",
     "user,did you need more time to pick the definition of the word normally. I need your help with this one.",
@@ -400,7 +400,7 @@ var BlankPromptTexts = [
     "user did you need more time to pick the definition for the word emit? I really need your help! Can you give it another shot!",
 ];
 
-var CorrectTexts = [
+var correctTexts = [
     "the word orbit refers to something that goes around an object. In this case our Earth orbits the sun meaning it goes around in a circular journey around the sun.",
     "The word convenient means easy to use or suits your plans. Since it is easy to compare other orbits to Earth distance is referred to as one astronomical unit.",
     "The word normally means usually or regularly. We usually or regularly mean 24 hours when we say the word day.",
@@ -433,7 +433,7 @@ var CorrectTexts = [
     "to emit means to release or make. So radiation is released as dust and gas are drawn into the dense black holes.",
 ];
 
-var IncorrectPromptTexts = [
+var incorrectPromptTexts = [
     "Let's look at a clue to define the word orbit. You know the Earth goes around the sun at 93 million miles on average. This path that earth takes is called an orbit. So, now, can you tell me what the word orbit means? Choose from the options below.",
     "the context clue says compare other orbits to Earth's orbit. Would it be easier or harder to compare other orbits to Earth's orbit? Would it be easier or harder to compare orbits from Mars to other orbits? No, because we are not on Mars. Use this clue as a hint to defining the word convenient. Try again to pick the correct choice from below.",
     "When we refer to a day we normally mean 24 hours. What is the definition of the word normally based on the sentence?",
@@ -466,7 +466,7 @@ var IncorrectPromptTexts = [
     "Let's again use context clues to help us. We know that as dust and gas are drawn into black holes, radiation is emitted. Use this information to define the word emitted. Please choose an answer below.",
 ];
 
-var StudentAgreeTexts = [
+var studentAgreeTexts = [
     "Yes I do.",
     "I agree!",
     "user, I think you picked the right definition for the word.",
@@ -499,7 +499,7 @@ var StudentAgreeTexts = [
     "I agree!",
 ];
 
-var StudentAnswerAgreeTexts = [
+var studentAnswerAgreeTexts = [
     "user, great job! So orbits means to go around something. like how the moon goes around the earth, it orbits the earth.",
     "I knew you had it. So is that why some stores are called convenient stores, you can find things easily and they have almost anything you could think of.",
     "that was great! So saying I normally say hello to others means I usually say hello to people.",
@@ -532,7 +532,7 @@ var StudentAnswerAgreeTexts = [
     "Great! So emit means to release like a blow dryer emits heat and a light bulb emits light.",
 ];
 
-var StudentAnswerUnderstandTexts = [
+var studentAnswerUnderstandTexts = [
     "Ok, that answer makes sense. I get it now. So when the moon orbits the earth it goes around it. Got it!",
     "Oh I thought you picked the wrong definition. So being easy to use is what convenient means. So is that why some stores are called convenient stores, you can find things easily and they have almost anything you could think of.",
     "Gotcha, so you did pick the right definition for the word normally. So saying I normally say hello to others means I usually say hello to people.",
@@ -565,7 +565,7 @@ var StudentAnswerUnderstandTexts = [
     "I guess you were right correct. Emit means to release like a blow dryer emits heat and a light bulb emits light.",
 ];
 
-var StudentDisagreeTexts = [
+var studentDisagreeTexts = [
     "It doesn't sound right to me.",
     "no I think it's wrong but I don't know why.",
     "I honestly don't know but it doesn't sound right.",
@@ -598,7 +598,7 @@ var StudentDisagreeTexts = [
     "I feel like it's not the right answer.",
 ];
 
-var StudentUnderstandTexts = [
+var studentUnderstandTexts = [
     "I see now! So orbits means to go around something, like how the moon goes around the earth, it orbits the earth.",
     "ok. I understand. So convenient means something is easy to use. So is that why some stores are called convenient stores, you can find things easily and they have almost anything you could think of.",
     "I understand now, so normally can mean usually, So saying I normally say hello to others means I usually say hello to people.",
@@ -631,7 +631,7 @@ var StudentUnderstandTexts = [
     "I see so to emit something means to release it. So a blow dryer emits heat and a light bulb emits light.",
 ];
 
-var NegativeFeedbackTexts = [
+var negativeFeedbackTexts = [
     "Sorry.  It Looks like you picked the wrong answer.",
     "Sorry that answer is incorrect.",
     "Sorry that answer is not quite right.",
