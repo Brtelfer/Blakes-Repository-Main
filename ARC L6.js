@@ -5,7 +5,8 @@ function setTexts(slidenumber) {
         console.error("Slide number is undefined or null.");
         return;
     }
-var QuestionPromptTexts = [
+
+    var QuestionPromptTexts = [
     "Choose the best definition for orbits from below.",
     "Choose the best definition for convenient from below.",
     "Choose the best definition for normally from below.",
@@ -635,6 +636,13 @@ var NegativeFeedbackTexts = [
     "Sorry that answer is incorrect.",
     "Sorry that answer is not quite right.",
 ];
+    var positiveFeedbackTexts = [
+        "Great job!", "Excellent!", "Well done!"
+    ];
+
+    var negativeFeedbackTexts = [
+        "Nice Try!", "Not quite.", "Incorrect."
+    ];
 
     var player = GetPlayer();
 
@@ -648,16 +656,23 @@ var NegativeFeedbackTexts = [
     player.GetVar("Choice3");
     player.GetVar("QuestionPrompt");
     player.GetVar("CorrectOrNot");
+    player.GetVar("Quiz1QuestionPrompt");
+    player.GetVar("Quiz1CorrectOrNot");
     player.GetVar("Quiz1Option1");
     player.GetVar("Quiz1Option2");
     player.GetVar("Quiz1Option3");
-    player.GetVar("Quiz1QuestionPrompt");
-    player.GetVar("Quiz1Key");
+    player.GetVar("Quiz2QuestionPrompt");
+    player.GetVar("Quiz2CorrectOrNot");
     player.GetVar("Quiz2Option1");
     player.GetVar("Quiz2Option2");
     player.GetVar("Quiz2Option3");
-    player.GetVar("Quiz2QuestionPrompt");
-    player.GetVar("Quiz2Key");
+    player.GetVar("AskStudent");
+    player.GetVar("Assertion");
+    player.GetVar("BlankPrompt");
+    player.GetVar("StudentAgree");
+    player.GetVar("StudentAnswerAgree");
+    player.GetVar("StudentAnswerUnderstand");
+    player.GetVar("StudentDisagree");
 
     function calculateDuration(text) {
         var words = text.split(" ").length;
@@ -722,61 +737,85 @@ var NegativeFeedbackTexts = [
     console.log("Setting Choice3 to: " + choice3);
     player.SetVar("Choice3", choice3);
 
+    // Set Quiz1 question prompt and choices
+    var quiz1QuestionPrompt = Quiz1QuestionPromptTexts[slidenumber - 1];
+    console.log("Setting Quiz1QuestionPrompt to: " + quiz1QuestionPrompt);
+    player.SetVar("Quiz1QuestionPrompt", quiz1QuestionPrompt);
+
+    var quiz1Option1 = Quiz1Option1Texts[slidenumber - 1];
+    var quiz1Option2 = Quiz1Option2Texts[slidenumber - 1];
+    var quiz1Option3 = Quiz1Option3Texts[slidenumber - 1];
+
+    console.log("Setting Quiz1Option1 to: " + quiz1Option1);
+    player.SetVar("Quiz1Option1", quiz1Option1);
+
+    console.log("Setting Quiz1Option2 to: " + quiz1Option2);
+    player.SetVar("Quiz1Option2", quiz1Option2);
+
+    console.log("Setting Quiz1Option3 to: " + quiz1Option3);
+    player.SetVar("Quiz1Option3", quiz1Option3);
+
+    // Set Quiz2 question prompt and choices
+    var quiz2QuestionPrompt = Quiz2QuestionPromptTexts[slidenumber - 1];
+    console.log("Setting Quiz2QuestionPrompt to: " + quiz2QuestionPrompt);
+    player.SetVar("Quiz2QuestionPrompt", quiz2QuestionPrompt);
+
+    var quiz2Option1 = Quiz2Option1Texts[slidenumber - 1];
+    var quiz2Option2 = Quiz2Option2Texts[slidenumber - 1];
+    var quiz2Option3 = Quiz2Option3Texts[slidenumber - 1];
+
+    console.log("Setting Quiz2Option1 to: " + quiz2Option1);
+    player.SetVar("Quiz2Option1", quiz2Option1);
+
+    console.log("Setting Quiz2Option2 to: " + quiz2Option2);
+    player.SetVar("Quiz2Option2", quiz2Option2);
+
+    console.log("Setting Quiz2Option3 to: " + quiz2Option3);
+    player.SetVar("Quiz2Option3", quiz2Option3);
+
     // Set CorrectOrNot based on the Key
     var correctOrNot = Key[slidenumber - 1];
     console.log("Setting CorrectOrNot to: " + correctOrNot);
     player.SetVar("CorrectOrNot", correctOrNot);
 
-    // Check if quiz variables are defined before accessing them
-    if (slidenumber <= 10) {
-        var quiz1Option1 = quiz1Option1Texts[slidenumber - 1];
-        var quiz1Option2 = quiz1Option2Texts[slidenumber - 1];
-        var quiz1Option3 = quiz1Option3Texts[slidenumber - 1];
-        var quiz1QuestionPrompt = quiz1QuestionPromptTexts[slidenumber - 1];
-        var quiz1Key = quiz1Key[slidenumber - 1];
+    // Set Quiz1CorrectOrNot based on the Quiz1Key
+    var quiz1CorrectOrNot = Quiz1Key[slidenumber - 1];
+    console.log("Setting Quiz1CorrectOrNot to: " + quiz1CorrectOrNot);
+    player.SetVar("Quiz1CorrectOrNot", quiz1CorrectOrNot);
 
-        console.log("Setting Quiz1Option1 to: " + quiz1Option1);
-        player.SetVar("Quiz1Option1", quiz1Option1);
+    // Set Quiz2CorrectOrNot based on the Quiz2Key
+    var quiz2CorrectOrNot = Quiz2Key[slidenumber - 1];
+    console.log("Setting Quiz2CorrectOrNot to: " + quiz2CorrectOrNot);
+    player.SetVar("Quiz2CorrectOrNot", quiz2CorrectOrNot);
 
-        console.log("Setting Quiz1Option2 to: " + quiz1Option2);
-        player.SetVar("Quiz1Option2", quiz1Option2);
+    // Set additional variables
+    var askStudentText = AskStudentTexts[slidenumber - 1];
+    console.log("Setting AskStudent to: " + askStudentText);
+    player.SetVar("AskStudent", askStudentText);
 
-        console.log("Setting Quiz1Option3 to: " + quiz1Option3);
-        player.SetVar("Quiz1Option3", quiz1Option3);
+    var assertionText = AssertionTexts[slidenumber - 1];
+    console.log("Setting Assertion to: " + assertionText);
+    player.SetVar("Assertion", assertionText);
 
-        console.log("Setting Quiz1QuestionPrompt to: " + quiz1QuestionPrompt);
-        player.SetVar("Quiz1QuestionPrompt", quiz1QuestionPrompt);
+    var blankPromptText = BlankPromptTexts[slidenumber - 1];
+    console.log("Setting BlankPrompt to: " + blankPromptText);
+    player.SetVar("BlankPrompt", blankPromptText);
 
-        console.log("Setting Quiz1Key to: " + quiz1Key);
-        player.SetVar("Quiz1Key", quiz1Key);
-    } else {
-        console.log("Quiz1 variables are undefined for slide number:", slidenumber);
-    }
+    var studentAgreeText = StudentAgreeTexts[slidenumber - 1];
+    console.log("Setting StudentAgree to: " + studentAgreeText);
+    player.SetVar("StudentAgree", studentAgreeText);
 
-    if (slidenumber <= 10) {
-        var quiz2Option1 = quiz2Option1Texts[slidenumber - 1];
-        var quiz2Option2 = quiz2Option2Texts[slidenumber - 1];
-        var quiz2Option3 = quiz2Option3Texts[slidenumber - 1];
-        var quiz2QuestionPrompt = quiz2Texts[slidenumber - 1];
-        var quiz2Key = quiz2Key[slidenumber - 1];
+    var studentAnswerAgreeText = StudentAnswerAgreeTexts[slidenumber - 1];
+    console.log("Setting StudentAnswerAgree to: " + studentAnswerAgreeText);
+    player.SetVar("StudentAnswerAgree", studentAnswerAgreeText);
 
-        console.log("Setting Quiz2Option1 to: " + quiz2Option1);
-        player.SetVar("Quiz2Option1", quiz2Option1);
+    var studentAnswerUnderstandText = StudentAnswerUnderstandTexts[slidenumber - 1];
+    console.log("Setting StudentAnswerUnderstand to: " + studentAnswerUnderstandText);
+    player.SetVar("StudentAnswerUnderstand", studentAnswerUnderstandText);
 
-        console.log("Setting Quiz2Option2 to: " + quiz2Option2);
-        player.SetVar("Quiz2Option2", quiz2Option2);
-
-        console.log("Setting Quiz2Option3 to: " + quiz2Option3);
-        player.SetVar("Quiz2Option3", quiz2Option3);
-
-        console.log("Setting Quiz2QuestionPrompt to: " + quiz2QuestionPrompt);
-        player.SetVar("Quiz2QuestionPrompt", quiz2QuestionPrompt);
-
-        console.log("Setting Quiz2Key to: " + quiz2Key);
-        player.SetVar("Quiz2Key", quiz2Key);
-    } else {
-        console.log("Quiz2 variables are undefined for slide number:", slidenumber);
-    }
+    var studentDisagreeText = StudentDisagreeTexts[slidenumber - 1];
+    console.log("Setting StudentDisagree to: " + studentDisagreeText);
+    player.SetVar("StudentDisagree", studentDisagreeText);
 
     // Calculate durations for each text variable
     var correctDuration = calculateDuration(correctText);
@@ -786,6 +825,21 @@ var NegativeFeedbackTexts = [
     var choice1Duration = calculateDuration(choice1);
     var choice2Duration = calculateDuration(choice2);
     var choice3Duration = calculateDuration(choice3);
+    var quiz1QuestionPromptDuration = calculateDuration(quiz1QuestionPrompt);
+    var quiz1Option1Duration = calculateDuration(quiz1Option1);
+    var quiz1Option2Duration = calculateDuration(quiz1Option2);
+    var quiz1Option3Duration = calculateDuration(quiz1Option3);
+    var quiz2QuestionPromptDuration = calculateDuration(quiz2QuestionPrompt);
+    var quiz2Option1Duration = calculateDuration(quiz2Option1);
+    var quiz2Option2Duration = calculateDuration(quiz2Option2);
+    var quiz2Option3Duration = calculateDuration(quiz2Option3);
+    var askStudentDuration = calculateDuration(askStudentText);
+    var assertionDuration = calculateDuration(assertionText);
+    var blankPromptDuration = calculateDuration(blankPromptText);
+    var studentAgreeDuration = calculateDuration(studentAgreeText);
+    var studentAnswerAgreeDuration = calculateDuration(studentAnswerAgreeText);
+    var studentAnswerUnderstandDuration = calculateDuration(studentAnswerUnderstandText);
+    var studentDisagreeDuration = calculateDuration(studentDisagreeText);
 
     // Calculate durations for positive and negative feedback
     var positiveFeedbackDuration = calculateDuration(randomPositiveFeedback);
@@ -799,6 +853,21 @@ var NegativeFeedbackTexts = [
     console.log("Choice1 Duration: " + choice1Duration + " seconds");
     console.log("Choice2 Duration: " + choice2Duration + " seconds");
     console.log("Choice3 Duration: " + choice3Duration + " seconds");
+    console.log("Quiz1QuestionPrompt Duration: " + quiz1QuestionPromptDuration + " seconds");
+    console.log("Quiz1Option1 Duration: " + quiz1Option1Duration + " seconds");
+    console.log("Quiz1Option2 Duration: " + quiz1Option2Duration + " seconds");
+    console.log("Quiz1Option3 Duration: " + quiz1Option3Duration + " seconds");
+    console.log("Quiz2QuestionPrompt Duration: " + quiz2QuestionPromptDuration + " seconds");
+    console.log("Quiz2Option1 Duration: " + quiz2Option1Duration + " seconds");
+    console.log("Quiz2Option2 Duration: " + quiz2Option2Duration + " seconds");
+    console.log("Quiz2Option3 Duration: " + quiz2Option3Duration + " seconds");
+    console.log("AskStudent Duration: " + askStudentDuration + " seconds");
+    console.log("Assertion Duration: " + assertionDuration + " seconds");
+    console.log("BlankPrompt Duration: " + blankPromptDuration + " seconds");
+    console.log("StudentAgree Duration: " + studentAgreeDuration + " seconds");
+    console.log("StudentAnswerAgree Duration: " + studentAnswerAgreeDuration + " seconds");
+    console.log("StudentAnswerUnderstand Duration: " + studentAnswerUnderstandDuration + " seconds");
+    console.log("StudentDisagree Duration: " + studentDisagreeDuration + " seconds");
     console.log("PositiveFeedbacktoUser Duration: " + positiveFeedbackDuration + " seconds");
     console.log("NegativeFeedbacktoUser Duration: " + negativeFeedbackDuration + " seconds");
 
@@ -810,6 +879,21 @@ var NegativeFeedbackTexts = [
     player.SetVar("Choice1Duration", choice1Duration);
     player.SetVar("Choice2Duration", choice2Duration);
     player.SetVar("Choice3Duration", choice3Duration);
+    player.SetVar("Quiz1QuestionPromptDuration", quiz1QuestionPromptDuration);
+    player.SetVar("Quiz1Option1Duration", quiz1Option1Duration);
+    player.SetVar("Quiz1Option2Duration", quiz1Option2Duration);
+    player.SetVar("Quiz1Option3Duration", quiz1Option3Duration);
+    player.SetVar("Quiz2QuestionPromptDuration", quiz2QuestionPromptDuration);
+    player.SetVar("Quiz2Option1Duration", quiz2Option1Duration);
+    player.SetVar("Quiz2Option2Duration", quiz2Option2Duration);
+    player.SetVar("Quiz2Option3Duration", quiz2Option3Duration);
+    player.SetVar("AskStudentDuration", askStudentDuration);
+    player.SetVar("AssertionDuration", assertionDuration);
+    player.SetVar("BlankPromptDuration", blankPromptDuration);
+    player.SetVar("StudentAgreeDuration", studentAgreeDuration);
+    player.SetVar("StudentAnswerAgreeDuration", studentAnswerAgreeDuration);
+    player.SetVar("StudentAnswerUnderstandDuration", studentAnswerUnderstandDuration);
+    player.SetVar("StudentDisagreeDuration", studentDisagreeDuration);
     player.SetVar("PositiveFeedbacktoUserDuration", positiveFeedbackDuration);
     player.SetVar("NegativeFeedbacktoUserDuration", negativeFeedbackDuration);
 }
