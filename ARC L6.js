@@ -6,8 +6,6 @@ function setTexts(slidenumber) {
         return;
     }
 
-    var player = GetPlayer();
-
     var QuestionPromptTexts = [
         "Choose the best definition for orbits from below.",
         "Choose the best definition for convenient from below.",
@@ -38,23 +36,23 @@ function setTexts(slidenumber) {
         "Choose the best definition for plentiful from below.",
         "Choose the best definition for enormous from below.",
         "Choose the best definition for observational from below.",
-        "Choose the best definition for emitted from below.",
+        "Choose the best definition for emitted from below."
     ];
 
     var Key = [
-        "3", "3", "1", "1", "3", "3", "3", "2", "2", "2", "3", "3", "2", "1", "1", "3", "3", "1", "1", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3",
+        "3", "3", "1", "1", "3", "3", "3", "2", "2", "2", "3", "3", "2", "1", "1", "3", "3", "1", "1", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3"
     ];
 
     var Choice1Texts = [
-        "Strange or not familiar", "Used to agree to a request", "Usually", "Relating to planet Earth", "A solid rock that is known to support life", "To sink into water", "A plant such as a grain that is grown in large amounts", "To build on something", "Unimportant thing that is not needed", "Finished", "It is not good or regular", "To have a bulging center", "A round root that some plants grow from", "Of enormous size", "Easy to recognize because it is different from other things", "Happening every hour", "Planets and moons", "An organization of objects", "To have an effect on each other", "Two things begin to circle each other", "An object that increases in size", "Things that happen quickly", "Very common", "To discover the meaning of something", "Something that is intentionally done", "Something that happens to stars", "To complete or end a task", "Something that is invisible", "Doing something well", "To not open fully and remain tightly sealed",
+        "Strange or not familiar", "Used to agree to a request", "Usually", "Relating to planet Earth", "A solid rock that is known to support life", "To sink into water", "A plant such as a grain that is grown in large amounts", "To build on something", "Unimportant thing that is not needed", "Finished", "It is not good or regular", "To have a bulging center", "A round root that some plants grow from", "Of enormous size", "Easy to recognize because it is different from other things", "Happening every hour", "Planets and moons", "An organization of objects", "To have an effect on each other", "Two things begin to circle each other", "An object that increases in size", "Things that happen quickly", "Very common", "To discover the meaning of something", "Something that is intentionally done", "Something that happens to stars", "To complete or end a task", "Something that is invisible", "Doing something well", "To not open fully and remain tightly sealed"
     ];
 
     var Choice2Texts = [
-        "A type of gum", "An announcement of important events", "Information or understanding that you have in your mind.", "Relating to other planets and not Earth", "A deceased thing that is very small", "To float in the air", "Land that produces crops and insects", "To have a large amount", "Important and necessary", "Not complete", "To injure part of your body by twisting it", "To be shaped like a pinwheel", "To look larger and rounder or fuller than normal", "Small amounts of material", "The length of space between two things", "Not curved or bent", "Empty space that is available to use", "Someone who works with you", "Can be used in the same way", "Something that is not important or large", "When gravity has no effect", "Difficult to believe", "To end something", "To do something with a particular purpose", "A galaxy studied for a particular reason", "To damage something very badly", "Can be used easily", "Extremely small", "Gaining knowledge or a new skill", "To take something in fully",
+        "A type of gum", "An announcement of important events", "Information or understanding that you have in your mind.", "Relating to other planets and not Earth", "A deceased thing that is very small", "To float in the air", "Land that produces crops and insects", "To have a large amount", "Important and necessary", "Not complete", "To injure part of your body by twisting it", "To be shaped like a pinwheel", "To look larger and rounder or fuller than normal", "Small amounts of material", "The length of space between two things", "Not curved or bent", "Empty space that is available to use", "Someone who works with you", "Can be used in the same way", "Something that is not important or large", "When gravity has no effect", "Difficult to believe", "To end something", "To do something with a particular purpose", "A galaxy studied for a particular reason", "To damage something very badly", "Can be used easily", "Extremely small", "Gaining knowledge or a new skill", "To take something in fully"
     ];
 
     var Choice3Texts = [
-        "To go around an object", "Easy to use or suiting your plans well", "Relating to your job", "Relating to asteroids in space", "A living thing", "To grow or develop", "Land that does not support life or crops", "To have nothing", "One of the things that makes the whole of something else", "Complete", "To cover a large area in an untidy way", "To be made or formed from two or more things", "Being the same size as its surrounding part", "Someone who studies space", "How big or small something is", "Longer and thinner than usual", "Between the stars", "Part of a single star", "To stop something before it reaches a particular point", "Two or more things combine or join", "To fall down or towards the inside", "Comparing two or more objects", "A lot of things close together", "To use up something", "To fill or be present in", "To cause something to be produced or to exist", "A lot available", "Extremely large", "Watching something carefully", "To release or make",
+        "To go around an object", "Easy to use or suiting your plans well", "Relating to your job", "Relating to asteroids in space", "A living thing", "To grow or develop", "Land that does not support life or crops", "To have nothing", "One of the things that makes the whole of something else", "Complete", "To cover a large area in an untidy way", "To be made or formed from two or more things", "Being the same size as its surrounding part", "Someone who studies space", "How big or small something is", "Longer and thinner than usual", "Between the stars", "Part of a single star", "To stop something before it reaches a particular point", "Two or more things combine or join", "To fall down or towards the inside", "Comparing two or more objects", "A lot of things close together", "To use up something", "To fill or be present in", "To cause something to be produced or to exist", "A lot available", "Extremely large", "Watching something carefully", "To release or make"
     ];
 
     var Quiz1QuestionPromptTexts = [
@@ -66,23 +64,23 @@ function setTexts(slidenumber) {
         "circular",
         "merge",
         "essential",
-        "massive",
+        "massive"
     ];
 
     var Quiz1Key = [
-        "2", "1", "3", "1", "2", "3", "3", "1", "2",
+        "2", "1", "3", "1", "2", "3", "3", "1", "2"
     ];
 
     var Quiz1Option1Texts = [
-        "countless", "spin", "collapse", "also", "planets", "round", "join", "necessary", "large",
+        "countless", "spin", "collapse", "also", "planets", "round", "join", "necessary", "large"
     ];
 
     var Quiz1Option2Texts = [
-        "discount", "spins", "collapses", "although", "spaceship", "long", "separate", "wanted", "middle",
+        "discount", "spins", "collapses", "although", "spaceship", "long", "separate", "wanted", "middle"
     ];
 
     var Quiz1Option3Texts = [
-        "recount", "spinning", "collapsing", "so", "craters", "glass", "manage", "fuzzy", "back",
+        "recount", "spinning", "collapsing", "so", "craters", "glass", "manage", "fuzzy", "back"
     ];
 
     var Quiz2QuestionPromptTexts = [
@@ -96,23 +94,23 @@ function setTexts(slidenumber) {
         "rift",
         "feature",
         "collapse",
-        "escape",
+        "escape"
     ];
 
     var Quiz2Key = [
-        "2", "3", "1", "3", "1", "1", "3", "2", "3", "1", "3",
+        "2", "3", "1", "3", "1", "1", "3", "2", "3", "1", "3"
     ];
 
     var Quiz2Option1Texts = [
-        "astronomical", "relatively", "Notably", "Consequently", "In the case of", "As revealed by", "uneven", "divided", "trait", "break", "free",
+        "astronomical", "relatively", "Notably", "Consequently", "In the case of", "As revealed by", "uneven", "divided", "trait", "break", "free"
     ];
 
     var Quiz2Option2Texts = [
-        "astronomy", "relative", "Either", "Otherwise", "Instead of", "For example", "square", "burn", "clean", "size", "lock",
+        "astronomy", "relative", "Either", "Otherwise", "Instead of", "For example", "square", "burn", "clean", "size", "lock"
     ];
 
     var Quiz2Option3Texts = [
-        "astronomer", "relatives", "In the case of", "Instead of", "Indeed", "Notably", "same", "box", "building", "right", "jog",
+        "astronomer", "relatives", "In the case of", "Instead of", "Indeed", "Notably", "same", "box", "building", "right", "jog"
     ];
 
     var AskStudentTexts = [
@@ -145,7 +143,7 @@ function setTexts(slidenumber) {
         "student do you agree?",
         "student, Do you agree with this answer?",
         "student, what do you think if this answer?",
-        "Do you think the right definition was selected for emit?",
+        "Do you think the right definition was selected for emit?"
     ];
 
     var AssertionTexts = [
@@ -178,7 +176,7 @@ function setTexts(slidenumber) {
         "Plentiful means to have a lot available. There is a lot of matter available in the center of the galaxies.",
         "The word enormous means extremely large. If there is a lot of material available in the center of the galaxies then they grow to be extremely large.",
         "Observational describes the process of watching something carefully and learning from it. If scientists cannot see black holes they cannot learn from them.",
-        "to emit means to release or make. So radiation is released as dust and gas are drawn into the dense black holes.",
+        "to emit means to release or make. So radiation is released as dust and gas are drawn into the dense black holes."
     ];
 
     var BlankPromptTexts = [
@@ -211,7 +209,7 @@ function setTexts(slidenumber) {
         "user, did you need more time picking the definition? I really need your help, can you try please?",
         "user ,did you need more time defining enormous? Give it a shot!",
         "user, did you need more time picking definition of observational? I'm not sure either. Let's just give one of the answers a try?",
-        "user did you need more time to pick the definition for the word emit? I really need your help! Can you give it another shot!",
+        "user did you need more time to pick the definition for the word emit? I really need your help! Can you give it another shot!"
     ];
 
     var CorrectTexts = [
@@ -244,7 +242,7 @@ function setTexts(slidenumber) {
         "Plentiful means to have a lot available. There is a lot of matter available in the center of the galaxies.",
         "The word enormous means extremely large. If there is a lot of material available in the center of the galaxies then they grow to be extremely large.",
         "Observational describes the process of watching something carefully and learning from it. If scientists cannot see black holes they cannot learn from them.",
-        "to emit means to release or make. So radiation is released as dust and gas are drawn into the dense black holes.",
+        "to emit means to release or make. So radiation is released as dust and gas are drawn into the dense black holes."
     ];
 
     var IncorrectPromptTexts = [
@@ -277,7 +275,7 @@ function setTexts(slidenumber) {
         "Refer to the context clues in the passage. Since there are dust and gas easily gathered in the galaxy that means there must be a lot of this available. Use this clue to define the word plentiful. Choose from the answers below.",
         "Refer to the clue here. The words grow and plentiful can give you more insight into the definition of the word enormous. The word grow and enormous can be used to describe what something does or is. Pick the correct definition for enormous.",
         "The word observational is similar in meaning to the word, see, in the passage. If scientists can’t see black holes then they can’t learn from them. Please pick the definition for the word observational.",
-        "Let's again use context clues to help us. We know that as dust and gas are drawn into black holes, radiation is emitted. Use this information to define the word emitted. Please choose an answer below.",
+        "Let's again use context clues to help us. We know that as dust and gas are drawn into black holes, radiation is emitted. Use this information to define the word emitted. Please choose an answer below."
     ];
 
     var StudentAgreeTexts = [
@@ -310,7 +308,7 @@ function setTexts(slidenumber) {
         "I agree with this definition.",
         "I agree with this definition!",
         "I agree!",
-        "I agree!",
+        "I agree!"
     ];
 
     var StudentAnswerAgreeTexts = [
@@ -343,7 +341,7 @@ function setTexts(slidenumber) {
         "Great job! So, when dust is plentiful I sneeze, because this means that there is alot of available dust!",
         "Great job! So enormous means to be extremely large, like the sun, the sun is enormous or extremely large.",
         "I knew that was the correct answer! So observational means to watch and learn from something. If you cannot see how someone plays an instrument you cannot learn how to play yourself.",
-        "Great! So emit means to release like a blow dryer emits heat and a light bulb emits light.",
+        "Great! So emit means to release like a blow dryer emits heat and a light bulb emits light."
     ];
 
     var StudentAnswerUnderstandTexts = [
@@ -376,7 +374,7 @@ function setTexts(slidenumber) {
         "Sorry, I guess that was the right answer! Something is plentiful when there is a lot of it.",
         "user, Okay so you were right! So enormous means really extremely large, so the sun is enormous because it is really large.",
         "I guess I was wrong but now I get it. So If you do not carefully observe or watch how someone plays an instrument you cannot learn how to play yourself. I get the idea.",
-        "I guess you were right correct. Emit means to release like a blow dryer emits heat and a light bulb emits light.",
+        "I guess you were right correct. Emit means to release like a blow dryer emits heat and a light bulb emits light."
     ];
 
     var StudentDisagreeTexts = [
@@ -409,7 +407,7 @@ function setTexts(slidenumber) {
         "I don't think this is right.",
         "It doesn't sound right to me.",
         "I think it is wrong for some reason.",
-        "I feel like it's not the right answer.",
+        "I feel like it's not the right answer."
     ];
 
     var StudentUnderstandTexts = [
@@ -442,15 +440,17 @@ function setTexts(slidenumber) {
         "Right. I understand. So plentiful means to have alot. When dust is plentiful I sneeze, because there is alot of available dust.",
         "Ok. That answer makes sense. I think I get it now. So the sun is enormous, because it is extremely large!",
         "So If you do not watch carefully how someone plays an instrument you cannot learn how to play yourself. I got the idea!",
-        "I see so to emit something means to release it. So a blow dryer emits heat and a light bulb emits light.",
+        "I see so to emit something means to release it. So a blow dryer emits heat and a light bulb emits light."
     ];
 
     var NegativeFeedbackTexts = [
         "Sorry. It Looks like you picked the wrong answer.",
         "Sorry that answer is incorrect.",
-        "Sorry that answer is not quite right.",
+        "Sorry that answer is not quite right."
     ];
 
+    var player = GetPlayer();
+    
     player.GetVar("Assertion");
     player.GetVar("BlankPrompt");
     player.GetVar("Correct");
