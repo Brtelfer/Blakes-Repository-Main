@@ -640,10 +640,6 @@ var NegativeFeedbackTexts = [
         "Great job!", "Excellent!", "Well done!"
     ];
 
-    var negativeFeedbackTexts = [
-        "Nice Try!", "Not quite.", "Incorrect."
-    ];
-
     var player = GetPlayer();
 
     player.GetVar("Correct");
