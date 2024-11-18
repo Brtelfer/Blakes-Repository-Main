@@ -1,3 +1,29 @@
+// Function to load the script with required headers
+function loadScriptWithHeaders(url) {
+    fetch(url, {
+        headers: {
+            'Origin': window.location.origin,
+            'X-Requested-With': 'XMLHttpRequest'
+        }
+    })
+    .then(response => response.text())
+    .then(data => {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.text = data;
+        document.head.appendChild(script);
+
+        // Call the setTexts function after the script is loaded
+        setTexts(1); // Replace 1 with the actual slide number
+    })
+    .catch(error => {
+        console.error('Error loading script:', error);
+    });
+}
+
+// Load the script from the CORS proxy
+loadScriptWithHeaders('https://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/Brtelfer/Brtelfer.github.io/main/ARC%20L6.js');
+
 function setTexts(slidenumber) {
     console.log("setTexts function called with slideNumber: " + slidenumber); // Log the function call
 
@@ -66,7 +92,7 @@ function setTexts(slidenumber) {
         "To consume means to use up something. So for example, Black Holes use up the dust and gas from the galaxy.",
         "Populate means that something lives in an area. Small black holes live in the universe.",
         "To spawn means to cause something to be produced or exists.",
-        "Plentiful means to have a lot of something available. There is a lot of matter available in the center of the galaxies.",
+        "Plentiful means to have a lot available. There is a lot of matter available in the center of the galaxies.",
         "The word enormous means extremely large. If there is a lot of material available in the center of the galaxies then they grow to be extremely large.",
         "Observational describes the process of watching something carefully and learning from it. If scientists cannot see black holes they cannot learn from them.",
         "To emit means to release or make. So radiation is released as dust and gas are drawn into the dense black holes."
@@ -116,20 +142,20 @@ function setTexts(slidenumber) {
         "Partially means to be incomplete. So Earth’s atmosphere has a protective layer that almost blocks UV radiation.",
         "Sprawling means to cover a large area in an untidy way. So, here we learn that galaxies cover large areas of the universe and they can appear untidy.",
         "The word consist means to be made or formed from two or more things. So for example the Milky Way Galaxy is made of a flat disk and spiral arms.",
-        "Bulging means that something looks larger and rounder or fuller than normal. So the Milky Way Galaxy is made up of or consists of a flat disk that has a large and round center with spiral arms.",
+        "Bulging means that something looks larger and rounder or fuller than normal. So, the Milky Way Galaxy is made up of or consists of a flat disk that has a large and round center with spiral arms.",
         "Galactic can be defined by the enormous size of an object. Galaxies consist of stars, planets, dust, and gas. All of which rotate around the enormous center in a regular manner!",
         "Distinctive means that something is easy to recognize or see because it is different from other things around it. The spinning motion caused by the rotating of the matter in the galaxy causes the disk to take on a recognizable spiral shape. The spiral shape is different from the other shapes seen in the galaxy.",
         "Elongated refers to something that is longer or thinner than usual. Elliptical galaxies may be circular or so thin that they look like a cigar. A cigar looks like an elongated circle because it looks like a stretched out circle that thins out on each end.",
         "Interstellar matter can be referred to as matter that is found between the stars.",
         "The definition for associations is an organization of objects, in this case, an organization of galaxies.",
         "Interact refers to things that have an effect on each other. Galaxies in such groups often effect each other.",
-        "When galaxies merge together they combine or join together.",
+        "When galaxies merge together they combine or join together. The word merge means when two or more things combine or join together.",
         "The word collapsing refers to an object that falls in towards itself. A star burning the last of its fuel may fall in towards itself.",
         "Relatively can mean comparing two or more objects. Black holes formed by the collapse of individual stars are very small. So relatively small means that compared to other things around it that are larger, it is very small.",
-        "Dense refers to a lot of things that are closely put together.",
-        "To consume means to use up something. Thus, Black Holes use up the dust and gas from the galaxy.",
-        "Populate means that something fills, or is present in an area. Small black holes are present in the universe.",
-        "To spawn means to cause something to be produced or exist.",
+        "The word dense refers to a lot of things that are closely put together.",
+        "To consume means to use up something. So for example, Black Holes use up the dust and gas from the galaxy.",
+        "Populate means that something lives in an area. Small black holes live in the universe.",
+        "To spawn means to cause something to be produced or exists.",
         "Plentiful means to have a lot available. There is a lot of matter available in the center of the galaxies.",
         "The word enormous means extremely large. If there is a lot of material available in the center of the galaxies then they grow to be extremely large.",
         "Observational describes the process of watching something carefully and learning from it. If scientists cannot see black holes they cannot learn from them.",
@@ -327,8 +353,26 @@ function setTexts(slidenumber) {
         "So if you do not watch carefully how someone plays an instrument you cannot learn how to play yourself. I got the idea!",
         "I see so to emit something means to release it. So a blow dryer emits heat and a light bulb emits light."
     ];
-    var NegativeFeedbackTexts = ["Sorry. It Looks like you picked the wrong answer.", "Sorry that answer is incorrect.", "Sorry that answer is not quite right."];
-    var positiveFeedbackTexts = ["Great job!", "Excellent!", "Well done!"];
+    var NegativeFeedbackTexts = ["Sorry. It looks like you picked the wrong answer.", "Sorry that answer is incorrect.", "Sorry that answer is not quite right."];
+    var PositiveFeedbackTexts = ["Great job!", "Excellent!", "Well done!"];
+    var PositiveFeedbackUsTexts = [
+        "Yes! |AND| We answered the question right!",
+        "We did it! |AND| We answered the question correctly!",
+        "Great job. |AND| We answered the question correctly!",
+        "Yes! |AND| We both picked the correct answer!",
+        "We both picked the right answer!",
+        "We're awesome. |AND| We picked the same answer! |AND| And it was right!",
+        "We're awesome we picked the same answer! |AND| And it was correct!",
+        "Amazing! |AND| We both answered correctly!",
+        "Sweet. |AND| We answered correctly! |AND| Great job!",
+        "We answered the question correctly! |AND| This is great!"
+    ];
+    var PositiveFeedbackToBothTexts = [
+        "Good job, both of you.",
+        "Wow, you both did great.",
+        "You are both correct, great work."
+    ];
+
     var Key = [3, 3, 1, 1, 3, 3, 3, 2, 2, 2, 3, 3, 2, 1, 1, 3, 3, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3];
 
     var quiz1QuestionPromptTexts = [
@@ -342,9 +386,39 @@ function setTexts(slidenumber) {
         "essential",
         "massive"
     ];
-    var quiz1Option1Texts = ["countless", "spin", "collapse", "also", "planets", "round", "join", "necessary", "large"];
-    var quiz1Option2Texts = ["discount", "spins", "collapses", "although", "spaceship", "long", "separate", "wanted", "middle"];
-    var quiz1Option3Texts = ["recount", "spinning", "collapsing", "so", "craters", "glass", "manage", "fuzzy", "back"];
+    var quiz1Option1Texts = [
+        "countless",
+        "spin",
+        "collapse",
+        "also",
+        "planets",
+        "round",
+        "join",
+        "necessary",
+        "large"
+    ];
+    var quiz1Option2Texts = [
+        "discount",
+        "spins",
+        "collapses",
+        "although",
+        "spaceship",
+        "long",
+        "separate",
+        "wanted",
+        "middle"
+    ];
+    var quiz1Option3Texts = [
+        "recount",
+        "spinning",
+        "collapsing",
+        "so",
+        "craters",
+        "glass",
+        "manage",
+        "fuzzy",
+        "back"
+    ];
     var quiz1Key = [2, 1, 3, 1, 2, 3, 3, 1, 2];
 
     var quiz2Texts = [
@@ -416,6 +490,8 @@ function setTexts(slidenumber) {
     player.GetVar("StudentUnderstand");
     player.GetVar("NegativeFeedback");
     player.GetVar("PositiveFeedbacktoUser");
+    player.GetVar("PositiveFeedbackUs");
+    player.GetVar("PositiveFeedbackToBoth");
     player.GetVar("Choice1");
     player.GetVar("Choice2");
     player.GetVar("Choice3");
@@ -500,10 +576,22 @@ function setTexts(slidenumber) {
     player.SetVar("NegativeFeedback", NegativeFeedbackText);
 
     // Randomly select positive feedback
-    var randomPositiveFeedback = positiveFeedbackTexts[Math.floor(Math.random() * positiveFeedbackTexts.length)];
+    var randomPositiveFeedback = PositiveFeedbackTexts[Math.floor(Math.random() * PositiveFeedbackTexts.length)];
 
     console.log("Setting PositiveFeedbacktoUser to: " + randomPositiveFeedback);
     player.SetVar("PositiveFeedbacktoUser", randomPositiveFeedback);
+
+    // Randomly select PositiveFeedbackUs
+    var randomPositiveFeedbackUs = PositiveFeedbackUsTexts[Math.floor(Math.random() * PositiveFeedbackUsTexts.length)];
+
+    console.log("Setting PositiveFeedbackUs to: " + randomPositiveFeedbackUs);
+    player.SetVar("PositiveFeedbackUs", randomPositiveFeedbackUs);
+
+    // Randomly select PositiveFeedbackToBoth
+    var randomPositiveFeedbackToBoth = PositiveFeedbackToBothTexts[Math.floor(Math.random() * PositiveFeedbackToBothTexts.length)];
+
+    console.log("Setting PositiveFeedbackToBoth to: " + randomPositiveFeedbackToBoth);
+    player.SetVar("PositiveFeedbackToBoth", randomPositiveFeedbackToBoth);
 
     // Set question prompt and choices
     var questionPrompt = questionPromptTexts[slidenumber - 1];
@@ -598,6 +686,8 @@ function setTexts(slidenumber) {
 
     // Calculate durations for positive feedback
     var positiveFeedbackDuration = calculateDuration(randomPositiveFeedback);
+    var positiveFeedbackUsDuration = calculateDuration(randomPositiveFeedbackUs);
+    var positiveFeedbackToBothDuration = calculateDuration(randomPositiveFeedbackToBoth);
 
     // Log the calculated durations
     console.log("AskStudent Duration: " + AskStudentDuration + " seconds");
@@ -616,6 +706,8 @@ function setTexts(slidenumber) {
     console.log("Choice2 Duration: " + choice2Duration + " seconds");
     console.log("Choice3 Duration: " + choice3Duration + " seconds");
     console.log("PositiveFeedbacktoUser Duration: " + positiveFeedbackDuration + " seconds");
+    console.log("PositiveFeedbackUs Duration: " + positiveFeedbackUsDuration + " seconds");
+    console.log("PositiveFeedbackToBoth Duration: " + positiveFeedbackToBothDuration + " seconds");
 
     // Store the calculated durations in Storyline variables
     player.SetVar("AskStudentDuration", AskStudentDuration);
@@ -634,4 +726,6 @@ function setTexts(slidenumber) {
     player.SetVar("Choice2Duration", choice2Duration);
     player.SetVar("Choice3Duration", choice3Duration);
     player.SetVar("PositiveFeedbacktoUserDuration", positiveFeedbackDuration);
+    player.SetVar("PositiveFeedbackUsDuration", positiveFeedbackUsDuration);
+    player.SetVar("PositiveFeedbackToBothDuration", positiveFeedbackToBothDuration);
 }
