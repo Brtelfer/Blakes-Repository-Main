@@ -612,7 +612,7 @@ function setTexts(slidenumber) {
         console.log("Setting Quiz1Option2 to: " + quiz1Option2);
         player.SetVar("Quiz1Option2", quiz1Option2);
 
-        console.log("Setting Quiz1Option3 to: " + Quiz1Option3);
+        console.log("Setting Quiz1Option3 to: " + quiz1Option3);
         player.SetVar("Quiz1Option3", quiz1Option3);
 
         console.log("Setting Quiz1QuestionPrompt to: " + quiz1QuestionPrompt);
