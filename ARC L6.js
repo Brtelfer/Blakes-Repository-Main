@@ -6,7 +6,7 @@ async function setTexts(slidenumber) {
         return;
     }
 
-    const url = 'https://raw.githubusercontent.com/Brtelfer/Brtelfer.github.io/main/data.js';
+    const url = 'https://raw.githubusercontent.com/Brtelfer/Brtelfer.github.io/main/data.json';
     let texts;
 
     try {
