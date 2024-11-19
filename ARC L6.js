@@ -76,11 +76,11 @@ async function setTexts(slidenumber) {
     });
 
     // Set the CorrectOrNot variable based on the value of Key in data.json
-    const correctOrNotValue = texts.Key;
+    const correctOrNotValue = texts.Key[index];
     if (correctOrNotValue !== undefined && correctOrNotValue !== null) {
         console.log(`Setting CorrectOrNot to: ${correctOrNotValue}`);
         player.SetVar("CorrectOrNot", correctOrNotValue);
     } else {
-        console.error("Key value is undefined or null in data.json.");
+        console.error("Key value is undefined or null in data.json for slide number:", slidenumber);
     }
 }
