@@ -1,4 +1,4 @@
-function setTexts(slidenumber) {
+async function setTexts(slidenumber) {
     console.log("setTexts function called with slideNumber: " + slidenumber);
 
     if (slidenumber === undefined || slidenumber === null) {
@@ -6,28 +6,19 @@ function setTexts(slidenumber) {
         return;
     }
 
-    const texts = {
-        Correct: ["This is a credit card statement with the amount of money that student owes."],
-        IncorrectPrompt: ["Here's a hint, there are dollar amounts on there and itemized activity, what type of document best fit these?"],
-        StudentUnderstand: ["Got it! I always get these confused with my car insurance for some reason."],
-        QuestionPrompt: ["What kind of document is this?"],
-        Choice1: ["Receipt"],
-        Choice2: ["Credit Card Statement"],
-        Choice3: ["Car Insurance Bill"],
-        PositiveFeedbacktoUser: ["Great job!", "Excellent!", "Well done!"],
-        NegativeFeedbacktoUser: ["Nice Try!", "Not quite.", "Incorrect."],
-        CorrectOrNot: [2, 1, 1, 3, 2, 3, 3, 2, 1, 2, 1, 1, 2, 3, 1, 3, 2, 1, 2, 2, 2, 3, 2, 2],
-        Quiz1Option1: ["cleaner"],
-        Quiz1Option2: ["cleanliness"],
-        Quiz1Option3: ["unclean"],
-        Quiz1QuestionPrompt: ["The worker was in charge of the room's __________."],
-        Quiz1Key: [2, 1, 3, 1, 2, 2, 3, 3, 2, 1],
-        Quiz2Option1: ["management"],
-        Quiz2Option2: ["manager"],
-        Quiz2Option3: ["unmanage"],
-        Quiz2QuestionPrompt: ["The person wanted to get a job in restaurant __________."],
-        Quiz2Key: [2, 3, 3, 3, 1, 1, 2, 3, 2, 1]
-    };
+    const url = 'https://raw.githubusercontent.com/Brtelfer/Brtelfer.github.io/main/data.json';
+    let texts;
+
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        texts = await response.json();
+    } catch (error) {
+        console.error('Failed to fetch data:', error);
+        return;
+    }
 
     const player = GetPlayer();
 
