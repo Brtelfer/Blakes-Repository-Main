@@ -485,6 +485,10 @@ function setTexts(slidenumber) {
     player.GetVar("Quiz2QuestionPrompt");
     player.GetVar("Quiz2Key");
 
+    player.SetVar("Choice1", Choice1Texts[slidenumber - 1]);
+    player.SetVar("Choice2", Choice2Texts[slidenumber - 1]);
+    player.SetVar("Choice3", Choice3Texts[slidenumber - 1]);
+    
     var AssertionText = AssertionTexts[slidenumber - 1];
     if (AssertionText === undefined || AssertionText === null) {
         console.error("Assertion text is undefined or null for slide number:", slidenumber);
