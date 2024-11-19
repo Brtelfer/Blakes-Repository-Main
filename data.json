@@ -32,7 +32,7 @@
     "Choose the best definition for emitted from below."
 ],
 
-Key: [
+"Key": [
     "3",
     "3",
     "1",
@@ -65,7 +65,7 @@ Key: [
     "3"
 ],
 
-Choice1: [
+"Choice1": [
     "Strange or not familiar",
     "Used to agree to a request",
     "Usually",
@@ -98,7 +98,7 @@ Choice1: [
     "To not open fully and remain tightly sealed"
 ],
 
-Choice2: [
+"Choice2": [
     "A type of gum",
     "An announcement of important events",
     "Information or understanding that you have in your mind.",
@@ -131,7 +131,7 @@ Choice2: [
     "To take something in fully"
 ],
 
-Choice3: [
+"Choice3": [
     "To go around an object",
     "Easy to use or suiting your plans well",
     "Relating to your job",
@@ -164,7 +164,7 @@ Choice3: [
     "To release or make"
 ],
 
-Quiz1QuestionPrompt: [
+"Quiz1QuestionPrompt": [
     "There are _________ galaxies.",
     "Galaxies ________ around the galactic center.",
     "Stars ________ to form black holes.",
@@ -176,7 +176,7 @@ Quiz1QuestionPrompt: [
     "massive"
 ],
 
-Quiz1Key: [
+"Quiz1Key": [
     "2",
     "1",
     "3",
@@ -188,7 +188,7 @@ Quiz1Key: [
     "2"
 ],
 
-Quiz1Option1: [
+"Quiz1Option1": [
     "countless",
     "spin",
     "collapse",
@@ -200,7 +200,7 @@ Quiz1Option1: [
     "large"
 ],
 
-Quiz1Option2: [
+"Quiz1Option2": [
     "discount",
     "spins",
     "collapses",
@@ -212,7 +212,7 @@ Quiz1Option2: [
     "middle"
 ],
 
-Quiz1Option3: [
+"Quiz1Option3": [
     "recount",
     "spinning",
     "collapsing",
@@ -224,7 +224,7 @@ Quiz1Option3: [
     "back"
 ],
 
-Quiz2QuestionPrompt: [
+"Quiz2QuestionPrompt": [
     "Houses are selling for _________ prices.",
     "Suppermassize black holes are _________ large compared to small black holes.",
     "__________, galaxies are often found in groups or clusters.",
@@ -238,7 +238,7 @@ Quiz2QuestionPrompt: [
     "escape"
 ],
 
-Quiz2Key: [
+"Quiz2Key": [
     "2",
     "3",
     "1",
@@ -252,7 +252,7 @@ Quiz2Key: [
     "3"
 ],
 
-Quiz2Option1: [
+"Quiz2Option1": [
     "astronomical",
     "relatively",
     "Notably",
@@ -266,7 +266,7 @@ Quiz2Option1: [
     "free"
 ],
 
-Quiz2Option2: [
+"Quiz2Option2": [
     "astronomy",
     "relative",
     "Either",
@@ -280,7 +280,7 @@ Quiz2Option2: [
     "lock"
 ],
 
-Quiz2Option3: [
+"Quiz2Option3": [
     "astronomer",
     "relatives",
     "In the case of",
@@ -293,8 +293,8 @@ Quiz2Option3: [
     "right",
     "jog"
 ],
-    
-AskStudent: [
+
+"AskStudent": [
     "student do you agree?",
     "student do you agree?",
     "student do you think this is the right answer?",
@@ -327,7 +327,7 @@ AskStudent: [
     "Do you think the right definition was selected for emit?"
 ],
 
-Assertion: [
+"Assertion": [
     "The word orbit refers to something that goes around an object. In this case our Earth orbits the sun meaning it goes around in a circular journey around the sun.",
     "the word convenient means easy to use or suits your plans. Since it is easy to compare other orbits to Earth distance is referred to as one astronomical unit.",
     "The word normally means usually or regularly. We usually or regularly mean 24 hours when we say the word day.",
@@ -360,7 +360,7 @@ Assertion: [
     "to emit means to release or make. So radiation that is released as dust and gas are drawn into the dense black holes."
 ],
 
-BlankPrompt: [
+"BlankPrompt": [
     "user, did you need more time defining the word orbit. I'm not sure either. Let's just give one of the answers a try?",
     "user, did you need more time to pick the definition of the word convenient. Go ahead and give it a shot! I really need your help with this one.",
     "user,did you need more time to pick the definition of the word normally. I need your help with this one.",
@@ -393,7 +393,7 @@ BlankPrompt: [
     "user did you need more time to pick the definition for the word emit? I really need your help! Can you give it another shot!"
 ],
 
-Correct: [
+"Correct": [
     "the word orbit refers to something that goes around an object. In this case our Earth orbits the sun meaning it goes around in a circular journey around the sun.",
     "The word convenient means easy to use or suits your plans. Since it is easy to compare other orbits to Earth distance is referred to as one astronomical unit.",
     "The word normally means usually or regularly. We usually or regularly mean 24 hours when we say the word day.",
@@ -426,7 +426,7 @@ Correct: [
     "to emit means to release or make. So radiation is released as dust and gas are drawn into the dense black holes."
 ],
 
-IncorrectPrompt: [
+"IncorrectPrompt": [
     "Let's look at a clue to define the word orbit. You know the Earth goes around the sun at 93 million miles on average. This path that earth takes is called an orbit. So, now, can you tell me what the word orbit means? Choose from the options below.",
     "the context clue says compare other orbits to Earth's orbit. Would it be easier or harder to compare other orbits to Earth's orbit? Would it be easier or harder to compare orbits from Mars to other orbits? No, because we are not on Mars. Use this clue as a hint to defining the word convenient. Try again to pick the correct choice from below.",
     "When we refer to a day we normally mean 24 hours. What is the definition of the word normally based on the sentence?",
@@ -459,7 +459,7 @@ IncorrectPrompt: [
     "Let's again use context clues to help us. We know that as dust and gas are drawn into black holes, radiation is emitted. Use this information to define the word emitted. Please choose an answer below."
 ],
 
-StudentAgree: [
+"StudentAgree": [
     "Yes I do.",
     "I agree!",
     "user, I think you picked the right definition for the word.",
@@ -492,7 +492,7 @@ StudentAgree: [
     "I agree!"
 ],
 
-StudentAnswerAgree: [
+"StudentAnswerAgree": [
     "user, great job! So orbits means to go around something. like how the moon goes around the earth, it orbits the earth.",
     "I knew you had it. So is that why some stores are called convenient stores, you can find things easily and they have almost anything you could think of.",
     "that was great! So saying I normally say hello to others means I usually say hello to people.",
@@ -525,7 +525,7 @@ StudentAnswerAgree: [
     "Great! So emit means to release like a blow dryer emits heat and a light bulb emits light."
 ],
 
-StudentAnswerUnderstand: [
+"StudentAnswerUnderstand": [
     "Ok, that answer makes sense. I get it now. So when the moon orbits the earth it goes around it. Got it!",
     "Oh I thought you picked the wrong definition. So being easy to use is what convenient means. So is that why some stores are called convenient stores, you can find things easily and they have almost anything you could think of.",
     "Gotcha, so you did pick the right definition for the word normally. So saying I normally say hello to others means I usually say hello to people.",
@@ -558,7 +558,7 @@ StudentAnswerUnderstand: [
     "I guess you were right correct. Emit means to release like a blow dryer emits heat and a light bulb emits light."
 ],
 
-StudentDisagree: [
+"StudentDisagree": [
     "It doesn't sound right to me.",
     "no I think it's wrong but I don't know why.",
     "I honestly don't know but it doesn't sound right.",
@@ -591,7 +591,7 @@ StudentDisagree: [
     "I feel like it's not the right answer."
 ],
 
-StudentUnderstand: [
+"StudentUnderstand": [
     "I see now! So orbits means to go around something, like how the moon goes around the earth, it orbits the earth.",
     "ok. I understand. So convenient means something is easy to use. So is that why some stores are called convenient stores, you can find things easily and they have almost anything you could think of.",
     "I understand now, so normally can mean usually, So saying I normally say hello to others means I usually say hello to people.",
@@ -624,7 +624,7 @@ StudentUnderstand: [
     "I see so to emit something means to release it. So a blow dryer emits heat and a light bulb emits light."
 ],
 
-NegativeFeedback: [
+"NegativeFeedback": [
     "Sorry.  It Looks like you picked the wrong answer.",
     "Sorry that answer is incorrect.",
     "Sorry that answer is not quite right."
