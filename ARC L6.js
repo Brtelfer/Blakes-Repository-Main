@@ -51,10 +51,6 @@ async function setTexts(slidenumber) {
 
     const textVariables = Object.entries(texts).map(([varName, textArray]) => ({ varName, textArray }));
 
-    if (slidenumber > 10) {
-        textVariables = textVariables.filter(item => !item.varName.startsWith('Quiz'));
-    }
-
     textVariables.forEach(({ varName, textArray }) => setText(varName, textArray, index));
 
     setText("PositiveFeedback", [randomPositiveFeedback]);
