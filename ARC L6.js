@@ -6,7 +6,7 @@ async function setTexts(slidenumber) {
         return;
     }
 
-    const url = 'https://raw.githubusercontent.com/Brtelfer/Brtelfer.github.io/main/data.json';
+    const url = 'https://raw.githubusercontent.com/Brtelfer/Brtelfer.github.io/main/data.js';
     let texts;
 
     try {
@@ -46,8 +46,8 @@ async function setTexts(slidenumber) {
 
     const index = slidenumber - 1;
 
-    const randomPositiveFeedback = texts.PositiveFeedbacktoUser[Math.floor(Math.random() * texts.PositiveFeedbacktoUser.length)];
-    const randomNegativeFeedback = texts.NegativeFeedbacktoUser[Math.floor(Math.random() * texts.NegativeFeedbacktoUser.length)];
+    const randomPositiveFeedback = texts.PositiveFeedback[Math.floor(Math.random() * texts.PositiveFeedback.length)];
+    const randomNegativeFeedback = texts.NegativeFeedback[Math.floor(Math.random() * texts.NegativeFeedback.length)];
 
     const textVariables = Object.entries(texts).map(([varName, textArray]) => ({ varName, textArray }));
 
@@ -57,12 +57,11 @@ async function setTexts(slidenumber) {
 
     textVariables.forEach(({ varName, textArray }) => setText(varName, textArray, index));
 
-    setText("PositiveFeedbacktoUser", [randomPositiveFeedback]);
-    setText("NegativeFeedbacktoUser", [randomNegativeFeedback]);
+    setText("PositiveFeedback", [randomPositiveFeedback]);
+    setText("NegativeFeedback", [randomNegativeFeedback]);
 
     const durationVariables = [
-        "Correct", "IncorrectPrompt", "StudentUnderstand", "QuestionPrompt",
-        "Choice1", "Choice2", "Choice3", "PositiveFeedbacktoUser", "NegativeFeedbacktoUser"
+        "AskStudent", "Assertion", "BlankPrompt", "Correct", "IncorrectPrompt", "StudentAgree", "StudentAnswerAgree", "StudentAnswerUnderstand", "StudentDisagree", "StudentUnderstand", "NegativeFeedback"
     ];
 
     const durations = {};
