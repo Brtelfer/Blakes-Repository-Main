@@ -23,7 +23,9 @@ async function setTexts(slidenumber) {
     const player = GetPlayer();
 
     const variables = Object.keys(texts);
-    variables.forEach(varName => player.GetVar(varName));
+    variables.forEach(varName => {
+        console.log(`Getting variable ${varName}:`, player.GetVar(varName));
+    });
 
     function calculateDuration(text) {
         const words = text.split(" ").length;
