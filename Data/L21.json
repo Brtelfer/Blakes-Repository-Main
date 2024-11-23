@@ -457,5 +457,19 @@
         "User did you need more time to answer the question?  Try your best!  What is the effect being presented in the highlighted sentence?",
         "User did you need more time to answer the question?  Try your best!  Which of the following, causes positive changes to your body?",
         "User did you need more time to answer the question?  Try your best!  How does exercising cause you to feel happier?"
+    ],
+    "PositiveFeedback": [
+        "Awesome job.  You got it right.",
+        "Super work.  You got it right.",
+        "Great job!  You got it right.  Thanks for helping me.",
+        "You answered correctly!  Awesome job!",
+        "Amazing work.  You're good at this!  You picked the right answer.",
+        "Great job!  you got that one right."
+    ],
+        "NegativeFeedback": [
+        "Um.  I don't think that's the right answer.  Can you try again?",
+        "Um.  Can you try a different answer?  I don't think that was the right one.",
+        "Try again.  I don't think that was the right answer.",
+        "I don't think that was right!  Try a different answer."
     ]
 }
