@@ -1,24 +1,20 @@
 {
-    "NegativeFeedbacktoBoth":
-    [
+    "NegativeFeedbacktoBoth": [
         "Sorry you two, that isn't what I was looking for.",
         "Oops you two, neither of you chose the best answer."
     ],
-    "NegativeFeedbackFinal":
-    [
+    "NegativeFeedbackFinal": [
         "Well, actually, that is not what I was looking for.",
         "You are not correct.",
         "Oh sorry, that isn't what I was looking for",
         "Not exactly, good try",
         "Well, that wasn't what I was thinking."
     ],
-    "PositiveFeedbacktoBoth":
-    [
+    "PositiveFeedbacktoBoth": [
         "That's right you guys! Awesome job!",
         "Great job you both got it right!"
     ],
-    "PositiveFeedbackToUserNegativeFeedbackToStudent":
-    [
+    "PositiveFeedbackToUserNegativeFeedbackToStudent": [
         "User, great job! Sorry Student, not quite right.",
         "User that's it! Student, that was not the correct answer."
     ],
@@ -42,7 +38,6 @@
         "The best answer is that it does not concern pedestrians.  This statement does support the topic of safe driving but it does not add details to the safety of pedestrians.  Details explain, illustrate, elaborate upon the main idea.",
         "Stop until they clear the crosswalk is the correct answer because that is what it says in the text."
     ],
-    
     "QuestionPrompt": [
         "What is the topic of this text?",
         "Click on the sentence that you think is the main idea of this text.",
@@ -239,7 +234,7 @@
         "combat",
         "shredded"
     ],
-    "Quiz2Option2.1": [
+    "Quiz2Option2": [
         "preventable",
         "employer",
         "intersection",
@@ -382,25 +377,26 @@
         "I think that was right."
     ],
     "AskUser": [
-        "User what is the author trying to teach us about germs?",
-        "User click on a sentence that provides supporting information.",
-        "User why is the sentence in green a supporting statement?",
-        "User why do you think this statement is not supporting?",
-        "User what do you think the author might suggest?",
-        "User what is the topic of this text?",
-        "User which sentence do you think best reflects the main idea?",
-        "User what evidence can you find to support the main idea?  Click on one the numbered sentences highlighted below.",
-        "User how does this statement in green prove that a good attitude and good manners are important?",
-        "User why doesn't this statement provide support?",
-        "Which do you think is the best answer for what the author might add to this text?",
-        "User which of the answers is the topic of this text?",
-        "User do you know what the main idea is?",
-        "Which highlighted sentence would you choose to support the main idea?",
-        "User why is this highlighted sentence a supporting detail that provides evidence?",
-        "User why do you think this sentence isn't supporting?",
-        "User what action do you think the author might suggest?"
+        "User, what do you think the topic of this text is?",
+        "User, which sentence do you think best describes the topic?",
+        "User, which is the supporting statement?",
+        "User, why is this sentence supporting?",
+        "User, why is the sentence in red not a supporting statement?",
+        "User, what would the author suggest?",
+        "User, what do you think the topic of this text is?",
+        "User, which sentence do you think best describes the topic?",
+        "User, which is the supporting statement?",
+        "User, why is this sentence supporting?",
+        "User, why is the sentence in red not a supporting statement?",
+        "User, what would the author suggest?",
+        "User, what do you think the topic of this text is?",
+        "User, which sentence do you think best describes the topic?",
+        "User, which is the supporting statement?",
+        "User, why is this sentence supporting?",
+        "User, why is the sentence in red not a supporting statement?",
+        "User, what would the author suggest?"
     ],
-        "PositiveFeedback": [
+    "PositiveFeedback": [
         "Awesome job. You got it right.",
         "Super work. You got it right.",
         "Great job! You got it right. Thanks for helping me.",
@@ -408,7 +404,7 @@
         "Amazing work. You're good at this! You picked the right answer.",
         "Great job! You got that one right."
     ],
-        "NegativeFeedback": [
+    "NegativeFeedback": [
         "Um. I don't think that's the right answer. Can you try again?",
         "Um. Can you try a different answer? I don't think that was the right one.",
         "Try again. I don't think that was the right answer.",
