@@ -53,7 +53,7 @@ async function setTexts(slidenumber) {
     const randomNegativeFeedbacktoBoth = texts.NegativeFeedbacktoBoth[Math.floor(Math.random() * texts.NegativeFeedbacktoBoth.length)];
     const randomNegativeFeedbackFinal = texts.NegativeFeedbackFinal[Math.floor(Math.random() * texts.NegativeFeedbackFinal.length)];
     const randomPositiveFeedbacktoBoth = texts.PositiveFeedbacktoBoth[Math.floor(Math.random() * texts.PositiveFeedbacktoBoth.length)];
-    const randomPositiveFeedbackToUserNegativeFeeedbackToStudent = texts.PositiveFeedbackToUserNegativeFeeedbackToStudent[Math.floor(Math.random() * texts.PositiveFeedbackToUserNegativeFeeedbackToStudent.length)];
+    const randomPositiveFeedbackToUserNegativeFeedbackToStudent = texts.PositiveFeedbackToUserNegativeFeedbackToStudent[Math.floor(Math.random() * texts.PositiveFeedbackToUserNegativeFeedbackToStudent.length)];
 
     const textVariables = Object.entries(texts).map(([varName, textArray]) => ({ varName, textArray }));
 
@@ -64,12 +64,12 @@ async function setTexts(slidenumber) {
     setText("NegativeFeedbacktoBoth", [randomNegativeFeedbacktoBoth]);
     setText("NegativeFeedbackFinal", [randomNegativeFeedbackFinal]);
     setText("PositiveFeedbacktoBoth", [randomPositiveFeedbacktoBoth]);
-    setText("PositiveFeedbackToUserNegativeFeeedbackToStudent", [randomPositiveFeedbackToUserNegativeFeeedbackToStudent]);
+    setText("PositiveFeedbackToUserNegativeFeedbackToStudent", [randomPositiveFeedbackToUserNegativeFeedbackToStudent]);
 
     const durationVariables = [
         "Correct", "IncorrectPrompt", "BlankPrompt", "AskStudent", "StudentCorrect", "StudentIncorrect",
         "AgreeswithUser", "AskUser", "PositiveFeedback", "NegativeFeedback", "NegativeFeedbacktoBoth",
-        "NegativeFeedbackFinal", "PositiveFeedbacktoBoth", "PositiveFeedbackToUserNegativeFeeedbackToStudent"
+        "NegativeFeedbackFinal", "PositiveFeedbacktoBoth", "PositiveFeedbackToUserNegativeFeedbackToStudent"
     ];
 
     const durations = {};
