@@ -15,6 +15,7 @@ async function setTexts(slidenumber) {
             throw new Error('Network response was not ok ' + response.statusText);
         }
         texts = await response.json();
+        console.log("Fetched JSON data:", texts);
     } catch (error) {
         console.error('Failed to fetch data:', error);
         return;
@@ -75,6 +76,7 @@ async function setTexts(slidenumber) {
     const durations = {};
     durationVariables.forEach(varName => {
         const text = player.GetVar(varName);
+        console.log(`Calculating duration for ${varName} with text: ${text}`);
         durations[`${varName}Duration`] = calculateDuration(text);
     });
 
