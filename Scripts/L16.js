@@ -50,6 +50,10 @@ async function setTexts(slidenumber) {
 
     const randomPositiveFeedback = texts.PositiveFeedback[Math.floor(Math.random() * texts.PositiveFeedback.length)];
     const randomNegativeFeedback = texts.NegativeFeedback[Math.floor(Math.random() * texts.NegativeFeedback.length)];
+    const randomNegativeFeedbacktoBoth = texts.NegativeFeedbacktoBoth[Math.floor(Math.random() * texts.NegativeFeedbacktoBoth.length)];
+    const randomNegativeFeedbackFinal = texts.NegativeFeedbackFinal[Math.floor(Math.random() * texts.NegativeFeedbackFinal.length)];
+    const randomPositiveFeedbacktoBoth = texts.PositiveFeedbacktoBoth[Math.floor(Math.random() * texts.PositiveFeedbacktoBoth.length)];
+    const randomPositiveFeedbackToUserNegativeFeeedbackToStudent = texts.PositiveFeedbackToUserNegativeFeeedbackToStudent[Math.floor(Math.random() * texts.PositiveFeedbackToUserNegativeFeeedbackToStudent.length)];
 
     const textVariables = Object.entries(texts).map(([varName, textArray]) => ({ varName, textArray }));
 
@@ -57,9 +61,15 @@ async function setTexts(slidenumber) {
 
     setText("PositiveFeedback", [randomPositiveFeedback]);
     setText("NegativeFeedback", [randomNegativeFeedback]);
+    setText("NegativeFeedbacktoBoth", [randomNegativeFeedbacktoBoth]);
+    setText("NegativeFeedbackFinal", [randomNegativeFeedbackFinal]);
+    setText("PositiveFeedbacktoBoth", [randomPositiveFeedbacktoBoth]);
+    setText("PositiveFeedbackToUserNegativeFeeedbackToStudent", [randomPositiveFeedbackToUserNegativeFeeedbackToStudent]);
 
     const durationVariables = [
-        "Correct",	"IncorrectPrompt",	"BlankPrompt",	"AskStudent",	"StudentCorrect",	"StudentIncorrect",	"AgreeswithUser",	"AskUser", "PositiveFeedback", "NegativeFeedback"
+        "Correct", "IncorrectPrompt", "BlankPrompt", "AskStudent", "StudentCorrect", "StudentIncorrect",
+        "AgreeswithUser", "AskUser", "PositiveFeedback", "NegativeFeedback", "NegativeFeedbacktoBoth",
+        "NegativeFeedbackFinal", "PositiveFeedbacktoBoth", "PositiveFeedbackToUserNegativeFeeedbackToStudent"
     ];
 
     const durations = {};
