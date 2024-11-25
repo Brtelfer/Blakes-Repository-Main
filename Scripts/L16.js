@@ -29,6 +29,10 @@ async function setTexts(slidenumber) {
     });
 
     function calculateDuration(text) {
+        if (!text) {
+            console.error("Text is null or undefined for duration calculation.");
+            return 0;
+        }
         const words = text.split(" ").length;
         let duration = words * 0.3;
         duration = Math.ceil(duration);
