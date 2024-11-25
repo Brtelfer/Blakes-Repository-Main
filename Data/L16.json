@@ -1,4 +1,27 @@
 {
+    "NegativeFeedbacktoBoth":
+    [
+        "Sorry you two, that isn't what I was looking for.",
+        "Oops you two, neither of you chose the best answer."
+    ],
+    "NegativeFeedbackFinal":
+    [
+        "Well, actually, that is not what I was looking for.",
+        "You are not correct.",
+        "Oh sorry, that isn't what I was looking for",
+        "Not exactly, good try",
+        "Well, that wasn't what I was thinking."
+    ],
+    "PositiveFeedbacktoBoth":
+    [
+        "That's right you guys! Awesome job!",
+        "Great job you both got it right!"
+    ],
+    "PositiveFeedbackToUserNegativeFeeedbackToStudent":
+    [
+        "User, great job! Sorry Student, not quite right.",
+        "User that's it! Student, that was not the correct answer."
+    ],
     "Correct": [
         "The topic of this text is germs.  That is what the author is writing about in general.",
         "The sentence 'Colds are caused by cold germs' is the main idea of this text.  The author is trying to teach us about germs and more specifically.  The author wants to teach us about cold germs.",
@@ -19,6 +42,7 @@
         "The best answer is that it does not concern pedestrians.  This statement does support the topic of safe driving but it does not add details to the safety of pedestrians.  Details explain, illustrate, elaborate upon the main idea.",
         "Stop until they clear the crosswalk is the correct answer because that is what it says in the text."
     ],
+    
     "QuestionPrompt": [
         "What is the topic of this text?",
         "Click on the sentence that you think is the main idea of this text.",
@@ -61,20 +85,20 @@
     ],
     "Choice1": [
         "Sleep",
-        "\u00a01\u00a0Colds are caused by cold germs.",
-        "\u00a01\u00a0Colds are caused by cold germs.",
+        "Colds are caused by cold germs.",
+        "Colds are caused by cold germs.",
         "The text is about cold germs",
         "The main idea is colds",
         "Exercise and eat healthy food",
         "Managers",
-        "1\u00a0Having a good attitude and good manners are important both at an interview and on the job.",
-        "1\u00a0Having a good attitude and good manners are important both at an interview and on the job.",
+        "Having a good attitude and good manners are important both at an interview and on the job.",
+        "Having a good attitude and good manners are important both at an interview and on the job.",
         "Punctuality is an example of good manners",
         "The company's mission statement is irrelevant",
         "Discuss previous bad work experiences",
         "Safe Driving",
-        "1\u00a0More crashes happen at an intersection than any other place.",
-        "1\u00a0More crashes happen at an intersection than any other place.",
+        "More crashes happen at an intersection than any other place.",
+        "More crashes happen at an intersection than any other place.",
         "Because it clarifies the law",
         "Because intersections are very safe",
         "Stop until they clear the crosswalk"
@@ -87,7 +111,7 @@
         "Many colds can be prevented",
         "Cover your mouth when you cough",
         "Punctuality",
-        "2 Managers agree that a person's attitude can be more important than their work experience. 3 If you're polite and kind, it says that you get along with people and you have a respect for seniority, company managers and supervisors. 4 Employers will expect that you will be punctual. 5 Being on time for the interview means that you are punctual. 6 It shows that you are reliable and value the employer's time. 7 Being late for an interview could hurt your chances of being hired. 8 A traffic jam is not an excuse. 9 It is also a good idea to learn as much as you can about the company where you are applying before the interview. 10 Do your research and get a sense of the company's personality and values by reading its mission statement. 11 You will impress future employers by showing them that you are motivated and care about the company. 12 If you show that you are excited about being at the interview and are eager to be hired for the job, the employer will probably consider you for the job. 13 Remember to smile and make eye contact with the person interviewing you. 14 Managers are looking for someone who is alert and enthusiastic.",
+        "2 Managers agree that a person's attitude can be more important than their work experience.",
         "2 Managers agree that a person's attitude can be more important than their work experience.",
         "No one cares about being punctual",
         "It is not an example of good manners",
@@ -377,17 +401,17 @@
         "User what action do you think the author might suggest?"
     ],
         "PositiveFeedback": [
-        "Awesome job.  You got it right.",
-        "Super work.  You got it right.",
-        "Great job!  You got it right.  Thanks for helping me.",
-        "You answered correctly!  Awesome job!",
-        "Amazing work.  You're good at this!  You picked the right answer.",
-        "Great job!  you got that one right."
+        "Awesome job. You got it right.",
+        "Super work. You got it right.",
+        "Great job! You got it right. Thanks for helping me.",
+        "You answered correctly! Awesome job!",
+        "Amazing work. You're good at this! You picked the right answer.",
+        "Great job! You got that one right."
     ],
         "NegativeFeedback": [
-        "Um.  I don't think that's the right answer.  Can you try again?",
-        "Um.  Can you try a different answer?  I don't think that was the right one.",
-        "Try again.  I don't think that was the right answer.",
-        "I don't think that was right!  Try a different answer."
+        "Um. I don't think that's the right answer. Can you try again?",
+        "Um. Can you try a different answer? I don't think that was the right one.",
+        "Try again. I don't think that was the right answer.",
+        "I don't think that was right! Try a different answer."
     ]
 }
