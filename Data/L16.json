@@ -17,7 +17,7 @@
         "That's right you guys! Awesome job!",
         "Great job you both got it right!"
     ],
-    "PositiveFeedbackToUserNegativeFeeedbackToStudent":
+    "PositiveFeedbackToUserNegativeFeedbackToStudent":
     [
         "User, great job! Sorry Student, not quite right.",
         "User that's it! Student, that was not the correct answer."
