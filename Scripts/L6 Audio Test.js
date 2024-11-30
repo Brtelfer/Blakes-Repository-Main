@@ -95,12 +95,12 @@ function speakChunks(chunks, voice) {
 }
 
 // Function to get the text variable from Storyline and convert it to speech
-function convertMessageToSpeech() {
+function convertMessageToSpeech(variableName) {
     console.log('convertMessageToSpeech function called.');
     var player = GetPlayer();
     if (player) {
-        var messageText = player.GetVar("MessageText");
-        console.log('MessageText variable:', messageText);
+        var messageText = player.GetVar(variableName);
+        console.log(`${variableName} variable:`, messageText);
         textToSpeech(messageText);
     } else {
         console.error('GetPlayer() returned null or undefined.');
