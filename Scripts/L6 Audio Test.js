@@ -1,3 +1,12 @@
+// Global variable to store the message text
+var messageText = '';
+
+// Function to set the message text and initiate text-to-speech
+function setMessageTextAndConvert(text) {
+    messageText = text;
+    convertMessageToSpeech();
+}
+
 // Function to convert text to speech using the Web Speech API
 function textToSpeech(text) {
     if ('speechSynthesis' in window) {
@@ -95,15 +104,13 @@ function speakChunks(chunks, voice) {
 }
 
 // Function to get the text variable from Storyline and convert it to speech
-function convertMessageToSpeech(variableName) {
+function convertMessageToSpeech() {
     console.log('convertMessageToSpeech function called.');
-    var player = GetPlayer();
-    if (player) {
-        var messageText = player.GetVar(variableName);
-        console.log(`${variableName} variable:`, messageText);
+    if (messageText) {
+        console.log('MessageText variable:', messageText);
         textToSpeech(messageText);
     } else {
-        console.error('GetPlayer() returned null or undefined.');
+        console.error('messageText is not set.');
     }
 }
 
