@@ -1,4 +1,4 @@
-async function setTexts(slidenumber) {
+async function setTexts(slidenumber, url) {
     console.log("setTexts function called with slideNumber: " + slidenumber);
 
     if (slidenumber === undefined || slidenumber === null) {
@@ -6,7 +6,6 @@ async function setTexts(slidenumber) {
         return;
     }
 
-    const url = 'https://raw.githubusercontent.com/Brtelfer/Brtelfer.github.io/refs/heads/main/Data/L6.json';
     let texts;
 
     try {
