@@ -1,22 +1,4 @@
 {
-    "NegativeFeedbacktoBoth": [
-        "Sorry you two, that isn't what I was looking for.",
-        "Oops you two, neither of you chose the best answer."
-    ],
-    "NegativeFeedbackFinal": [
-        "Well, actually, that is not what I was looking for.",
-        "You are not correct.",
-        "Oh sorry, that isn't what I was looking for",
-        "Not exactly, good try",
-        "Well, that wasn't what I was thinking."
-    ],
-    "PositiveFeedbacktoBoth": [
-        "That's right you guys! Awesome job!",
-        "Great job you both got it right!"
-    ],
-    "PositiveFeedbackToUserNegativeFeedbackToStudent": [
-        "User, great job! Sorry Student, not quite right.",
-        "User that's it! Student, that was not the correct answer."
     ],
     "Correct": [
         "The topic of this text is germs.  That is what the author is writing about in general.",
@@ -408,6 +390,11 @@
         "Um. I don't think that's the right answer. Can you try again?",
         "Um. Can you try a different answer? I don't think that was the right one.",
         "Try again. I don't think that was the right answer.",
-        "I don't think that was right! Try a different answer."
+        "I don't think that was right! Try a different answer.",
+        "Well, actually, that is not what I was looking for.",
+        "You are not correct.",
+        "Oh sorry, that isn't what I was looking for",
+        "Not exactly, good try",
+        "Well, that wasn't what I was thinking."
     ]
 }
