@@ -27,14 +27,6 @@ async function setTexts(slidenumber) {
         console.log(`Getting variable ${varName}:`, player.GetVar(varName));
     });
 
-    function calculateDuration(text) {
-        const words = text.split(" ").length;
-        let duration = words * 0.3;
-        duration = Math.ceil(duration);
-        if (duration > 9) duration = 9;
-        return 9 - duration;
-    }
-
     function setText(varName, textArray, index) {
         const text = textArray[index];
         if (text === undefined || text === null) {
@@ -57,19 +49,4 @@ async function setTexts(slidenumber) {
 
     setText("PositiveFeedback", [randomPositiveFeedback]);
     setText("NegativeFeedback", [randomNegativeFeedback]);
-
-    const durationVariables = [
-        "AskStudent", "Assertion", "BlankPrompt", "Correct", "IncorrectPrompt", "StudentAgree", "StudentAnswerAgree", "StudentAnswerUnderstand", "StudentDisagree", "StudentUnderstand", "NegativeFeedback"
-    ];
-
-    const durations = {};
-    durationVariables.forEach(varName => {
-        const text = player.GetVar(varName);
-        durations[`${varName}Duration`] = calculateDuration(text);
-    });
-
-    Object.entries(durations).forEach(([key, value]) => {
-        console.log(`${key}: ${value} seconds`);
-        player.SetVar(key, value);
-    });
 }
