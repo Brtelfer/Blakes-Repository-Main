@@ -49,21 +49,25 @@ async function setTexts(slidenumber, url) {
     setText("PositiveFeedback", [randomPositiveFeedback]);
     setText("NegativeFeedback", [randomNegativeFeedback]);
 
-    // Determine the value of IncorrectPosition based on the value of Key
-    const key = texts.Key[index];
-    let incorrectPosition;
-    if (key === 1) {
-        incorrectPosition = "2|3";
-    } else if (key === 2) {
-        incorrectPosition = "1|3";
-    } else if (key === 3) {
-        incorrectPosition = "1|2";
-    } else {
-        console.error(`Invalid key value: ${key}`);
-        return;
-    }
+    // Check if Key is present in the JSON data
+    if (texts.Key && texts.Key[index] !== undefined) {
+        const key = texts.Key[index];
+        let incorrectPosition;
+        if (key === 1) {
+            incorrectPosition = "2|3";
+        } else if (key === 2) {
+            incorrectPosition = "1|3";
+        } else if (key === 3) {
+            incorrectPosition = "1|2";
+        } else {
+            console.error(`Invalid key value: ${key}`);
+            return;
+        }
 
-    // Set the IncorrectPosition variable in Storyline
-    player.SetVar("IncorrectPosition", incorrectPosition);
-    console.log(`Setting IncorrectPosition to: ${incorrectPosition}`);
+        // Set the IncorrectPosition variable in Storyline
+        player.SetVar("IncorrectPosition", incorrectPosition);
+        console.log(`Setting IncorrectPosition to: ${incorrectPosition}`);
+    } else {
+        console.log("Key is not present in the JSON data or is undefined for the current slide.");
+    }
 }
