@@ -4,7 +4,7 @@ var messageText = '';
 // Function to set the message text and initiate text-to-speech
 function setMessageTextAndConvert(text) {
     messageText = text;
-    convertMessageToSpeech();
+    setTimeout(convertMessageToSpeech, 1000); // Delay execution by 1 second
 }
 
 // Function to convert text to speech using the Web Speech API
