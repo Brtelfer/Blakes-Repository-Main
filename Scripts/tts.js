@@ -1,5 +1,7 @@
-// Function to convert text to speech using the Web Speech API
-function textToSpeech(text) {
+// Namespace for TTS functions
+var TTS = TTS || {};
+
+TTS.textToSpeech = function(text) {
     if ('speechSynthesis' in window) {
         console.log('SpeechSynthesis is supported.');
 
@@ -16,16 +18,15 @@ function textToSpeech(text) {
 
         // Split the text into smaller chunks
         var chunkSize = 150; // Adjust the chunk size as needed
-        var chunks = splitTextIntoChunks(text, chunkSize);
+        var chunks = TTS.splitTextIntoChunks(text, chunkSize);
 
-        speakChunks(chunks, selectedVoice);
+        TTS.speakChunks(chunks, selectedVoice);
     } else {
         console.log('Text-to-speech not supported in this browser.');
     }
-}
+};
 
-// Function to split text into smaller chunks
-function splitTextIntoChunks(text, chunkSize) {
+TTS.splitTextIntoChunks = function(text, chunkSize) {
     var words = text.split(' ');
     var chunks = [];
     var currentChunk = '';
@@ -43,10 +44,9 @@ function splitTextIntoChunks(text, chunkSize) {
     }
 
     return chunks;
-}
+};
 
-// Function to speak chunks sequentially
-function speakChunks(chunks, voice) {
+TTS.speakChunks = function(chunks, voice) {
     if (chunks.length > 0) {
         var utterance = new SpeechSynthesisUtterance(chunks[0]);
         utterance.voice = voice;
@@ -62,7 +62,7 @@ function speakChunks(chunks, voice) {
         utterance.onend = function() {
             console.log('Speech ended.');
             chunks.shift(); // Remove the first chunk
-            speakChunks(chunks, voice); // Speak the next chunk
+            TTS.speakChunks(chunks, voice); // Speak the next chunk
         };
 
         utterance.onerror = function(event) {
@@ -90,25 +90,11 @@ function speakChunks(chunks, voice) {
         console.log('Speech synthesis initiated.');
     } else {
         console.log('All chunks spoken.');
-        triggerStorylineAction();
+        TTS.triggerStorylineAction();
     }
-}
+};
 
-// Function to get the text variable from Storyline and convert it to speech
-function convertMessageToSpeech(variableName) {
-    console.log('convertMessageToSpeech function called.');
-    var player = GetPlayer();
-    if (player) {
-        var messageText = player.GetVar(variableName);
-        console.log(`${variableName} variable:`, messageText);
-        textToSpeech(messageText);
-    } else {
-        console.error('GetPlayer() returned null or undefined.');
-    }
-}
-
-// Function to trigger an action in Storyline
-function triggerStorylineAction() {
+TTS.triggerStorylineAction = function() {
     console.log('triggerStorylineAction function called.');
     var player = GetPlayer();
     if (player) {
@@ -121,4 +107,22 @@ function triggerStorylineAction() {
     } else {
         console.error('GetPlayer() returned null or undefined.');
     }
-}
+};
+
+// Function to get the text variable from Storyline and convert it to speech
+TTS.convertMessageToSpeech = function(variableName) {
+    console.log('convertMessageToSpeech function called.');
+    var player = GetPlayer();
+    if (player) {
+        var messageText = player.GetVar(variableName);
+        console.log(`${variableName} variable:`, messageText);
+        TTS.textToSpeech(messageText);
+    } else {
+        console.error('GetPlayer() returned null or undefined.');
+    }
+};
+
+// Expose a function to set the message text and convert it to speech
+window.setMessageTextAndConvert = function(messageText) {
+    TTS.textToSpeech(messageText);
+};
