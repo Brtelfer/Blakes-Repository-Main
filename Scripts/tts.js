@@ -1,7 +1,5 @@
 // Global variable to store the message text
 var messageText = '';
-var audioContext = new (window.AudioContext || window.webkitAudioContext)();
-var audioBuffer;
 
 // Function to set the message text and initiate text-to-speech
 function setMessageTextAndConvert(text) {
@@ -130,60 +128,4 @@ function triggerStorylineAction() {
     } else {
         console.error('GetPlayer() returned null or undefined.');
     }
-}
-
-// Function to load the script with required headers
-function loadScriptWithHeaders(url, messageText) {
-    fetch('https://cors-anywhere.herokuapp.com/' + url, {
-        headers: {
-            'Origin': window.location.origin,
-            'X-Requested-With': 'XMLHttpRequest'
-        }
-    })
-    .then(response => response.text())
-    .then(data => {
-        var script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.text = data;
-        document.head.appendChild(script);
-
-        // Call the setMessageTextAndConvert function after the script is loaded
-        window.setMessageTextAndConvert(messageText);
-    })
-    .catch(error => {
-        console.error('Error loading script:', error);
-    });
-}
-
-// Function to play correct/incorrect audio using Web Audio API
-function playAudio(audioUrl) {
-    fetch(audioUrl)
-        .then(response => response.arrayBuffer())
-        .then(data => audioContext.decodeAudioData(data))
-        .then(decodedData => {
-            audioBuffer = decodedData;
-            var source = audioContext.createBufferSource();
-            source.buffer = audioBuffer;
-            source.connect(audioContext.destination);
-            source.start(0);
-        })
-        .catch(error => {
-            console.error('Error playing audio:', error);
-        });
-}
-
-// Get the message text from Storyline
-var player = GetPlayer();
-if (player) {
-    var messageText = player.GetVar("PositiveFeedback");
-    console.log('MessageText variable:', messageText);
-
-    // Load the script from the GitHub URL and pass the messageText
-    loadScriptWithHeaders('https://raw.githubusercontent.com/Brtelfer/Brtelfer.github.io/refs/heads/main/Scripts/tts.js', messageText);
-
-    // Example: Play correct/incorrect audio
-    // playAudio('path/to/correct-audio.mp3');
-    // playAudio('path/to/incorrect-audio.mp3');
-} else {
-    console.error('GetPlayer() returned null or undefined.');
 }
