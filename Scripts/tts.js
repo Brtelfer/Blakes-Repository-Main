@@ -1,16 +1,27 @@
 // Namespace for TTS functions
 var TTS = TTS || {};
 
-TTS.textToSpeech = function(text) {
+TTS.textToSpeech = function(text, voiceGender) {
     if ('speechSynthesis' in window) {
         console.log('SpeechSynthesis is supported.');
 
         var voices = speechSynthesis.getVoices();
         if (voices.length > 0) {
             console.log('Available voices:', voices);
-            var selectedVoice = voices.find(function(voice) {
-                return voice.lang === 'en-US' && voice.name === 'Google US English';
-            }) || voices[0];
+            var selectedVoice;
+
+            if (voiceGender === 'male') {
+                selectedVoice = voices.find(function(voice) {
+                    return voice.lang === 'en-US' && voice.name === 'Google US English';
+                }) || voices[0];
+            } else if (voiceGender === 'female') {
+                selectedVoice = voices.find(function(voice) {
+                    return voice.lang === 'en-US' && voice.name === 'Google US English Female';
+                }) || voices[0];
+            } else {
+                selectedVoice = voices[0]; // Default to the first available voice
+            }
+
             console.log('Selected voice:', selectedVoice);
         } else {
             console.log('No voices available.');
@@ -110,19 +121,19 @@ TTS.triggerStorylineAction = function() {
 };
 
 // Function to get the text variable from Storyline and convert it to speech
-TTS.convertMessageToSpeech = function(variableName) {
+TTS.convertMessageToSpeech = function(variableName, voiceGender) {
     console.log('convertMessageToSpeech function called.');
     var player = GetPlayer();
     if (player) {
         var messageText = player.GetVar(variableName);
         console.log(`${variableName} variable:`, messageText);
-        TTS.textToSpeech(messageText);
+        TTS.textToSpeech(messageText, voiceGender);
     } else {
         console.error('GetPlayer() returned null or undefined.');
     }
 };
 
 // Expose a function to set the message text and convert it to speech
-window.setMessageTextAndConvert = function(messageText) {
-    TTS.textToSpeech(messageText);
+window.setMessageTextAndConvert = function(messageText, voiceGender) {
+    TTS.textToSpeech(messageText, voiceGender);
 };
