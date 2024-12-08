@@ -1,6 +1,9 @@
 // Namespace for TTS functions
 var TTS = TTS || {};
 
+TTS.queue = [];
+TTS.isSpeaking = false;
+
 TTS.textToSpeech = function(text, voiceGender) {
     console.log('textToSpeech function called.');
     console.log('Text to convert:', text);
@@ -37,7 +40,13 @@ TTS.textToSpeech = function(text, voiceGender) {
         var chunks = TTS.splitTextIntoChunks(text, chunkSize);
         console.log('Text split into chunks:', chunks);
 
-        TTS.speakChunks(chunks, selectedVoice);
+        // Add chunks to the queue
+        TTS.queue = TTS.queue.concat(chunks.map(chunk => ({ text: chunk, voice: selectedVoice })));
+
+        // Start speaking if not already speaking
+        if (!TTS.isSpeaking) {
+            TTS.processQueue();
+        }
     } else {
         console.log('Text-to-speech not supported in this browser.');
     }
@@ -68,14 +77,12 @@ TTS.splitTextIntoChunks = function(text, chunkSize) {
     return chunks;
 };
 
-TTS.speakChunks = function(chunks, voice) {
-    console.log('speakChunks function called.');
-    console.log('Chunks to speak:', chunks);
-    console.log('Selected voice:', voice);
-
-    if (chunks.length > 0) {
-        var utterance = new SpeechSynthesisUtterance(chunks[0]);
-        utterance.voice = voice;
+TTS.processQueue = function() {
+    if (TTS.queue.length > 0 && !TTS.isSpeaking) {
+        TTS.isSpeaking = true;
+        var item = TTS.queue.shift();
+        var utterance = new SpeechSynthesisUtterance(item.text);
+        utterance.voice = item.voice;
         utterance.pitch = 1;
         utterance.rate = 0.9;
         utterance.volume = 1;
@@ -87,12 +94,14 @@ TTS.speakChunks = function(chunks, voice) {
 
         utterance.onend = function() {
             console.log('Speech ended.');
-            chunks.shift(); // Remove the first chunk
-            TTS.speakChunks(chunks, voice); // Speak the next chunk
+            TTS.isSpeaking = false;
+            TTS.processQueue(); // Speak the next chunk
         };
 
         utterance.onerror = function(event) {
             console.error('Speech error:', event.error);
+            TTS.isSpeaking = false;
+            TTS.processQueue(); // Try the next chunk
         };
 
         utterance.onpause = function() {
@@ -114,7 +123,7 @@ TTS.speakChunks = function(chunks, voice) {
         // Speak the text
         speechSynthesis.speak(utterance);
         console.log('Speech synthesis initiated.');
-    } else {
+    } else if (TTS.queue.length === 0) {
         console.log('All chunks spoken.');
         TTS.triggerStorylineAction();
     }
