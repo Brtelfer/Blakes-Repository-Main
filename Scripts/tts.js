@@ -12,11 +12,11 @@ TTS.textToSpeech = function(text, voiceGender) {
 
             if (voiceGender === 'male') {
                 selectedVoice = voices.find(function(voice) {
-                    return voice.lang === 'en-US' && voice.name === 'Google US English';
+                    return voice.lang === 'en-US' && voice.name.includes('Male');
                 }) || voices[0];
             } else if (voiceGender === 'female') {
                 selectedVoice = voices.find(function(voice) {
-                    return voice.lang === 'en-US' && voice.name === 'Google US English Female';
+                    return voice.lang === 'en-US' && voice.name.includes('Female');
                 }) || voices[0];
             } else {
                 selectedVoice = voices[0]; // Default to the first available voice
