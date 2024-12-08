@@ -17,11 +17,11 @@ TTS.textToSpeech = function(text, voiceGender) {
 
             if (voiceGender === 'male') {
                 selectedVoice = voices.find(function(voice) {
-                    return voice.lang === 'en-US' && voice.name.includes('Male');
+                    return voice.lang === 'en-US' && (voice.name.includes('Male') || voice.name.includes('David'));
                 }) || voices[0];
             } else if (voiceGender === 'female') {
                 selectedVoice = voices.find(function(voice) {
-                    return voice.lang === 'en-US' && voice.name.includes('Female');
+                    return voice.lang === 'en-US' && (voice.name.includes('Female') || voice.name.includes('Zira') || voice.name.includes('Cortana'));
                 }) || voices[0];
             } else {
                 selectedVoice = voices[0]; // Default to the first available voice
