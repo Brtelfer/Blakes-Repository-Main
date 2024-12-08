@@ -2,12 +2,17 @@
 var TTS = TTS || {};
 
 TTS.textToSpeech = function(text, voiceGender) {
+    console.log('textToSpeech function called.');
+    console.log('Text to convert:', text);
+    console.log('VoiceGender:', voiceGender);
+
     if ('speechSynthesis' in window) {
         console.log('SpeechSynthesis is supported.');
 
         var voices = speechSynthesis.getVoices();
+        console.log('Available voices:', voices);
+
         if (voices.length > 0) {
-            console.log('Available voices:', voices);
             var selectedVoice;
 
             if (voiceGender === 'male') {
@@ -30,6 +35,7 @@ TTS.textToSpeech = function(text, voiceGender) {
         // Split the text into smaller chunks
         var chunkSize = 150; // Adjust the chunk size as needed
         var chunks = TTS.splitTextIntoChunks(text, chunkSize);
+        console.log('Text split into chunks:', chunks);
 
         TTS.speakChunks(chunks, selectedVoice);
     } else {
@@ -38,6 +44,10 @@ TTS.textToSpeech = function(text, voiceGender) {
 };
 
 TTS.splitTextIntoChunks = function(text, chunkSize) {
+    console.log('splitTextIntoChunks function called.');
+    console.log('Text to split:', text);
+    console.log('Chunk size:', chunkSize);
+
     var words = text.split(' ');
     var chunks = [];
     var currentChunk = '';
@@ -54,10 +64,15 @@ TTS.splitTextIntoChunks = function(text, chunkSize) {
         chunks.push(currentChunk.trim());
     }
 
+    console.log('Chunks created:', chunks);
     return chunks;
 };
 
 TTS.speakChunks = function(chunks, voice) {
+    console.log('speakChunks function called.');
+    console.log('Chunks to speak:', chunks);
+    console.log('Selected voice:', voice);
+
     if (chunks.length > 0) {
         var utterance = new SpeechSynthesisUtterance(chunks[0]);
         utterance.voice = voice;
@@ -135,5 +150,6 @@ TTS.convertMessageToSpeech = function(variableName, voiceGender) {
 
 // Expose a function to set the message text and convert it to speech
 window.setMessageTextAndConvert = function(messageText, voiceGender) {
+    console.log('setMessageTextAndConvert function called.');
     TTS.textToSpeech(messageText, voiceGender);
 };
