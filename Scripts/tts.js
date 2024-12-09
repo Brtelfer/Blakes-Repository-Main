@@ -125,7 +125,9 @@ TTS.processQueue = function() {
         console.log('Speech synthesis initiated.');
     } else if (TTS.queue.length === 0) {
         console.log('All chunks spoken.');
-        TTS.triggerStorylineAction();
+        setTimeout(function() {
+            TTS.triggerStorylineAction();
+        }, 2000); // Wait for 2 seconds (2000 milliseconds)
     }
 };
 
