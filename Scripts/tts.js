@@ -127,7 +127,7 @@ TTS.processQueue = function() {
         console.log('All chunks spoken.');
         setTimeout(function() {
             TTS.triggerStorylineAction();
-        }, 2000); // Wait for 2 seconds (2000 milliseconds)
+        }, 3000); // Wait for 3 seconds (3000 milliseconds)
     }
 };
 
